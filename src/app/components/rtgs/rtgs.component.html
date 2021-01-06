@@ -27,7 +27,7 @@
                 <option>-Select-</option>
                 <option *ngFor = "let account of toAccountNo" value="account">{{account}}</option>    
             </select>
-            <button><a href="#">Add Beneficiary</a></button>
+            <button><a href="#" routerLink="/addBeneficiary">Add Beneficiary</a></button>
             <div *ngIf = "form1.get('toAccount').touched" class = "alert alert-danger">
                 <div *ngIf="form1.get('toAccount').hasError('required')">Please Select Account No</div>
                 
@@ -73,6 +73,17 @@
     </div>
     
     <div class = input *ngIf = "flag==true">
+        
+        <div  id=selector>
+            Enter Transaction Password:
+        </div>
+        <div>
+            <input type="text" id="transactionPwd" class="form-control" formControlName = "transactionPwd">
+            <div *ngIf = "form1.get('transactionPwd').touched && form1.get('transactionPwd').invalid" class = "alert alert-danger">
+                Enter Transaction Password
+            </div>
+        </div>
+        
         <div  id=selector>
             Enter OTP sent on your registered mobile no/email:
         </div>
