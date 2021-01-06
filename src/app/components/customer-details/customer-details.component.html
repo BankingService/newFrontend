@@ -1,0 +1,15 @@
+<app-admin-navbar></app-admin-navbar>
+<h2 style="text-align: center;width:100%;">Customer Details</h2>
+<div class = "frm">
+        <div class = "input" *ngFor = "let customer of customer|keyvalue"> 
+            <div id = "selector" style = "font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
+                {{customer.key}}:
+            </div>
+            <div style = "font-family: Arial, Helvetica, sans-serif; font-size: 2vh;">
+                {{customer.value}}
+            </div>
+        </div>
+        <button class="btn btn-light" type="button" (click) ="sendAdminRemarks(i)" style="margin: 20px; width: 100px;">Back</button>
+        <button class="btn btn-success" type="button" (click) ="sendAdminRemarks(i)" style="margin: 20px; width: 100px;">Approve</button>
+        <button class="btn btn-danger" type="button" (click) ="sendAdminRemarks(i)" style="margin: 20px; width: 100px;">Reject</button><br>
+</div>

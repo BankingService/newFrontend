@@ -8,6 +8,10 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { ImpsComponent } from './components/imps/imps.component';
 import { AddBeneficiaryComponent } from './components/add-beneficiary/add-beneficiary.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TransactionSuccessfulComponent } from './components/transaction-successful/transaction-successful.component';
+import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NeftComponent,
     RtgsComponent,
     ImpsComponent,
-    AddBeneficiaryComponent
+    AddBeneficiaryComponent,
+    TransactionSuccessfulComponent,
+    AdminDashBoardComponent,
+    CustomerDetailsComponent,
+    AdminNavbarComponent
   ],
   imports: [
     FormsModule,
