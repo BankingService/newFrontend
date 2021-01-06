@@ -8,9 +8,14 @@ import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { ImpsComponent } from './components/imps/imps.component';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotuseridComponent } from './components/forgotuserid/forgotuserid.component';
-import { ReactiveFormsModule } from '@angular/forms';
 import { CheckApplicationStatusComponent } from './components/check-application-status/check-application-status.component';
 import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
+import { AddBeneficiaryComponent } from './components/add-beneficiary/add-beneficiary.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TransactionSuccessfulComponent } from './components/transaction-successful/transaction-successful.component';
+import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
+import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
+import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 
 @NgModule({
   declarations: [
@@ -21,9 +26,16 @@ import { TransactionHistoryComponent } from './components/transaction-history/tr
     LoginComponent,
     ForgotuseridComponent,
     CheckApplicationStatusComponent,
-    TransactionHistoryComponent
+    TransactionHistoryComponent,
+    AddBeneficiaryComponent,
+    TransactionSuccessfulComponent,
+    AdminDashBoardComponent,
+    CustomerDetailsComponent,
+    AdminNavbarComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
