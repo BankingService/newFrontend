@@ -17,6 +17,11 @@ import { AdminDashBoardComponent } from './components/admin-dash-board/admin-das
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { FAQComponent } from './components/faq/faq.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UserAccountComponent } from './components/user-account/user-account.component';
+import { FundTransferComponent } from './components/fund-transfer/fund-transfer.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,14 @@ import { FAQComponent } from './components/faq/faq.component';
     AdminDashBoardComponent,
     CustomerDetailsComponent,
     AdminNavbarComponent,
-    FAQComponent
+    FAQComponent,
+    CreateAccountComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    UserAccountComponent,
+    FundTransferComponent
+
+
   ],
   imports: [
     FormsModule,
