@@ -16,6 +16,7 @@ import { TransactionSuccessfulComponent } from './components/transaction-success
 import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
+import { FAQComponent } from './components/faq/faq.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
     TransactionSuccessfulComponent,
     AdminDashBoardComponent,
     CustomerDetailsComponent,
-    AdminNavbarComponent
+    AdminNavbarComponent,
+    FAQComponent
   ],
   imports: [
     FormsModule,
