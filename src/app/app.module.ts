@@ -22,6 +22,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { FundTransferComponent } from './components/fund-transfer/fund-transfer.component';
+import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
+import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -43,9 +48,14 @@ import { FundTransferComponent } from './components/fund-transfer/fund-transfer.
     RegisterComponent,
     ForgotPasswordComponent,
     UserAccountComponent,
-    FundTransferComponent
+    FundTransferComponent,
 
 
+    SetnewpasswordComponent,
+    AccountstatementComponent,
+    UserdashboardComponent,
+    DashboardsidebarComponent,
+    LogoutComponent
   ],
   imports: [
     FormsModule,
