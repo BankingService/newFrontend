@@ -1,0 +1,415 @@
+<div class="container">
+    <h3>Open a Savings Account</h3>
+</div>
+
+    <div class="container">
+        <div class="card" style="width:700px">
+            <form [formGroup]="form" (ngSubmit)="view()">
+
+            <div class="form-group row">
+                <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Personal
+                        Details:</b></label>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-5 col-form-label">Title <span style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <select class="form-control" id="title">
+                        <option value="Mr."> Mr.</option>
+                        <option value="Mrs."> Mrs.</option>
+                        <option value="Ms."> Ms.</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="fName" class="col-sm-5 col-form-label">First Name <span style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="fName" formControlName="fname"
+                        placeholder="Enter First Name">
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.fname">
+                    <div class="error-message"
+                        *ngIf="form.get('fname').hasError(error.type) && (form.get('fname').dirty || form.get('fname').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="form-group row">
+                <label for="mName" class="col-sm-5 col-form-label">Middle Name</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="mName" placeholder="Enter Middle Name">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="lName" class="col-sm-5 col-form-label">Last Name <span style="color:red">*</span> </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="lName" formControlName="lname"
+                        placeholder="Enter Last Name">
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.lname">
+                    <div class="error-message"
+                        *ngIf="form.get('lname').hasError(error.type) && (form.get('lname').dirty || form.get('lname').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="form-group row">
+                <label for="fatherName" class="col-sm-5 col-form-label">Father's Name <span
+                        style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="fatherName" formControlName="faname"
+                        placeholder="Enter Father's Name">
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.faname">
+                    <div class="error-message"
+                        *ngIf="form.get('faname').hasError(error.type) && (form.get('faname').dirty || form.get('faname').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+            <div class="form-group row">
+                <label for="fatherName" class="col-sm-5 col-form-label">Mother's Name <span
+                        style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="fatherName" formControlName="maname"
+                        placeholder="Enter Mother's Name" >
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.maname">
+                    <div class="error-message"
+                        *ngIf="form.get('maname').hasError(error.type) && (form.get('maname').dirty || form.get('maname').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+
+
+
+
+            <div class="form-group row">
+                <label for="mobileNumber" class="col-sm-5 col-form-label">Mobile Number <span
+                        style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="mobileNumber" formControlName="mo"
+                        placeholder="Enter Mobile Number">
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.mo">
+                    <div class="error-message"
+                        *ngIf="form.get('mo').hasError(error.type) && (form.get('mo').dirty || form.get('mo').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="form-group row">
+                <label for="emailId" class="col-sm-5 col-form-label">Email ID <span style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="email" class="form-control" id="emailId" formControlName="em"
+                        placeholder="Enter Email Address" >
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.em">
+                    <div class="error-message"
+                        *ngIf="form.get('em').hasError(error.type) && (form.get('em').dirty || form.get('em').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="form-group row">
+                <label for="aadharNumber" class="col-sm-5 col-form-label">Aadhar Card Number <span
+                        style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="tel" class="form-control" id="aadharNumber" formControlName="ad"
+                        placeholder="Enter Aadhar Card Number">
+                </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.ad">
+                    <div class="error-message"
+                        *ngIf="form.get('ad').hasError(error.type) && (form.get('ad').dirty || form.get('ad').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
+            <div class="form-group row">
+                <label for="dob" class="col-sm-5 col-form-label">Date of Birth <span style="color:red">*</span></label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="dob" placeholder="Enter DOB" name="dob" >
+                </div>
+            </div>
+      
+            <div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Resedential
+                            Address:</b></label>
+                </div>
+
+                <div class="form-group row">
+                    <label for="resLine1" class="col-sm-5 col-form-label">Address Line 1 <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resLine1" formControlName="add"
+                            placeholder="Enter Address Line 1">
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.add">
+                        <div class="error-message"
+                            *ngIf="form.get('add').hasError(error.type) && (form.get('add').dirty || form.get('add').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="resLine2" class="col-sm-5 col-form-label">Address Line 2 <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resLine2" formControlName="da"
+                            placeholder="Enter Address Line 2">
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.da">
+                        <div class="error-message"
+                            *ngIf="form.get('da').hasError(error.type) && (form.get('da').dirty || form.get('da').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="resLandmark" class="col-sm-5 col-form-label">Landmark</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resLandmark" placeholder="Enter Landmark">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="resState" class="col-sm-5 col-form-label">State <span style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resState" formControlName="st"
+                            placeholder="Enter State">
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.st">
+                        <div class="error-message"
+                            *ngIf="form.get('st').hasError(error.type) && (form.get('st').dirty || form.get('st').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="resCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="resCity" formControlName="ci"
+                            placeholder="Enter City" >
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.ci">
+                        <div class="error-message"
+                            *ngIf="form.get('ci').hasError(error.type) && (form.get('ci').dirty || form.get('ci').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="resCode" class="col-sm-5 col-form-label">Pin Code <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="resCode" formControlName="pi"
+                            placeholder="Enter Pin Code">
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.pi">
+                        <div class="error-message"
+                            *ngIf="form.get('pi').hasError(error.type) && (form.get('pi').dirty || form.get('pi').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+           
+            <div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Permanent
+                            Address:</b></label>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="form-control" id="occupation" 
+                             name="occupation">
+                    </div>
+                    <label class="col-sm-10 col-form-label">Permanent Address same as Mailing Address</label>
+                </div>
+
+
+                <div class="form-group row">
+                    <label for="presLine1" class="col-sm-5 col-form-label">Address Line 1 <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="presLine1" formControlName="padd"
+                            placeholder="Enter Address Line 1">
+                    </div>
+                </div>
+
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.padd">
+                        <div class="error-message"
+                            *ngIf="form.get('padd').hasError(error.type) && (form.get('padd').dirty || form.get('padd').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="presLine2" class="col-sm-5 col-form-label">Address Line 2 <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="presLine2" formControlName="pda"
+                            placeholder="Enter Address Line 2">
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.pda">
+                        <div class="error-message"
+                            *ngIf="form.get('pda').hasError(error.type) && (form.get('pda').dirty || form.get('pda').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="presLandmark" class="col-sm-5 col-form-label">Landmark</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="presLandmark" placeholder="Enter Landmark"
+                            >
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="presState" class="col-sm-5 col-form-label">State <span style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="presState" formControlName="pst"
+                            placeholder="Enter State" >
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.pst">
+                        <div class="error-message"
+                            *ngIf="form.get('pst').hasError(error.type) && (form.get('pst').dirty || form.get('pst').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="presCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="presCity" formControlName="pci"
+                            placeholder="Enter City" >
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.pci">
+                        <div class="error-message"
+                            *ngIf="form.get('pci').hasError(error.type) && (form.get('pci').dirty || form.get('pci').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="form-group row">
+                    <label for="presCode" class="col-sm-5 col-form-label">Pin Code <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="presCode" formControlName="ppi"
+                            placeholder="Enter Pin Code">
+                    </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.ppi">
+                        <div class="error-message"
+                            *ngIf="form.get('ppi').hasError(error.type) && (form.get('ppi').dirty || form.get('ppi').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
+            </div>
+        
+            <div>
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Occupation
+                            Details: </b></label>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-5 col-form-label">Occupation Type <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="occupation" 
+                            placeholder="Enter Occupation" name="occupation">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label  class="col-sm-5 col-form-label">Source of Income <span
+                            style="color:red">*</span></label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" id="income" 
+                            placeholder="Enter Source of Income" name="income">
+                    </div>
+                </div>
+
+            <div class="form-group row">
+                <label  class="col-sm-5 col-form-label">Gross Annual Income</label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="final" 
+                        placeholder="Enter Annual Income" name="final">
+                </div>
+            </div>
+
+        </div>
+ 
+                <div class="form-group row">
+                    <label for="staticEmail" class="col-sm-5 col-form-label" style="font-size: large;"><b>Debit/ATM Card
+                        </b></label>
+                </div>
+
+                <div class="form-group row"> 
+                       <div class="col-sm-1">
+                        <input type="checkbox" class="form-control" id="atmcard" >
+                            </div>
+                    <label for="atmcard" class="col-sm-5 col-form-label">Do you want a debit card? <span style="color:red">*</span></label>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="form-control" id="occupation" >
+                    </div>
+                    <label class="col-sm-5 col-form-label">Opt for Net Banking</label>
+                </div>
+
+                <div class="form-group row">
+
+                    <div class="col-sm-1">
+                        <input type="checkbox" class="form-control" id="occupation">
+                    </div>
+                    <label class="col-sm-5 col-form-label">I agree to the Terms and Conditions</label>
+                </div>
+
+        <div class="container" class="text-center">
+            <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Submit</button>
+      </div>
+
+</form>
+</div>
+</div>
