@@ -1,0 +1,42 @@
+<div>
+  <div>
+    <div>
+      
+    </div>
+
+    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+      <div style="text-align: center;">
+        <h2>Account Statement</h2>
+      </div>
+      <div>
+        <div>
+          <form [formGroup]="form">
+
+            <div style="text-align: right;">
+              statement from <input type="date" id="fromdate"  formControlName="fromdate"> to <input
+                type="date" id="todate" formControlName="todate">
+            </div>
+            <div style="text-align: center;">
+              <input type="submit" value="submit">
+            </div>
+          </form>
+        </div>
+
+
+        <div>
+          <br>
+          <table class="table table-bordered">
+            <tr>
+              <th>Select</th>
+              <th>Account Number</th>
+              <th>Name</th>
+              <th>Account type</th>
+              <th>Balance</th>
+            </tr>
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
