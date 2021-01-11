@@ -2,6 +2,7 @@ import { registerLocaleData } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 import { AddBeneficiaryComponent } from './components/add-beneficiary/add-beneficiary.component';
 import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'transhistory', component: TransactionHistoryComponent },
   { path: 'transsuccess', component: TransactionSuccessfulComponent },
   { path: 'useraccount', component: UserAccountComponent },
+  { path: 'accountsummary', component: AccountsummaryComponent },
   {
     path: 'userdashboard', component: UserdashboardComponent,
 

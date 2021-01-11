@@ -29,6 +29,7 @@ import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboa
 import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { AdminloginComponent } from './components/adminlogin/adminlogin.componen
     DashboardsidebarComponent,
     LogoutComponent,
     HomeComponent,
-    AdminloginComponent
+    AdminloginComponent,
+    AccountsummaryComponent
   ],
   imports: [
     FormsModule,
