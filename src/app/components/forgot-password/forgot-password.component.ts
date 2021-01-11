@@ -27,7 +27,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder,private router:Router
   //  private http: HttpClient,private router: Router,
    // private service:ConnectionService
   ) {
@@ -55,6 +55,9 @@ export class ForgotPasswordComponent implements OnInit {
     // { 
     //   validators: this.password.bind(this)
     // });
+  }
+  changeredir(){
+    this.router.navigate(['login']);
   }
 
   

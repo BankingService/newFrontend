@@ -1,13 +1,13 @@
  
             <ul >
                 <div id="dashside">
-                <li ><a class="link active" href="#"  (click)="toggleactivelink(0)" routerLink="/" > dashboard</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(1)" routerLink="/setn" > Account Details</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(2)" routerLink="/logout" > Fund Transfer</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(3)" routerLink="/accstatement" >Add Beneficiary</a></li>
-                <li ><a class="link" href="#" (click)="toggleactivelink(4)" routerLink="/accstatement" > Account Statement</a></li>
+                <li ><a class="link active" href="#"  (click)="toggleactivelink(0)" routerLink="/userdashboard" > dashboard</a></li>
+                <li ><a class="link" href="#" (click)="toggleactivelink(1)" routerLink="/useraccount" > Account Details</a></li>
+                <li ><a class="link" href="#" (click)="toggleactivelink(2)" routerLink="/fundtransfer" > Fund Transfer</a></li>
+                <li ><a class="link" href="#" (click)="toggleactivelink(3)" routerLink="/addBeneficiary" >Add Beneficiary</a></li>
+                <li ><a class="link" href="#" (click)="toggleactivelink(4)" routerLink="/accountstatement" > Account Statement</a></li>
             </div>
             </ul>
-            <p id="den">guys</p>
+            <router-outlet></router-outlet>
 
         

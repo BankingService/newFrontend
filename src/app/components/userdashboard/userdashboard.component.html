@@ -1,31 +1,32 @@
-<!-- <app-dashboardsidebar></app-dashboardsidebar> -->
-<div >
-  <div >
-    <div  >
-      
-    </div>
+<app-dashboardsidebar></app-dashboardsidebar>
 
-    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+    <div style="margin-left:15%;padding:1px 16px;">
       <div style="text-align: center;">
         <h2>Dashboard</h2>
       </div>
+      
       <div >
        
         <ul>
           <li>
-            <a href="#">Account Summary</a>
+            <a href="#" routerLink="/useraccount">Account Summary</a>
           </li>
           <li >
             <a  href="#">user profile</a>
           </li>
           <li >
-            <a  href="#">change passwords</a>
+            <a  href="#" routerLink="/setnewpassword">change passwords</a>
           </li>
           <li >
-            <a class="disabled" href="#">need help?</a>
+            <a  href="#" routerLink="/faq">need help?</a>
+          </li> 
+          <li >
+            <a  href="#" (click)="logoutconfirm()">logout</a>
           </li>        
         </ul>
       </div>
+      
+
     </div>
-  </div>
-</div>
+  
+<router-outlet></router-outlet>
