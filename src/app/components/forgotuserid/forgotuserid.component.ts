@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class ForgotuseridComponent implements OnInit {
       
     }  
 
-    constructor(public formBuilder: FormBuilder,) { }
+    constructor(public formBuilder: FormBuilder,private router:Router) { }
 
     ngOnInit() {
       this.form = this.formBuilder.group({
@@ -50,6 +51,9 @@ export class ForgotuseridComponent implements OnInit {
       }, 
         
       );
+  }
+  changeredir(){
+    this.router.navigate(['login']);
   }
 
 }

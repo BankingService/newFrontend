@@ -27,8 +27,8 @@ import { AccountstatementComponent } from './components/accountstatement/account
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
 import { LogoutComponent } from './components/logout/logout.component';
-
 import { HomeComponent } from './components/home/home.component';
+import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 
 @NgModule({
   declarations: [
@@ -51,15 +51,13 @@ import { HomeComponent } from './components/home/home.component';
     ForgotPasswordComponent,
     UserAccountComponent,
     FundTransferComponent,
-
-
     SetnewpasswordComponent,
     AccountstatementComponent,
     UserdashboardComponent,
     DashboardsidebarComponent,
     LogoutComponent,
-    ForgotPasswordComponent,
-    HomeComponent
+    HomeComponent,
+    AdminloginComponent
   ],
   imports: [
     FormsModule,

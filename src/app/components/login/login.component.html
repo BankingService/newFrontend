@@ -40,7 +40,8 @@
 
     
               <div class="wrapper">
-                    <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Login</button>
+                    <!-- <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Login</button> -->
+                    <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" (click)='changeredir()'>Login</button>
               </div>
 
       </form>
@@ -51,8 +52,9 @@
       </div>
 
       <div class="wrapper" style="margin-bottom:2px"> 
-        <a href="#" routerLink="/forgotpassword" routerLinkActive="active">Forgot Password</a>
+        <a href="#" routerLink="/forgotpass" routerLinkActive="active">Forgot Password</a>
       </div>
       
 </div>
 </div>
+<router-outlet></router-outlet>

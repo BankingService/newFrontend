@@ -12,6 +12,6 @@ export class AdminNavbarComponent implements OnInit {
   ngOnInit() {
   }
 hello(){
-  alert("hello")
+  window.confirm("are you sure?");
 }
 }
