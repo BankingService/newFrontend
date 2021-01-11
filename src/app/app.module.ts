@@ -17,12 +17,17 @@ import { AdminDashBoardComponent } from './components/admin-dash-board/admin-das
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { FAQComponent } from './components/faq/faq.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UserAccountComponent } from './components/user-account/user-account.component';
+import { FundTransferComponent } from './components/fund-transfer/fund-transfer.component';
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
 import { LogoutComponent } from './components/logout/logout.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+
 import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
@@ -41,6 +46,13 @@ import { HomeComponent } from './components/home/home.component';
     CustomerDetailsComponent,
     AdminNavbarComponent,
     FAQComponent,
+    CreateAccountComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    UserAccountComponent,
+    FundTransferComponent,
+
+
     SetnewpasswordComponent,
     AccountstatementComponent,
     UserdashboardComponent,

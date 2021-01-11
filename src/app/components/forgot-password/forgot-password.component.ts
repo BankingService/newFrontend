@@ -23,19 +23,6 @@ export class ForgotPasswordComponent implements OnInit {
       { type: 'minlength', message: 'OTP length.' },
       { type: 'maxlength', message: 'OTP length.' },
     ],
-    'password': [
-      { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' },
-      { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
-    ],
-    
-    'confirmpassword': [
-      { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.'},
-      {type: 'pattern', message:'password must consist one special character,one alphabet and one numeric' }
-    ],
     
   }
 
@@ -61,18 +48,6 @@ export class ForgotPasswordComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(30),
         
-      ])),
-      password: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(15),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
-      ])),
-      confirmpassword: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(6),
-        Validators.maxLength(15),
-        Validators.pattern('(?=.*[A-Za-z])(?=.*[0-9])(?=.*[$@$!#^~%*?&,.<>"\'\\;:\{\\\}\\\[\\\]\\\|\\\+\\\-\\\=\\\_\\\)\\\(\\\)\\\`\\\/\\\\\\]])[A-Za-z0-9\d$@].{7,}')
       ])),
     },
     );
