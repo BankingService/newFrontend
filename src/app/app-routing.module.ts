@@ -13,8 +13,8 @@ const routes: Routes = [
   { path:'imps',component:ImpsComponent},
   { path:'login', component:LoginComponent},
   { path:'forgotuserid',component:ForgotuseridComponent },
-  { path:'addBeneficiary',component:AddBeneficiaryComponent},
-  { path:'', redirectTo:'rtgs',pathMatch:'full'}
+  { path:'addBeneficiary',component:AddBeneficiaryComponent}
+  // { path:'', redirectTo:'rtgs',pathMatch:'full'}
 ];
 
 @NgModule({
