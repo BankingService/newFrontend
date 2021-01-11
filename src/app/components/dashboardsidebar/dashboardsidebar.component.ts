@@ -12,7 +12,7 @@ export class DashboardsidebarComponent implements OnInit {
   links:any=document.getElementsByClassName("link");
   
   constructor() {
-    window.onload
+    
     console.log("this.links");
     console.log(document.getElementById("den"));
    }

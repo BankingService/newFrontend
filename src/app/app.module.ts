@@ -28,6 +28,8 @@ import { UserdashboardComponent } from './components/userdashboard/userdashboard
 import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
+import { HomeComponent } from './components/home/home.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +57,9 @@ import { LogoutComponent } from './components/logout/logout.component';
     AccountstatementComponent,
     UserdashboardComponent,
     DashboardsidebarComponent,
-    LogoutComponent
+    LogoutComponent,
+    ForgotPasswordComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,
