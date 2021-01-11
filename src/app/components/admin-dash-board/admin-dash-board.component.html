@@ -14,7 +14,7 @@
       </thead>
      <tbody>
       <tr *ngFor="let account of accounts |keyvalue">
-          <td><span><button class = "btn btn-link">{{account.key}}</button></span></td>
+          <td><span><button class = "btn btn-link" routerLink="/customerdetailsadmin" >{{account.key}}</button></span></td>
           <td><span>{{account.value}}</span></td>
       </tr>
       </tbody> 
