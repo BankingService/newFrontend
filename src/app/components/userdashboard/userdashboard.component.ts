@@ -14,7 +14,7 @@ export class UserdashboardComponent implements OnInit {
   }
 
   async logoutconfirm(){
-    let temp
+    //let temp
     if(confirm("are you sure")){
       this.router.navigate(['login']);
     }
