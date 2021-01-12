@@ -32,6 +32,10 @@ import { AdminloginComponent } from './components/adminlogin/adminlogin.componen
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
 import { HomeNavBarComponent } from './Components/home-nav-bar/home-nav-bar.component';
 import { HomeFooterComponent } from './Components/home-footer/home-footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
+
 
 @NgModule({
   declarations: [
@@ -63,14 +67,16 @@ import { HomeFooterComponent } from './Components/home-footer/home-footer.compon
     AdminloginComponent,
     AccountsummaryComponent,
     HomeNavBarComponent,
-    HomeFooterComponent
+    HomeFooterComponent,
+    CreateaccountstatusComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

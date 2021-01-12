@@ -26,7 +26,7 @@
                     </div>
   
                     <div class="wrapper"> 
-                      <button type="submit" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Submit</button>
+                      <button (click)="changeBoolean()" type="submit" class="btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Submit</button>
                     </div>
           </form>
         </div>
@@ -34,4 +34,13 @@
     
     </div>
   </div>
+
+<div class="wrapper" *ngIf="showComponent" >
+
+ <h3 class="w3-center"> Your Savings Account Application is {{id.Status}}</h3>
+
+</div>
+
+
+
   <app-home-footer></app-home-footer>

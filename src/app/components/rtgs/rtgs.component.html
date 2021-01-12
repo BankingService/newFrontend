@@ -1,3 +1,5 @@
+<app-dashboardsidebar></app-dashboardsidebar>
+<app-userdashboard></app-userdashboard>
 <h3 style="text-align: center;width:100%;">Initiate RTGS Transaction</h3>
 <div class = frm>
     <form [formGroup] = "form1" (ngSubmit) = "addBeneficiary(form1)">
@@ -95,10 +97,11 @@
         </div>
     </div>
     <div class = input *ngIf = "flag==true">
-        <a href="#">Back</a>
+        <a routerLink="/fundtransfer" routerLinkActive="active">Back</a>
         <input type="submit" value = "Done"/>
     </div>
 
 </form>
 
 </div>
+<router-outlet></router-outlet>
