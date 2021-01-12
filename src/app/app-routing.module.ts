@@ -1,5 +1,5 @@
 import { registerLocaleData } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
@@ -9,6 +9,7 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { CheckApplicationStatusComponent } from './components/check-application-status/check-application-status.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
 import { FAQComponent } from './components/faq/faq.component';
@@ -31,14 +32,12 @@ import { UserdashboardComponent } from './components/userdashboard/userdashboard
 const routes: Routes = [
  // {path : '', component:HomeComponent},
   { path: 'home', component: HomeComponent },
-  { path: 'neft', component: NeftComponent },
-  { path: 'rtgs', component: RtgsComponent },
-  { path: 'imps', component: ImpsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
   { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'admindashboard', component: AdminDashBoardComponent },
   { path: 'adminnavbar', component: AdminNavbarComponent },
+  { path: 'createstatus', component:CreateaccountstatusComponent},
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
   { path: 'createaccount', component: CreateAccountComponent },
   { path: 'customerdetailsadmin', component: CustomerDetailsComponent },
@@ -53,22 +52,13 @@ const routes: Routes = [
   { path: 'transsuccess', component: TransactionSuccessfulComponent },
   { path: 'useraccount', component: UserAccountComponent },
   { path: 'accountsummary', component: AccountsummaryComponent },
-  {
-    path: 'userdashboard', component: UserdashboardComponent,
-
-    children: [
-      {
-        path: 'useraccount', // child route path
-        component: HomeComponent, // child route component that the router renders
-      },
-      {
-        path: 'setnewpassword',
-        component: SetnewpasswordComponent, // another child route component that the router renders
-      },
-    ],
-  },
+  { path: 'userdashboard', component: UserdashboardComponent},
+  { path: 'neft', component: NeftComponent },
+  { path: 'rtgs', component: RtgsComponent },
+  { path: 'imps', component: ImpsComponent },
   { path: 'forgotuserid', component: ForgotuseridComponent },
-  { path: 'addBeneficiary', component: AddBeneficiaryComponent }
+  { path: 'addBeneficiary', component: AddBeneficiaryComponent },
+  {path : '', component:HomeComponent}
   // { path:'', redirectTo:'rtgs',pathMatch:'full'}
 ];
 

@@ -9,6 +9,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class CheckApplicationStatusComponent implements OnInit {
 
   form: FormGroup;
+  showComponent :boolean=false
 
   error_messages = {
     'refId': [
@@ -25,5 +26,10 @@ export class CheckApplicationStatusComponent implements OnInit {
     },
     ); 
   }
+
+  changeBoolean()
+{
+    this.showComponent = true;
+}
 
 }
