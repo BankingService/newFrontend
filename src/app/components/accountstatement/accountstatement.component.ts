@@ -18,4 +18,8 @@ export class AccountstatementComponent implements OnInit {
    });
   }
 
+  getTransactionStatement(){
+    
+  }
+
 }
