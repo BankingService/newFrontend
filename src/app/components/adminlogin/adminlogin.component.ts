@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminInfo } from 'src/app/appmodel/AdminInfo';
+import { AdminInfo } from 'src/app/model_classes/AdminInfo';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 @Component({
@@ -69,25 +69,23 @@ export class AdminloginComponent implements OnInit {
 
 
   AdminLogin() {
-  //   console.log(this.admin);
-  //   this.http.post<any>("http://localhost:8086/loginAdmin", this.admin)
-  //     .subscribe(
-  //       data => {
-  //         console.log(data)
-  //         this.service.adminLogin(this.admin).subscribe(response => {
-  //           alert(JSON.stringify(response));
-  //           if (data.status == "FAILURE") {
-  //             alert(data.message);
-  //           }
-  //           else {
-  //             this.router.navigate(['admindashboard']);
-  //           }
-  //         }
-  //         )
-  //       }
-  //     )
-  // }
-  this.router.navigate(['admindashboard']);
+    console.log(this.admin);
+    this.http.post<any>("http://localhost:8086/loginAdmin", this.admin)
+      .subscribe(
+        data => {
+          console.log(data)
+          this.service.adminLogin(this.admin).subscribe(response => {
+            alert(JSON.stringify(response));
+            if (data.status == "FAILURE") {
+              alert(data.message);
+            }
+            else {
+              this.router.navigate(['admindashboard']);
+            }
+          }
+          )
+        }
+      )
   }
 
 }

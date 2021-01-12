@@ -35,6 +35,7 @@ import { HomeFooterComponent } from './Components/home-footer/home-footer.compon
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
+import { AdminServiceService } from './services/admin-service.service';
 
 
 @NgModule({
@@ -78,7 +79,7 @@ import { CreateaccountstatusComponent } from './Components/createaccountstatus/c
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AdminServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
