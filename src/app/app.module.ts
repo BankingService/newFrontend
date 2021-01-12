@@ -37,6 +37,7 @@ import { Observable } from 'rxjs';
 import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
 import { CustomerserviceService } from './services/customerservice.service';
 import { AdminServiceService } from './services/admin-service.service';
+import { TransactionstatementService } from './services/transactionstatement.service';
 
 
 @NgModule({
@@ -80,7 +81,7 @@ import { AdminServiceService } from './services/admin-service.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [CustomerserviceService,AdminServiceService],
+  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

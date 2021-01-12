@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { TransactionStatement } from 'src/app/model_classes/transaction-statement';
 
 @Component({
   selector: 'app-neft',
@@ -7,10 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./neft.component.css']
 })
 export class NeftComponent implements OnInit {
-
+  transactionRequest:TransactionStatement;
   form1: FormGroup;
   flag:boolean = false;
-  fromAccountNo: any[] = [11111,22222,33333,44444]
+
   constructor() { }
 
   ngOnInit() {
