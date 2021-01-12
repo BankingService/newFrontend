@@ -30,7 +30,7 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 const routes: Routes = [
-  
+ // {path : '', component:HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
