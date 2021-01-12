@@ -19,6 +19,7 @@ export class RtgsComponent implements OnInit {
       amount: new FormControl('', [Validators.required, Validators.pattern("[0-9]*")]),
       date: new FormControl('', [Validators.required]),
       otp: new FormControl('', [Validators.required, Validators.pattern("[0-9]*")]),
+      remark:new FormControl('')
     })
   }
   setFlag(){
