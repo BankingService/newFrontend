@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   loginForm: FormGroup;
-  
+
 
   error_messages = {
     'accno': [
@@ -27,38 +28,52 @@ export class RegisterComponent implements OnInit {
       { type: 'required', message: 'password length must be of 6 char' },
       { type: 'minlength', message: 'password length.' },
       { type: 'maxlength', message: 'password length.' },
-      { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
+      { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'confirmpassword': [
       { type: 'required', message: 'password not matched' },
       { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.'},
-      {type: 'pattern', message:'password must consist one special character,one alphabet and one numeric' }
+      { type: 'maxlength', message: 'password length.' },
+      { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'tpassword': [
       { type: 'required', message: 'password is required' },
       { type: 'required', message: 'password length must be of 4 char' },
       { type: 'minlength', message: 'password length.' },
       { type: 'maxlength', message: 'password length.' },
-      { type: 'pattern', message:'password must consist one special character,one alphabet and one numeric'}
+      { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
     'tcconfirmpassword': [
       { type: 'required', message: 'password not matched' },
       { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.'},
-      {type: 'pattern', message:'password must consist one special character,one alphabet and one numeric' }
+      { type: 'maxlength', message: 'password length.' },
+      { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
     ],
+    'profilePassword': [
+      { type: 'required', message: 'password is required' },
+      { type: 'required', message: 'password length must be of 4 char' },
+      { type: 'minlength', message: 'password length.' },
+      { type: 'maxlength', message: 'password length.' },
+      { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
+    ],
+    'confirmProfilePassword': [
+      { type: 'required', message: 'password required' },
+      { type: 'compare', message: 'password not matched' },
+      { type: 'minlength', message: 'password length.' },
+      { type: 'maxlength', message: 'password length.' },
+      { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
+    ]
   }
-  
-  constructor( public formBuilder: FormBuilder,) {  }
-   ngOnInit(){
+
+  constructor(public formBuilder: FormBuilder) { }
+  ngOnInit() {
     this.loginForm = this.formBuilder.group({
       accno: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(8),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/)
-        
+
       ])),
       otp: new FormControl('', Validators.compose([
         Validators.required,
@@ -66,19 +81,19 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(4),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
-      
+
       password: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
-       ])),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+      ])),
       confirmpassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/)
-       ])),
+      ])),
       tpassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(4),
@@ -91,11 +106,25 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(4),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
-    },
-    //  { 
-    //   validators: this.password.bind(this)
-  
-    // }
+      profilePassword: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(4),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+      ])),
+      confirmProfilePassword: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(10),
+        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+        RxwebValidators.compare({fieldName:'profilePassword'})
+      ]))
+      
+    }
+      //  { 
+      //   validators: this.password.bind(this)
+
+      // }
     );
   }
 
@@ -110,8 +139,22 @@ export class RegisterComponent implements OnInit {
   //   const { value: tcconfirmPassword } = formGroup.get('tcconfirmpassword');
   //   return tpassword === tcconfirmPassword ? null : { passwordNotMatch: true };
   // }
+  
 
-  Registration(){
+  Registration() {
 
   }
+}
+
+export function checkvalue(c:AbstractControl) {
+  if(!c.get('password').value || !c.get('confirmpassword')){
+    return null;
+  }
+  if(c.get('password').value==c.get('confirmpassword').value){
+    return null;
+  }
+  else{
+    return 1;
+  }
+  
 }

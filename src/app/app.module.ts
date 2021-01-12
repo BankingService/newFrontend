@@ -38,6 +38,8 @@ import { CreateaccountstatusComponent } from './Components/createaccountstatus/c
 import { CustomerserviceService } from './services/customerservice.service';
 import { AdminServiceService } from './services/admin-service.service';
 import { TransactionstatementService } from './services/transactionstatement.service';
+import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
+import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
 @NgModule({
@@ -71,7 +73,8 @@ import { TransactionstatementService } from './services/transactionstatement.ser
     AccountsummaryComponent,
     HomeNavBarComponent,
     HomeFooterComponent,
-    CreateaccountstatusComponent
+    CreateaccountstatusComponent,
+    ChangeuserdetailsComponent
   ],
   imports: [
     FormsModule,
@@ -79,7 +82,8 @@ import { TransactionstatementService } from './services/transactionstatement.ser
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RxReactiveFormsModule
   ],
   providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
   bootstrap: [AppComponent]
