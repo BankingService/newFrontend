@@ -20,7 +20,22 @@ export class Customerinfo {
 
     constructor(title:string,firstName:string,middleName:string,lastName:string,fatherName:string, mobileNumber:number,
         emailId:string, aadharCardNo:number,dateOfBirth:Date,occupationType:string,sourceOfIncome:string,
-        grossAnnualIncome:number,panNumber:string){
+        grossAnnualIncome:number,panNumber:string,address:Customeraddress,customerDoc:Customerdocs){
+            this.title=title;
+            this.firstName=firstName;
+            this.middleName=middleName;
+            this.lastName=lastName;
+            this.fatherName=fatherName;
+            this.mobileNumber=mobileNumber;
+            this.emailId=emailId;
+            this.aadharCardNo=aadharCardNo;
+            this.dateOfBirth=dateOfBirth;
+            this.occupationType=occupationType;
+            this.sourceOfIncome=sourceOfIncome;
+            this.grossAnnualIncome=grossAnnualIncome;
+            this.panNumber=panNumber;
+            this.address=address;
+            this.customerDoc=customerDoc;
 
     }
 }

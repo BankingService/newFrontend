@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Customeraddress } from 'src/app/model_classes/customeraddress';
 import { Customerdocs } from 'src/app/model_classes/customerdocs';
 import { Customerinfo } from 'src/app/model_classes/customerinfo';
+import { CustomerserviceService } from 'src/app/services/customerservice.service';
 @Component({
   selector: 'app-create-account',
   templateUrl: './create-account.component.html',
@@ -88,7 +90,7 @@ export class CreateAccountComponent implements OnInit {
 
   }
 
-  constructor(public formBuilder: FormBuilder) { }
+  constructor(public formBuilder: FormBuilder,private custservice:CustomerserviceService,private router:Router) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -183,9 +185,26 @@ export class CreateAccountComponent implements OnInit {
   }
 
   view(createCustomerFormObj){
+    this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
+      createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
+      createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
+      createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
+    this.customerRequestDocs=new Customerdocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard);
 
-    
-    
+    alert(JSON.stringify(this.customerRequestAddress));
+    this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
+      createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
+      createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
+      createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress,this.customerRequestDocs);
+   
+    this.addcustomerrequest(this.customerRequest);
+  }
+
+  addcustomerrequest(customerrequest){
+    this.custservice.createCustomerRequest(customerrequest).subscribe((data:{})=>{
+      this.router.navigate(['/login'])
+    })
+
   }
 
 }
