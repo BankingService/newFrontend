@@ -30,6 +30,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { HomeComponent } from './components/home/home.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { HomeNavBarComponent } from './Components/home-nav-bar/home-nav-bar.component';
+import { HomeFooterComponent } from './Components/home-footer/home-footer.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { AccountsummaryComponent } from './components/accountsummary/accountsumm
     LogoutComponent,
     HomeComponent,
     AdminloginComponent,
-    AccountsummaryComponent
+    AccountsummaryComponent,
+    HomeNavBarComponent,
+    HomeFooterComponent
   ],
   imports: [
     FormsModule,

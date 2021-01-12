@@ -29,12 +29,14 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 const routes: Routes = [
+  {path : '', component:HomeComponent},
+  { path: 'home', component: HomeComponent },
   { path: 'neft', component: NeftComponent },
   { path: 'rtgs', component: RtgsComponent },
   { path: 'imps', component: ImpsComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'adminlogin', component: AdminloginComponent },
+  { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'admindashboard', component: AdminDashBoardComponent },
   { path: 'adminnavbar', component: AdminNavbarComponent },
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
@@ -44,7 +46,6 @@ const routes: Routes = [
   { path: 'faq', component: FAQComponent },
   { path: 'forgotpass', component: ForgotPasswordComponent },
   { path: 'fundtransfer', component: FundTransferComponent },
-  { path: 'home', component: HomeComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
