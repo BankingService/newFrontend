@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { AdminInfo } from '../model_classes/AdminInfo';
+
 import {Observable} from 'rxjs';
+import { AdminInfo } from '../model_classes/admin-info';
 @Injectable({
   providedIn: 'root'
 })
 export class AdminServiceService {
 
-  headers=new HttpHeaders().set('Content-Type', 'application/json')
-
   constructor(private http:HttpClient) { }
 
-  adminLogin(login: AdminInfo): Observable<any>  {
+  verifyLogin(login: AdminInfo): Observable<AdminInfo>  {
+    console.log(login);
     let url = "http://localhost:8086/loginAdmin";
-   return this.http.post(url, login); 
+   return this.http.post<AdminInfo>(url, login); 
   }
 
   getCustomerDetails(id: number) : Observable<any> {

@@ -35,6 +35,7 @@ import { HomeFooterComponent } from './Components/home-footer/home-footer.compon
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
+import { CustomerserviceService } from './services/customerservice.service';
 import { AdminServiceService } from './services/admin-service.service';
 
 
@@ -76,10 +77,9 @@ import { AdminServiceService } from './services/admin-service.service';
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AdminServiceService],
+  providers: [CustomerserviceService, AdminServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

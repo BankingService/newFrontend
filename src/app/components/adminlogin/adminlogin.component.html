@@ -6,19 +6,19 @@
 <div class="wrapper">
   <div class="card" style="width:50%">
 
-    <form [formGroup]="form" (ngSubmit)="AdminLogin()">
+    <form [formGroup]="form" (ngSubmit)="adminLogin(form)">
 
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">Admin Id <span style="color:red">*</span></label>
         <div class="col-sm-6">
-          <input type="text" id="id" class="form-control" formControlName="id" [(ngModel)]="admin.adminId">
+          <input type="text" id="id" class="form-control" formControlName="adminId">
         </div>
       </div>
 
       <div class="error-messages">
-        <ng-container *ngFor="let error of error_messages.id">
+        <ng-container *ngFor="let error of error_messages.adminId">
           <div class="error-message"
-            *ngIf="form.get('id').hasError(error.type) && (form.get('id').dirty || form.get('id').touched)">
+            *ngIf="form.get('adminId').hasError(error.type) && (form.get('adminId').dirty || form.get('adminId').touched)">
             {{ error.message }}
           </div>
         </ng-container>
@@ -27,14 +27,14 @@
       <div class="form-group row">
         <label class="col-sm-4 col-form-label">Admin Name <span style="color:red">*</span></label>
         <div class="col-sm-6">
-          <input type="text" id="id" class="form-control" formControlName="name" [(ngModel)]="admin.adminName">
+          <input type="text" id="name" class="form-control" formControlName="adminName">
         </div>
       </div>
 
       <div class="error-messages">
-        <ng-container *ngFor="let error of error_messages.name">
+        <ng-container *ngFor="let error of error_messages.adminName">
           <div class="error-message"
-            *ngIf="form.get('name').hasError(error.type) && (form.get('name').dirty || form.get('name').touched)">
+            *ngIf="form.get('adminName').hasError(error.type) && (form.get('adminName').dirty || form.get('adminName').touched)">
             {{ error.message }}
           </div>
         </ng-container>
@@ -43,14 +43,14 @@
       <div class="form-group row">
         <label class="col-sm-4 col-form-label"> Password <span style="color:red">*</span></label>
         <div class="col-sm-6">
-          <input type="password" id="password" class="form-control" formControlName="password" [(ngModel)]="admin.password">
+          <input type="password" id="password" class="form-control" formControlName="adminPassword">
         </div>
       </div>
 
       <div class="error-messages">
-        <ng-container *ngFor="let error of error_messages.password">
+        <ng-container *ngFor="let error of error_messages.adminPassword">
           <div class="error-message"
-            *ngIf="form.get('password').hasError(error.type) && (form.get('password').dirty || form.get('password').touched)">
+            *ngIf="form.get('adminPassword').hasError(error.type) && (form.get('adminPassword').dirty || form.get('adminPassword').touched)">
             {{ error.message }}
           </div>
         </ng-container>
@@ -58,9 +58,8 @@
 
 
       <div class="wrapper">
-      <!-- <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid">Login</button>  -->
-      <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;">Login</button> 
-
+     <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;" [disabled]="form.invalid"
+     >Login</button>  
       </div>
 
     </form>

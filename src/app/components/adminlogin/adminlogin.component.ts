@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AdminInfo } from 'src/app/model_classes/AdminInfo';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { AdminInfo } from 'src/app/model_classes/admin-info';
 @Component({
   selector: 'app-adminlogin',
   templateUrl: './adminlogin.component.html',
@@ -11,17 +11,21 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class AdminloginComponent implements OnInit {
 
-  admin = new AdminInfo();
+ 
   form: FormGroup;
 
   error_messages = {
 
-    'id': [
+    'adminId': [
       { type: 'required', message: 'Admin Id is required.' }
     ],
 
+    'adminName': [
+      { type: 'required', message: 'Admin Name is required.' }
+    ],
 
-    'password': [
+
+    'adminPassword': [
       { type: 'required', message: 'Password is required.' },
       { type: 'minlength', message: 'Password length too small' },
       { type: 'maxlength', message: 'Exceeds password length limit' },
@@ -30,25 +34,26 @@ export class AdminloginComponent implements OnInit {
     ],
   }
 
-  constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private service: AdminServiceService) {
+  constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private service: AdminServiceService) { }
 
+    ngOnInit() {
     this.form = this.formBuilder.group({
 
-      id: new FormControl('', Validators.compose([
+      adminId: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(8)
 
       ])),
 
-      name: new FormControl('', Validators.compose([
+      adminName: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(8)
 
       ])),
 
-      password: new FormControl('', Validators.compose([
+      adminPassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(15),
@@ -61,31 +66,25 @@ export class AdminloginComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
+  admin:AdminInfo
+  message:string
 
-  }
+   adminLogin(adminformobj) {
 
-
-
-
-  AdminLogin() {
-    console.log(this.admin);
-    this.http.post<any>("http://localhost:8086/loginAdmin", this.admin)
-      .subscribe(
-        data => {
-          console.log(data)
-          this.service.adminLogin(this.admin).subscribe(response => {
-            alert(JSON.stringify(response));
-            if (data.status == "FAILURE") {
-              alert(data.message);
-            }
-            else {
-              this.router.navigate(['admindashboard']);
-            }
-          }
-          )
-        }
-      )
-  }
-
+    this.admin = new AdminInfo(adminformobj.value.adminId,adminformobj.value.adminName,adminformobj.value.adminPassword)
+    console.log(this.admin)
+    this.service.verifyLogin(this.admin).subscribe(response =>
+   {
+      console.log(response)
+      // if(response.status=='SUCCESS'){
+      //   let adminId = response.adminId;
+      //   let customerName = response.adminName;
+      //   sessionStorage.setItem('adminId', String(adminId));
+      //   sessionStorage.setItem('adminName', adminName);
+      // this.router.navigate(['admindashboard']);
+      // }
+      // else
+      // his.message = response.message;
+    })
+}
 }
