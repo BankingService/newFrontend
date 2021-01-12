@@ -32,6 +32,9 @@ export class AdminloginComponent implements OnInit {
 
   constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private service: AdminServiceService) {
 
+   
+  }
+  ngOnInit() {
     this.form = this.formBuilder.group({
 
       id: new FormControl('', Validators.compose([
@@ -59,9 +62,6 @@ export class AdminloginComponent implements OnInit {
     },
 
     );
-  }
-
-  ngOnInit() {
 
   }
 
