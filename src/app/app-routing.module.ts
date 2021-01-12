@@ -29,7 +29,7 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 const routes: Routes = [
-  {path : '', component:HomeComponent},
+ // {path : '', component:HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'neft', component: NeftComponent },
   { path: 'rtgs', component: RtgsComponent },
