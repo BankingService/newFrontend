@@ -80,11 +80,7 @@ import { TransactionstatementService } from './services/transactionstatement.ser
     AppRoutingModule,
     HttpClientModule
   ],
-<<<<<<< HEAD
-  providers: [CustomerserviceService, AdminServiceService],
-=======
   providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
->>>>>>> 385d67eee07f94d75c1926b854e59c7424846760
   bootstrap: [AppComponent]
 })
 export class AppModule { }
