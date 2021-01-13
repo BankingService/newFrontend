@@ -1,8 +1,9 @@
 <div class="topnav">
-    <a class="active" href="#" (click) = "hello()">Pending Requests</a>
-    <a href="#" (click) = "hello()">All Customers</a>
-   
-    <div class="topnav-right">
-      <a href="#" (click) = "hello()">LogOut</a>
-    </div>
+  <a href=# routerLink="/admindashboard" routerLinkActive="active">Pending Requests</a>
+  <a href=# routerLink="/acceptedcust" routerLinkActive="active">Active Customers</a>
+
+  <div class="topnav-right">
+    <a routerLink='/adminlogin'>LogOut</a>
   </div>
+</div>
+<router-outlet></router-outlet>

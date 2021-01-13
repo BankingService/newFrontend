@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
@@ -8,13 +9,17 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
 })
 export class AdminDashBoardComponent implements OnInit {
   customers:any=[]
-  constructor( private service:AdminServiceService) { }
+  constructor( private service:AdminServiceService, private router :  Router) { }
+
+  viewdets(refid)
+  {
+    console.log(refid)
+  this.router.navigate(['/customerdetailsadmin',{refid}]);
+  }
 
 
  loadPending(){
-  this.service.getPending().
-  subscribe((data: {}) => { this.customers = data})
-  alert(this.customers)
+  this.service.getPending().subscribe((data: {}) => { this.customers = data})
   }
    adminName:string
   ngOnInit() {
@@ -22,5 +27,7 @@ export class AdminDashBoardComponent implements OnInit {
     this.adminName = sessionStorage.getItem('adminName');
     this.loadPending();
   }
+
+
 
 }
