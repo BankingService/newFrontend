@@ -12,12 +12,10 @@ export class CustomerDetailsComponent implements OnInit {
 
 
  loadPending(){
-  //this.service.getPendingById().subscribe((data: {}) => { this.customerdets = data})
+ // this.service.getPendingById().subscribe((data: {}) => { this.customerdets = data})
   }
    adminName:string
   ngOnInit() {
-
-    this.adminName = sessionStorage.getItem('adminName');
     this.loadPending();
   }
 }

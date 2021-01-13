@@ -12,7 +12,9 @@ export class AdminDashBoardComponent implements OnInit {
 
 
  loadPending(){
-  this.service.getPending().subscribe((data: {}) => { this.customers = data})
+  this.service.getPending().
+  subscribe((data: {}) => { this.customers = data})
+  alert(this.customers)
   }
    adminName:string
   ngOnInit() {
