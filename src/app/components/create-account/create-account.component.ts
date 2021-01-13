@@ -191,7 +191,7 @@ export class CreateAccountComponent implements OnInit {
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
     this.customerRequestDocs=new Customerdocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard);
 
-    alert(JSON.stringify(this.customerRequestAddress));
+ //   alert(JSON.stringify(this.customerRequestAddress));
     this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
@@ -200,10 +200,17 @@ export class CreateAccountComponent implements OnInit {
     this.addcustomerrequest(this.customerRequest);
   }
 
+  msg:string
+  refId:string
+
   addcustomerrequest(customerrequest){
-    this.custservice.createCustomerRequest(customerrequest).subscribe((data:{})=>{
-      this.router.navigate(['/login'])
-    })
+       this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
+   {  alert(JSON.stringify(response));
+        console.log(response);
+        this.refId=response.refId;
+        this.msg=response.msg;
+      this.router.navigate(['createstatus']);
+      })
   }
 
 }
