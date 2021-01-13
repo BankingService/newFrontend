@@ -22,4 +22,5 @@ export class CustomerserviceService {
   //   return this.http.get<Customerinfo>(this.apiUrl+'customerInfo/');
   // }
 
+  
 }
