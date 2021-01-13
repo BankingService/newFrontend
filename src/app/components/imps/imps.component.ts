@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 
 @Component({
   selector: 'app-imps',
@@ -10,7 +12,7 @@ export class ImpsComponent implements OnInit {
   form1: FormGroup;
   flag:boolean = false;
   fromAccountNo: any[] = [11111,22222,33333,44444]
-  constructor() { }
+  constructor(private route:Router,private transaction:TransactionstatementService) { }
 
   ngOnInit() {
     this.form1 = new FormGroup({
@@ -25,4 +27,5 @@ export class ImpsComponent implements OnInit {
   setFlag(){
     this.flag = true;
   }
+ 
 }

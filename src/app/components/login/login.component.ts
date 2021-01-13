@@ -49,6 +49,7 @@ ngOnInit() {
     
   );
 }
+ //timer= setTimeout(() => alert("say hii"), 1000);
 
 changeredir(){
   //alert("hi there");

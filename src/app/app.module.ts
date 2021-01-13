@@ -44,6 +44,7 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

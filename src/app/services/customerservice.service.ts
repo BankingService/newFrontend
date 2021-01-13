@@ -15,6 +15,8 @@ export class CustomerserviceService {
    createCustomerRequest(customerReqest):Observable<any>{
      console.log(JSON.stringify(customerReqest));
     return this.http.post<any>(this.apiUrl+'customerInfo/',customerReqest);
+    //alert(JSON.stringify(temp));
+    
   }
   // getReferenceId(): Observable<any>{
   //   return this.http.get<Customerinfo>(this.apiUrl+'customerInfo/');

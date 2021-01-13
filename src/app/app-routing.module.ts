@@ -32,7 +32,7 @@ import { UserAccountComponent } from './components/user-account/user-account.com
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 
 const routes: Routes = [
- // {path : '', component:HomeComponent},
+  // {path : '', component:HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'admindashboard', component: AdminDashBoardComponent },
   { path: 'adminnavbar', component: AdminNavbarComponent },
-  { path: 'createstatus', component:CreateaccountstatusComponent},
+  { path: 'createstatus', component: CreateaccountstatusComponent },
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
   { path: 'createaccount', component: CreateAccountComponent },
   { path: 'customerdetailsadmin', component: CustomerDetailsComponent },
@@ -56,13 +56,13 @@ const routes: Routes = [
   { path: 'transsuccess', component: TransactionSuccessfulComponent },
   { path: 'useraccount', component: UserAccountComponent },
   { path: 'accountsummary', component: AccountsummaryComponent },
-  { path: 'userdashboard', component: UserdashboardComponent},
+  { path: 'userdashboard', component: UserdashboardComponent },
   { path: 'neft', component: NeftComponent },
   { path: 'rtgs', component: RtgsComponent },
   { path: 'imps', component: ImpsComponent },
   { path: 'forgotuserid', component: ForgotuseridComponent },
   { path: 'addBeneficiary', component: AddBeneficiaryComponent },
-  {path : '', component:HomeComponent}
+  { path: '', component: HomeComponent }
   // { path:'', redirectTo:'rtgs',pathMatch:'full'}
 ];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-createaccountstatus',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateaccountstatusComponent implements OnInit {
 
-  constructor() { }
+  reid:string;
+  msg:string;
+  constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe((params: Params) => {this.reid = params['refId'];this.msg=params['msg']}); 
   }
 
 }

@@ -16,6 +16,8 @@ export class CreateAccountComponent implements OnInit {
   customerRequest:Customerinfo;
   customerRequestAddress:Customeraddress;
   customerRequestDocs:Customerdocs;
+  refId:string;
+  msg:string;
 
   error_messages = {
 
@@ -200,17 +202,14 @@ export class CreateAccountComponent implements OnInit {
     this.addcustomerrequest(this.customerRequest);
   }
 
-  msg:string
-  refId:string
-
   addcustomerrequest(customerrequest){
-       this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
-   {  alert(JSON.stringify(response));
-        console.log(response);
-        this.refId=response.refId;
-        this.msg=response.msg;
-      this.router.navigate(['createstatus']);
-      })
+    this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
+      {  alert(JSON.stringify(response));
+           console.log(response);
+           let refId=response.refId;
+           let msg=response.msg;
+         this.router.navigate(['createstatus',{refId,msg}]);
+         })
   }
 
 }
