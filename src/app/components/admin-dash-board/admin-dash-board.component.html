@@ -1,24 +1,29 @@
 <app-admin-navbar></app-admin-navbar>
+
+
 <div class="cardz">
-<h2 style="text-align: center;width:100%;">Account Opening Requests</h2>
-<br>
-<div >
+
+  <h3 class="w3-left">{{message}}</h3><br><br>
+  <h3 class="w3-left">Welcome {{adminName}}</h3>
+  <h2 style="text-align: center;width:100%;">Account Opening Requests</h2>
+  <br>
+  <div>
     <table class="table table-bordered table-striped">
       <thead>
         <tr>
-           
-            <th scope="col">Refernce ID</th>
-            <th scope="col">Customer ID</th>
-            
+
+          <th scope="col">Refernce ID</th>
+          <th scope="col">Customer ID</th>
+
         </tr>
       </thead>
-     <tbody>
-      <tr *ngFor="let account of accounts |keyvalue">
-          <td><span><button class = "btn btn-link" routerLink="/customerdetailsadmin" >{{account.key}}</button></span></td>
-          <td><span>{{account.value}}</span></td>
-      </tr>
-      </tbody> 
+      <tbody>
+        <tr *ngFor="let cust of customers">
+          <td><span><button class="btn btn-link" routerLink="/customerdetailsadmin">{{cust.referenceId}}</button></span></td>
+          <td><span><button class="btn btn-link" routerLink="/customerdetailsadmin">{{cust.customerId}}</button></span></td>
+        </tr>
+      </tbody>
     </table>
     <br><br><br>
-    </div>
-</div>  
+  </div>
+</div>

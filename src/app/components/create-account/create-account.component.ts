@@ -193,7 +193,7 @@ export class CreateAccountComponent implements OnInit {
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
     this.customerRequestDocs=new Customerdocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard);
 
-    alert(JSON.stringify(this.customerRequestAddress));
+ //   alert(JSON.stringify(this.customerRequestAddress));
     this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,

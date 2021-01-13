@@ -18,7 +18,7 @@ export class CustomerserviceService {
     //alert(JSON.stringify(temp));
     
   }
-  // getReferenceId():{
+  // getReferenceId(): Observable<any>{
   //   return this.http.get<Customerinfo>(this.apiUrl+'customerInfo/');
   // }
 

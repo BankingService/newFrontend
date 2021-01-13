@@ -39,7 +39,7 @@ import { CustomerserviceService } from './services/customerservice.service';
 import { AdminServiceService } from './services/admin-service.service';
 import { TransactionstatementService } from './services/transactionstatement.service';
 import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
-import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+//import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
 
@@ -83,8 +83,8 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    RxReactiveFormsModule
+    HttpClientModule
+ //   RxReactiveFormsModule
   ],
   providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
   bootstrap: [AppComponent]

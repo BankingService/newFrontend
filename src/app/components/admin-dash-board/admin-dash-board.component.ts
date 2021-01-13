@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-admin-dash-board',
@@ -6,13 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-dash-board.component.css']
 })
 export class AdminDashBoardComponent implements OnInit {
-   accounts= {
-       123453:98765,
-       676767:23213
-  }
-  constructor() { }
+  customers:any=[]
+  constructor( private service:AdminServiceService) { }
 
+
+ loadPending(){
+  this.service.getPending().subscribe((data: {}) => { this.customers = data})
+  }
+   adminName:string
   ngOnInit() {
+
+    this.adminName = sessionStorage.getItem('adminName');
+    this.loadPending();
   }
 
 }
