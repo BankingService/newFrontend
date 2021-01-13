@@ -12,7 +12,7 @@
       </div>
       <div>
         <div>
-          <form [formGroup]="form">
+          <form [formGroup]="form" onsubmit=" onTransactionStatementRequest(form)">
 
             <div style="text-align: right;">
               statement from <input type="date" id="fromdate"  formControlName="fromdate"> to <input

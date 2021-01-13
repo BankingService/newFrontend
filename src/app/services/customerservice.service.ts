@@ -12,9 +12,11 @@ export class CustomerserviceService {
   constructor(private http:HttpClient) {
     // http://localhost:8086/customerInfo/
    }
-   createCustomerRequest(customerReqest):Observable<Customerinfo>{
+   createCustomerRequest(customerReqest):Observable<any>{
      console.log(JSON.stringify(customerReqest));
-    return this.http.post<Customerinfo>(this.apiUrl+'customerInfo/',customerReqest);
+    return this.http.post<any>(this.apiUrl+'customerInfo/',customerReqest);
+    //alert(JSON.stringify(temp));
+    
   }
   // getReferenceId():{
   //   return this.http.get<Customerinfo>(this.apiUrl+'customerInfo/');
