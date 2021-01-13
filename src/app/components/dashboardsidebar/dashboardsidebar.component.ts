@@ -12,9 +12,6 @@ export class DashboardsidebarComponent implements OnInit {
   links:any=document.getElementsByClassName("link");
   
   constructor() {
-    
-    console.log("this.links");
-    console.log(document.getElementById("den"));
    }
 
   ngOnInit() {

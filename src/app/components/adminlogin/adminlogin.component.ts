@@ -74,17 +74,18 @@ export class AdminloginComponent implements OnInit {
     this.admin = new AdminInfo(adminformobj.value.adminId,adminformobj.value.adminName,adminformobj.value.adminPassword)
     console.log(this.admin)
     this.service.verifyLogin(this.admin).subscribe(response =>
-   {
+   {  alert(JSON.stringify(response));
       console.log(response)
-      // if(response.status=='SUCCESS'){
-      //   let adminId = response.adminId;
-      //   let customerName = response.adminName;
-      //   sessionStorage.setItem('adminId', String(adminId));
-      //   sessionStorage.setItem('adminName', adminName);
-      // this.router.navigate(['admindashboard']);
-      // }
-      // else
-      // his.message = response.message;
+      if(response.status=='SUCCESS'){
+        let adminId = response.adminId;
+        let adminName = response.adminName;
+        this.message=response.message;
+        sessionStorage.setItem('adminId', String(adminId));
+        sessionStorage.setItem('adminName', String(adminName));
+      this.router.navigate(['admindashboard']);
+      }
+      else
+      this.message = response.message;
     })
 }
 }

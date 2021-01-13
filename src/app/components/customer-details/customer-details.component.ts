@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
   selector: 'app-customer-details',
@@ -6,15 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent implements OnInit {
-  customer= {
-    "Title":"Mr.",
-    "First Name":"Vivek",
-    "Middle Name":"Singh",
-    "Last Name":"Kushwah",
-}
-  constructor() { }
+  customerdets:any=[]
+  constructor( private service:AdminServiceService) { }
 
-  ngOnInit() {
+
+ loadPending(){
+  //this.service.getPendingById().subscribe((data: {}) => { this.customerdets = data})
   }
+   adminName:string
+  ngOnInit() {
 
+    this.adminName = sessionStorage.getItem('adminName');
+    this.loadPending();
+  }
 }

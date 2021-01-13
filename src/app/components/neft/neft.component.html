@@ -70,7 +70,7 @@
     </div>
 
     <div class = input>
-            <a href="#">Back</a>
+            <a href="#" routerLink="/fundtransfer">Back</a>
             <button (click)= "setFlag()">Continue</button>
     </div>
     
@@ -97,9 +97,10 @@
         </div>
     </div>
     <div class = input *ngIf = "flag==true">
-        <a routerLink="/userdashboard">Back</a>
+        <a href="#" (click)='userdash()'>Back</a>
         <input type="submit" value = "Done"/>
     </div>
+    
 </form>
 </div>
 <router-outlet></router-outlet>

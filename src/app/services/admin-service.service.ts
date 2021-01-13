@@ -11,10 +11,10 @@ export class AdminServiceService {
 
   constructor(private http:HttpClient) { }
 
-  verifyLogin(login: AdminInfo): Observable<AdminInfo>  {
+  verifyLogin(login: AdminInfo): Observable<any>  {
     console.log(login);
     let url = "http://localhost:8086/loginAdmin";
-   return this.http.post<AdminInfo>(url, login); 
+   return this.http.post<any>(url, login); 
   }
 
   getPendingById(id: number) : Observable<any> {

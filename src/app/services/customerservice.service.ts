@@ -13,7 +13,7 @@ export class CustomerserviceService {
     // http://localhost:8086/customerInfo/
    }
    createCustomerRequest(customerReqest):Observable<Customerinfo>{
-     //alert(customerReqest);
+     console.log(JSON.stringify(customerReqest));
     return this.http.post<Customerinfo>(this.apiUrl+'customerInfo/',customerReqest);
   }
   // getReferenceId():{
