@@ -1,3 +1,5 @@
+<app-dashboardsidebar></app-dashboardsidebar>
+<app-userdashboard></app-userdashboard>
 <h3 style="text-align: center;width:100%;">Initiate NEFT Transaction</h3>
 <div class = frm>
     <form [formGroup] = "form1" (ngSubmit) = "addBeneficiary(form1)">
@@ -68,7 +70,7 @@
     </div>
 
     <div class = input>
-            <a href="#">Back</a>
+            <a href="#" routerLink="/fundtransfer">Back</a>
             <button (click)= "setFlag()">Continue</button>
     </div>
     
@@ -95,10 +97,10 @@
         </div>
     </div>
     <div class = input *ngIf = "flag==true">
-        <a href="#">Back</a>
+        <a href="#" (click)='userdash()'>Back</a>
         <input type="submit" value = "Done"/>
     </div>
-
+    
 </form>
-
 </div>
+<router-outlet></router-outlet>

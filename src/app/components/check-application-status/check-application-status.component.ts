@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { AdminServiceService } from 'src/app/services/admin-service.service';
+import { CustomerserviceService } from 'src/app/services/customerservice.service';
 
 @Component({
   selector: 'app-check-application-status',
@@ -9,12 +11,14 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 export class CheckApplicationStatusComponent implements OnInit {
 
   form: FormGroup;
+  showComponent: boolean = false
 
   error_messages = {
     'refId': [
       { type: 'required', message: 'Reference ID is required' },
-    ]}
-  constructor(public formBuilder: FormBuilder) {} 
+    ]
+  }
+  constructor(public formBuilder: FormBuilder, private service: AdminServiceService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -23,7 +27,19 @@ export class CheckApplicationStatusComponent implements OnInit {
         Validators.maxLength(5)
       ]))
     },
-    ); 
+    );
   }
 
+  message: Text
+
+  changeBoolean() {
+    this.showComponent = true;
+  }
+
+  view(id) {
+    
+    this.service.getAppStatus(id).subscribe(response => {
+      this.message = response;
+    })
+  }
 }

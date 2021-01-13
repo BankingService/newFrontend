@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -25,7 +26,7 @@ error_messages = {
   
 }  
 
-constructor(public formBuilder: FormBuilder,) { }
+constructor(public formBuilder: FormBuilder,private router:Router) { }
 
 ngOnInit() {
   this.form = this.formBuilder.group({
@@ -47,5 +48,11 @@ ngOnInit() {
   }, 
     
   );
+}
+ //timer= setTimeout(() => alert("say hii"), 1000);
+
+changeredir(){
+  //alert("hi there");
+  this.router.navigate(['accountsummary']);
 }
 }

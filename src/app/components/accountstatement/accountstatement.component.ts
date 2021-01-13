@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 
 @Component({
   selector: 'app-accountstatement',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AccountstatementComponent implements OnInit {
   form:FormGroup;
-  constructor() { }
+  constructor(private router:Router,private transaction:TransactionstatementService) { }
 
   ngOnInit() {
     this.form = new FormGroup({
@@ -16,6 +18,12 @@ export class AccountstatementComponent implements OnInit {
       todate: new FormControl()
       
    });
+  }
+
+  onTransactionStatementRequest(formdata){
+    this.transaction.createTransactionStatementRequest(formdata.value.fromdate,formdata.value.todate).subscribe((data:{})=>{
+      
+    })
   }
 
 }

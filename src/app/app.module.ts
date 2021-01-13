@@ -17,6 +17,33 @@ import { AdminDashBoardComponent } from './components/admin-dash-board/admin-das
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { FAQComponent } from './components/faq/faq.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { UserAccountComponent } from './components/user-account/user-account.component';
+import { FundTransferComponent } from './components/fund-transfer/fund-transfer.component';
+import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
+import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
+import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { HomeComponent } from './components/home/home.component';
+import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
+import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { HomeNavBarComponent } from './Components/home-nav-bar/home-nav-bar.component';
+import { HomeFooterComponent } from './Components/home-footer/home-footer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
+import { CustomerserviceService } from './services/customerservice.service';
+import { AdminServiceService } from './services/admin-service.service';
+import { TransactionstatementService } from './services/transactionstatement.service';
+import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
+import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
+import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
+//import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+
+
 
 @NgModule({
   declarations: [
@@ -33,16 +60,37 @@ import { FAQComponent } from './components/faq/faq.component';
     AdminDashBoardComponent,
     CustomerDetailsComponent,
     AdminNavbarComponent,
-    FAQComponent
+    FAQComponent,
+    CreateAccountComponent,
+    RegisterComponent,
+    ForgotPasswordComponent,
+    UserAccountComponent,
+    FundTransferComponent,
+    SetnewpasswordComponent,
+    AccountstatementComponent,
+    UserdashboardComponent,
+    DashboardsidebarComponent,
+    LogoutComponent,
+    HomeComponent,
+    AdminloginComponent,
+    AccountsummaryComponent,
+    HomeNavBarComponent,
+    HomeFooterComponent,
+    CreateaccountstatusComponent,
+    ChangeuserdetailsComponent,
+    AdminAcceptedCustomersComponent,
+    ActiveCustomerDetailsComponent
   ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
+ //   RxReactiveFormsModule
   ],
-  providers: [],
+  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
