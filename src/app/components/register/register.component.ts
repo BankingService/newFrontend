@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-//import { RxwebValidators } from '@rxweb/reactive-form-validators';
+import { RxwebValidators } from '@rxweb/reactive-form-validators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -117,7 +117,7 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(10),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
-     //   RxwebValidators.compare({fieldName:'profilePassword'})
+      RxwebValidators.compare({fieldName:'profilePassword'})
       ]))
       
     }
