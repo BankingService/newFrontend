@@ -42,6 +42,7 @@ import { ChangeuserdetailsComponent } from './components/changeuserdetails/chang
 import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
 import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
 import { UserService } from './services/user.service';
+import { CreateAccount2Component } from './Components/create-account2/create-account2.component';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -80,7 +81,8 @@ import { UserService } from './services/user.service';
     CreateaccountstatusComponent,
     ChangeuserdetailsComponent,
     AdminAcceptedCustomersComponent,
-    ActiveCustomerDetailsComponent
+    ActiveCustomerDetailsComponent,
+    CreateAccount2Component
   ],
   imports: [
     FormsModule,

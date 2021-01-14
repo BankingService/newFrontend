@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { Register } from 'src/app/model_classes/register';
 import { UserService } from 'src/app/services/user.service';
+//import { RxwebValidators } from '@rxweb/reactive-form-validators';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',

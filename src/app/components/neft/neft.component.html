@@ -1,106 +1,102 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
-<h3 style="text-align: center;width:100%;">Initiate NEFT Transaction</h3>
-<div class = frm>
-    <form [formGroup] = "form1" (ngSubmit) = "addBeneficiary(form1)">
+<h3 style="text-align: center;width:100%;">Initiate IMPS Transaction</h3>
+<div class=frm>
+    <form [formGroup]="form1" (ngSubmit)="transactionrequest(form1)">
+
+        <div class=input>
+            <div id=selector>
+                From Account:
+            </div>
+            <div>
+                <select id="fromAccount" class="form-control" formControlName="fromAccount">
+                    <option>-Select-</option>
+                    <option *ngFor="let account of fromAccountNo" value="{{account}}">{{account}}</option>
+                </select>
+                <div *ngIf="form1.get('fromAccount').touched && form1.get('fromAccount').invalid "
+                    class="alert alert-danger">
+                    <div *ngIf="form1.get('fromAccount').hasError('required')">Please Select Account No</div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class=input>
+            <div id=selector>
+                To Account:
+            </div>
+            <div>
+                <select id="toAccount" class="form-control" formControlName="toAccount">
+                    <option>-Select-</option>
+                    <option *ngFor="let account of toAccountNo" value="{{account}}">{{account}}</option>
+                </select>
+
+                <div *ngIf="form1.get('toAccount').touched && form1.get('toAccount').invalid" class="alert alert-danger">
+                    <div *ngIf="form1.get('toAccount').hasError('required')">Please Select Account No or add beneficiary</div>
+
+                </div>
+                <button><a href="#" routerLink="/addBeneficiary">Add Beneficiary</a></button>
+            </div>
+        </div>
+        <div class=input>
+            <div id=selector>
+                Amount:
+            </div>
+            <div>
+                <input type="text" id="amount" class="form-control" formControlName="amount">
+                <div *ngIf="form1.get('amount').touched && form1.get('amount').invalid" class="alert alert-danger">
+                    <div *ngIf="form1.get('amount').hasError('required')">Please Enter Amount</div>
+                    <div *ngIf="form1.get('amount').hasError('pattern')">Invalid Amount</div>
+                </div>
+            </div>
+        </div>
     
-    <div class = input>
-        <div  id=selector>
-            From Account:
-        </div>
-        <div>
-            <select  id="fromAccount" class="form-control" formControlName = "fromAccount">
-                <option>-Select-</option>
-                <option *ngFor = "let account of fromAccountNo" value="account">{{account}}</option>    
-            </select>
-            <div *ngIf = "form1.get('fromAccount').touched && form1.get('fromAccount').invalid " class = "alert alert-danger">
-                <div *ngIf="form1.get('fromAccount').hasError('required')">Please Select Account No</div>
-            </div>
-           
 
-        </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            To Account: 
-        </div>
-        <div>
-            <select  id="toAccount" class="form-control" formControlName = "toAccount">
-                <option>-Select-</option>
-                <option *ngFor = "let account of toAccountNo" value="account">{{account}}</option>    
-            </select>
-            <button><a href="#" routerLink="/addBeneficiary">Add Beneficiary</a></button>
-            <div *ngIf = "form1.get('toAccount').touched" class = "alert alert-danger">
-                <div *ngIf="form1.get('toAccount').hasError('required')">Please Select Account No</div>
-                
+        <div class=input>
+            <div id=selector>
+                Remark:
+            </div>
+            <div>
+                <input type="text" id="Remark" class="form-control" formControlName="remark">
             </div>
         </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            Amount:
-        </div>
-        <div>
-            <input type="text" id="amount" class="form-control" formControlName = "amount">
-            <div *ngIf = "form1.get('amount').touched && form1.get('amount').invalid" class = "alert alert-danger">
-                <div *ngIf="form1.get('amount').hasError('required')">Please Enter Amount</div>
-                <div *ngIf = "form1.get('amount').hasError('pattern')">Invalid Amount</div>
-            </div>
-        </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            Transaction Date:
-        </div>
-        <div>
-            <input type="date" id="date" class="form-control" formControlName = "date">
-            <div *ngIf = "form1.get('date').touched && form1.get('date').invalid" class = "alert alert-danger">
-                Enter Date
-            </div>
-        </div>
-    </div>
 
-    <div class = input>
-        <div  id=selector>
-            Remark:
-        </div>
-        <div>
-            <input type="text" id="Remark" class="form-control" formControlName = "remark">
-        </div>
-    </div>
-
-    <div class = input>
+        <div class=input>
             <a href="#" routerLink="/fundtransfer">Back</a>
-            <button (click)= "setFlag()">Continue</button>
-    </div>
-    
-    <div class = input *ngIf = "flag==true">
-
-        <div  id=selector>
-            Enter Transaction Password:
-        </div>
-        <div>
-            <input type="text" id="transactionPwd" class="form-control" formControlName = "transactionPwd">
-            <div *ngIf = "form1.get('transactionPwd').touched && form1.get('transactionPwd').invalid" class = "alert alert-danger">
-                Enter Transaction Password
-            </div>
+            <input type="button" (click)="setFlag()" value="continue">
         </div>
 
-        <div  id=selector>
-            Enter OTP sent on your registered mobile no/email:
-        </div>
-        <div>
-            <input type="text" id="otp" class="form-control" formControlName = "otp">
-            <div *ngIf = "form1.get('otp').touched && form1.get('otp').invalid" class = "alert alert-danger">
-                Enter OTP
+        <div class=input *ngIf="flag==true">
+
+            <div id=selector>
+                Enter Transaction Password:
+            </div>
+            <div>
+                <div>
+                    <input type="text" id="transactionPwd" class="form-control" formControlName="transactionPwd">
+                </div>
+                <div *ngIf="form1.get('transactionPwd').touched && form1.get('transactionPwd').invalid"
+                    class="alert alert-danger">
+                    Enter Transaction Password
+                </div>
+            </div>
+
+            <div id=selector>
+                Enter OTP sent on your registered mobile no/email:
+            </div>
+            <div>
+                <input type="text" id="otp" class="form-control" formControlName="otp">
+                <div *ngIf="form1.get('otp').touched && form1.get('otp').invalid" class="alert alert-danger">
+                    Enter OTP
+                </div>
             </div>
         </div>
-    </div>
-    <div class = input *ngIf = "flag==true">
-        <a href="#" (click)='userdash()'>Back</a>
-        <input type="submit" value = "Done"/>
-    </div>
-    
-</form>
+        <div class=input *ngIf="flag==true">
+            <a routerLink="/fundtransfer">Back</a>
+            <input type="submit" value="Done" />
+        </div>
+
+    </form>
+
 </div>
 <router-outlet></router-outlet>

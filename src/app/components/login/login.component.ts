@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
 form: FormGroup;
+customerId:string="hii there";
 error_messages = {
   'id': [
     {  type: 'required', message: 'User Id is required.' }
