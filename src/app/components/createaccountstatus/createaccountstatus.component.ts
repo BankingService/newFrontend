@@ -8,12 +8,11 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 })
 export class CreateaccountstatusComponent implements OnInit {
 
-  reid:string;
-  msg:string;
+  reid:any;
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {this.reid = params['refId'];this.msg=params['msg']}); 
+    this.route.params.subscribe((params: Params) => {this.reid = params['refId']}); 
   }
 
 }

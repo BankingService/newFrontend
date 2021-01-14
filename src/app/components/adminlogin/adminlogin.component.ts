@@ -20,10 +20,6 @@ export class AdminloginComponent implements OnInit {
       { type: 'required', message: 'Admin Id is required.' }
     ],
 
-    'adminName': [
-      { type: 'required', message: 'Admin Name is required.' }
-    ],
-
 
     'adminPassword': [
       { type: 'required', message: 'Password is required.' },
@@ -40,13 +36,6 @@ export class AdminloginComponent implements OnInit {
     this.form = this.formBuilder.group({
 
       adminId: new FormControl('', Validators.compose([
-        Validators.required,
-        Validators.minLength(1),
-        Validators.maxLength(8)
-
-      ])),
-
-      adminName: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(8)
@@ -71,7 +60,7 @@ export class AdminloginComponent implements OnInit {
 
    adminLogin(adminformobj) {
 
-    this.admin = new AdminInfo(adminformobj.value.adminId,adminformobj.value.adminName,adminformobj.value.adminPassword)
+    this.admin = new AdminInfo(adminformobj.value.adminId,null,adminformobj.value.adminPassword)
     console.log(this.admin)
     
     this.service.verifyLogin(this.admin).subscribe(response =>

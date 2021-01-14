@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
+import { Transactiondatetime } from 'src/app/dtoClass/transactiondatetime';
+import { TransactionStatement } from 'src/app/model_classes/transaction-statement';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 
 @Component({
@@ -9,21 +12,48 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
   styleUrls: ['./accountstatement.component.css']
 })
 export class AccountstatementComponent implements OnInit {
-  form:FormGroup;
-  constructor(private router:Router,private transaction:TransactionstatementService) { }
+  form: FormGroup;
+  transactiondatetime: Transactiondatetime;
+  transactionstatement:TransactionStatement[]=[];
+  
+  error_messages = {
 
-  ngOnInit() {
-    this.form = new FormGroup({
-      fromdate: new FormControl(),
-      todate: new FormControl()
-      
-   });
+    'fromdate': [
+      { type: 'required', message: 'Admin Id is required.' }
+    ],
+
+    'todate': [
+      { type: 'required', message: 'todate is required.' }
+    ],
   }
 
-  onTransactionStatementRequest(formdata){
-    this.transaction.createTransactionStatementRequest(formdata.value.fromdate,formdata.value.todate).subscribe((data:{})=>{
-      
+  constructor(private router: Router, private transaction: TransactionstatementService,private formBuilder:FormBuilder) { }
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+
+      fromdate: new FormControl('', Validators.compose([
+        Validators.required
+
+      ])),
+
+      todate: new FormControl('', Validators.compose([
+        Validators.required
+      ]))
     })
+  }
+
+  onTransactionStatementRequest(formdata) {
+
+    let fromdate = formdata.value.fromdate;
+    let todate = formdata.value.todate;
+    fromdate = fromdate + "T00:00:00.001";
+    todate = todate + "T23:59:59.999";
+    this.transactiondatetime = new Transactiondatetime(fromdate, todate, sessionStorage.getItem('accountNumber'));
+    //  this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data:{})=>{
+            // alert(data);
+            // this.transactionstatement.push(data);
+    //  })
   }
 
 }

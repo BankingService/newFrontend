@@ -124,25 +124,7 @@
                     </div>
                 </ng-container>
             </div>
-            <!-- <div class="custom-file mb-3">
-                <input type="file" class="custom-file-input" id="Aadharcard" name="Aadharcard">
-                <label class="custom-file-label" for="Aadharcard">Choose file</label>
-              </div> -->
-            <div>
-                <p>Aadhar file:<span
-                    style="color:red">*</span></p>
-                <input class="form-control btn-light" type="file" id="Aadharcard" name="Aadharcardimage" formControlName="aadharCard">
-            </div><br>
-
-            <div class="error-messages">
-                <ng-container *ngFor="let error of error_messages.aadharcard">
-                    <div class="error-message"
-                        *ngIf="form.get('aadharCard').hasError(error.type) && (form.get('aadharCard').dirty || form.get('aadharCard').touched)">
-                        {{ error.message }}
-                    </div>
-                </ng-container>
-            </div>
-
+         
 
             <div class="form-group row">
                 <label for="PanNumber" class="col-sm-5 col-form-label">PAN Card Number <span
@@ -160,23 +142,7 @@
                     </div>
                 </ng-container>
             </div>
-            <!-- <div class="custom-file mb-3">
-                <input type="file" class="custom-file-input" id="PANCard" name="pancard">
-                <label class="custom-file-label" for="PANCard">Choose file</label>
-              </div> -->
-            <div>
-                <p>PAN card file:<span
-                    style="color:red">*</span></p>
-                <input class="form-control btn-light" type="file" id="pancard" name="pancardimage" formControlName="panCard">
-            </div><br>
-            <div class="error-messages">
-                <ng-container *ngFor="let error of error_messages.panCard">
-                    <div class="error-message"
-                        *ngIf="form.get('panCard').hasError(error.type) && (form.get('panCard').dirty || form.get('panCard').touched)">
-                        {{ error.message }}
-                    </div>
-                </ng-container>
-            </div>
+           
 
             <div class="form-group row">
                 <label for="dob" class="col-sm-5 col-form-label">Date of Birth <span style="color:red">*</span></label>
@@ -441,7 +407,7 @@
 
             <div>
                 <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
-                    >Submit</button>
+                    >Next</button>
                     <!-- [disabled]="form.invalid" -->
             </div><br><br><br><br><br>
             <div> </div>

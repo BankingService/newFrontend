@@ -3,7 +3,7 @@
 <div>
   <div>
     <div>
-      
+
     </div>
 
     <div style="margin-left:15%;padding:1px 16px;height:1000px;">
@@ -12,15 +12,32 @@
       </div>
       <div>
         <div>
-          <form [formGroup]="form" onsubmit=" onTransactionStatementRequest(form)">
+          <form [formGroup]="form" (ngSubmit)=" onTransactionStatementRequest(form)">
 
             <div style="text-align: right;">
-              statement from <input type="date" id="fromdate"  formControlName="fromdate"> to <input
-                type="date" id="todate" formControlName="todate">
+              statement from <input type="date" id="fromdate" formControlName="fromdate"> to <input type="date"
+                id="todate" formControlName="todate">
             </div>
-            <div style="text-align: center;">
-              <input type="submit" value="submit">
+            <div class="error-messages" style="text-align: right;margin-right: 9px;">
+              <ng-container *ngFor="let error of error_messages.todate">
+                <div class="error-message"
+                  *ngIf="form.get('todate').hasError(error.type) && (form.get('todate').dirty || form.get('todate').touched)">
+                  {{ error.message }}
+                </div>
+                <div class="error-message"
+                  *ngIf="form.get('fromdate').value>form.get('todate').value && (form.get('todate').dirty || form.get('todate').touched)">
+                  <b>todate should be bigger then from date</b>
+                </div>
+              </ng-container>
+
             </div>
+            
+            <div class="wrapper">
+              <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
+                [disabled]="form.invalid">Submit</button>
+
+            </div>
+
           </form>
         </div>
 
@@ -29,11 +46,19 @@
           <br>
           <table class="table table-bordered">
             <tr>
-              <th>Select</th>
-              <th>Account Number</th>
-              <th>Name</th>
-              <th>Account type</th>
+              <th>TransactionId</th>
+              <th>Messaage</th>
+              <th>Transaction Amount</th>
+              <th>Transaction Type</th>
               <th>Balance</th>
+            </tr>
+            <tr *ngFor="let transaction of transactionstatement">
+
+              <td>{{transaction.transactionId}}</td>
+              <td>{{transaction.message}}</td>
+              <td>{{transaction.transactionAmount}}</td>
+              <td>{{transaction.transactionType}}</td>
+              <td>{{transaction. updatedBalance}}</td>
             </tr>
           </table>
         </div>

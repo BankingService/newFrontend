@@ -24,21 +24,6 @@
         </ng-container>
 
       </div>
-      <div class="form-group row">
-        <label class="col-sm-4 col-form-label">Admin Name <span style="color:red">*</span></label>
-        <div class="col-sm-6">
-          <input type="text" id="name" class="form-control" formControlName="adminName">
-        </div>
-      </div>
-
-      <div class="error-messages">
-        <ng-container *ngFor="let error of error_messages.adminName">
-          <div class="error-message"
-            *ngIf="form.get('adminName').hasError(error.type) && (form.get('adminName').dirty || form.get('adminName').touched)">
-            {{ error.message }}
-          </div>
-        </ng-container>
-      </div>
 
       <div class="form-group row">
         <label class="col-sm-4 col-form-label"> Password <span style="color:red">*</span></label>

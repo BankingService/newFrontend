@@ -13,7 +13,7 @@ export class ForgotPasswordComponent implements OnInit {
   
   loginForm: FormGroup;
   
-
+  flag:boolean=false;
   error_messages = {
     'id': [
       { type: 'required', message: 'User Id is required.' },
@@ -58,6 +58,9 @@ export class ForgotPasswordComponent implements OnInit {
   }
   changeredir(){
     this.router.navigate(['login']);
+  }
+  setchange(){
+this.flag=true;
   }
 
   

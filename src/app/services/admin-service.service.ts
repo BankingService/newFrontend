@@ -42,10 +42,24 @@ export class AdminServiceService {
     return this.http.get<any>(url);
   }
 
-  getAppStatus(id) : Observable<Text> {
+  getAppStatus(id) : Observable<any> {
     let url = 'http://localhost:8086/checkStatus/'+id;
-     return this.http.get<Text>(url); 
+     return this.http.get<any>(url); 
   }
 
+  getBlockedCuts() : Observable<any>{
+    let url='http://localhost:8086/viewBlocked';
+    return this.http.get<any>(url);
+  }
+
+  getBlockedById(id) : Observable<any> {
+    let url = 'http://localhost:8086/viewBlocked/'+id;
+     return this.http.get<any>(url); 
+  }
+
+  unblockAction(id,cid,action):Observable<any>{
+    let url='http://localhost:8086/viewAction/'+id+'/'+cid+'/'+action;
+    return this.http.get<any>(url);
+  }
 
 }

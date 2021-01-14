@@ -30,7 +30,7 @@ export class CheckApplicationStatusComponent implements OnInit {
     );
   }
 
-  message: Text
+  message: any
 
   changeBoolean() {
     this.showComponent = true;
@@ -39,7 +39,7 @@ export class CheckApplicationStatusComponent implements OnInit {
   view(id) {
     
     this.service.getAppStatus(id).subscribe(response => {
-      this.message = response;
+      this.message = response.message;
     })
   }
 }

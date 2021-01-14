@@ -41,6 +41,11 @@ import { TransactionstatementService } from './services/transactionstatement.ser
 import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
 import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
 import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
+import { UserService } from './services/user.service';
+import { CreateAccount2Component } from './Components/create-account2/create-account2.component';
+import { ProfilepassComponent } from './components/profilepass/profilepass.component';
+import { BlockedCustomersComponent } from './Components/blocked-customers/blocked-customers.component';
+import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -79,7 +84,11 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
     CreateaccountstatusComponent,
     ChangeuserdetailsComponent,
     AdminAcceptedCustomersComponent,
-    ActiveCustomerDetailsComponent
+    ActiveCustomerDetailsComponent,
+    CreateAccount2Component,
+    ProfilepassComponent,
+    BlockedCustomersComponent,
+    BlockedCustomerDetailsComponent
   ],
   imports: [
     FormsModule,
@@ -90,7 +99,7 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
     HttpClientModule
  //   RxReactiveFormsModule
   ],
-  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
+  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

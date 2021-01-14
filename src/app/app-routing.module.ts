@@ -9,8 +9,11 @@ import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-cus
 import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
+import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
+import { BlockedCustomersComponent } from './Components/blocked-customers/blocked-customers.component';
 import { CheckApplicationStatusComponent } from './components/check-application-status/check-application-status.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { CreateAccount2Component } from './Components/create-account2/create-account2.component';
 import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
@@ -23,6 +26,7 @@ import { ImpsComponent } from './components/imps/imps.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { NeftComponent } from './components/neft/neft.component';
+import { ProfilepassComponent } from './components/profilepass/profilepass.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
@@ -36,17 +40,21 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
-  { path: 'acceptedcust' , component:AdminAcceptedCustomersComponent},
-  { path:'activecustdetails', component:ActiveCustomerDetailsComponent},
+  { path: 'acceptedcust', component: AdminAcceptedCustomersComponent },
+  { path: 'activecustdetails', component: ActiveCustomerDetailsComponent },
+  { path: 'blockedcust', component:BlockedCustomersComponent},
+  { path: 'blockedcustdetails', component: BlockedCustomerDetailsComponent },
   { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'admindashboard', component: AdminDashBoardComponent },
   { path: 'adminnavbar', component: AdminNavbarComponent },
   { path: 'createstatus', component: CreateaccountstatusComponent },
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
   { path: 'createaccount', component: CreateAccountComponent },
+  { path: 'createaccount2', component: CreateAccount2Component },
   { path: 'customerdetailsadmin', component: CustomerDetailsComponent },
   { path: 'dashboardsidebar', component: DashboardsidebarComponent },
   { path: 'faq', component: FAQComponent },
+  { path: 'profilepass', component: ProfilepassComponent },
   { path: 'forgotpass', component: ForgotPasswordComponent },
   { path: 'fundtransfer', component: FundTransferComponent },
   { path: 'logout', component: LogoutComponent },
