@@ -15,11 +15,11 @@
 </style>
 <div class="frm">
 
-<h2 style="text-align: center;width:100%;">Active Customer Details</h2>
+    <h2 style="text-align: center;width:100%;">Blocked Customer Details</h2>
 
-<div class="input" *ngFor="let cust of custdetails">
-    <table style="width:100%">
-        <tr><b>Personal Details</b></tr><br>
+    <div class="input" *ngFor="let cust of custdetails">
+        <table style="width:100%">
+            <tr><b>Personal Details</b></tr><br>
             <tr>
                 <th>Title:</th>
                 <td>{{cust.title}}</td>
@@ -65,7 +65,8 @@
                 <td>{{cust.dateOfBirth}}</td>
             </tr><br>
             <tr><b>Resedential Address</b></tr>
-            <br>   <tr>
+            <br>
+            <tr>
                 <th>Address Line 1:</th>
                 <td>{{cust.cAddressLine1}}</td>
             </tr>
@@ -92,8 +93,9 @@
             </tr>
             <br>
             <tr><b>Permanent Address</b></tr>
-            <br>     <tr>
-               
+            <br>
+            <tr>
+
                 <th>Address Line 1:</th>
                 <td>{{cust.pAddressLine1}}</td>
             </tr>
@@ -134,8 +136,13 @@
                 <td>{{cust.grossAnnualIncome}}</td>
             </tr>
             <br>
-    </table>
-</div>
+        </table>
+    </div>
+    <button class="btn btn-light" type="button" (click)="redirectTo()" style="margin: 20px; width: 100px;">Back</button>
+    <button class="btn btn-success" type="button" (click)="sendAdminRemarks('Accepted')"
+        style="margin: 20px; width: 100px;">UnBlock</button>
+    <button class="btn btn-danger" type="button" (click)="sendAdminRemarks('Reject')"
+        style="margin: 20px; width: 100px;">Reject</button><br>
 </div>
 
 <router-outlet></router-outlet>
