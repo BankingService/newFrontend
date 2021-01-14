@@ -41,6 +41,7 @@ import { TransactionstatementService } from './services/transactionstatement.ser
 import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
 import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
 import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
+import { ProfilepassComponent } from './components/profilepass/profilepass.component';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -79,7 +80,8 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
     CreateaccountstatusComponent,
     ChangeuserdetailsComponent,
     AdminAcceptedCustomersComponent,
-    ActiveCustomerDetailsComponent
+    ActiveCustomerDetailsComponent,
+    ProfilepassComponent
   ],
   imports: [
     FormsModule,

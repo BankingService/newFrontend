@@ -15,4 +15,9 @@ export class UserService {
     let url = "http://localhost:8086/userLogin";
    return this.http.post<any>(url, login); 
   }
+  verifyProfile(profilepass,customerID): Observable<any>  {
+   // console.log(login);
+    let url = "http://localhost:8086/userLogin";
+   return this.http.post<any>(url,profilepass ); 
+  }
 }
