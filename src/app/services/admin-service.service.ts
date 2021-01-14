@@ -42,9 +42,9 @@ export class AdminServiceService {
     return this.http.get<any>(url);
   }
 
-  getAppStatus(id) : Observable<Text> {
+  getAppStatus(id) : Observable<any> {
     let url = 'http://localhost:8086/checkStatus/'+id;
-     return this.http.get<Text>(url); 
+     return this.http.get<any>(url); 
   }
 
 
