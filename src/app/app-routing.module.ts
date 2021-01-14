@@ -11,6 +11,7 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
 import { BlockedCustomersComponent } from './Components/blocked-customers/blocked-customers.component';
+import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
 import { CheckApplicationStatusComponent } from './components/check-application-status/check-application-status.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { CreateAccount2Component } from './Components/create-account2/create-account2.component';
@@ -63,6 +64,7 @@ const routes: Routes = [
   { path: 'transhistory', component: TransactionHistoryComponent },
   { path: 'transsuccess', component: TransactionSuccessfulComponent },
   { path: 'useraccount', component: UserAccountComponent },
+  { path:'changedetails', component:ChangeuserdetailsComponent},
   { path: 'accountsummary', component: AccountsummaryComponent },
   { path: 'userdashboard', component: UserdashboardComponent },
   { path: 'neft', component: NeftComponent },
