@@ -17,6 +17,8 @@ export class ImpsComponent implements OnInit {
   flag:boolean = false;
   fromAccountNo: any[] = [11111,22222,33333,44444]
   toAccountNo:any[] = [1111,222,333,44,55,6,76,878,79,87,44];
+  msg:string;
+
   constructor(private route:Router,private transaction:TransactionstatementService) { }
 
   ngOnInit() {
@@ -46,10 +48,21 @@ export class ImpsComponent implements OnInit {
     // fromDate":"2017-01-13T17:09:42.411",
     //alert(form2.value.fromAccount+form2.value.toAccount);
     this.transactionRequest=new Transaction(form2.value.fromAccount,form2.value.toAccount,form2.value.amount,3,
-      datevalue,form2.value.transactionPwd ,form2.value.remark,form2.value.otp,sessionStorage.getItem('custId'));
+      datevalue,form2.value.transactionPwd ,form2.value.remark,form2.value.otp,sessionStorage.getItem('customerId'));
 
-    alert(JSON.stringify(this.transactionRequest));
-   // this.transaction.createTransactionRequest(this.transactionRequest).subscribe
+   // alert(JSON.stringify(this.transactionRequest));
+    this.transaction.createTransactionRequest(this.transactionRequest).subscribe(response =>
+      {  //alert(JSON.stringify(response));
+           console.log(response);
+           this. msg=response.message;
+           this.showstatus()
+         this.route.navigate(['fundtransfer']);
+         })
+
+      
+  }
+  showstatus(){
+    alert(this.msg);
   }
  
 }

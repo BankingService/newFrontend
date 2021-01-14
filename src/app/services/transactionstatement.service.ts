@@ -17,8 +17,8 @@ export class TransactionstatementService {
     return this.http.get<TransactionStatement>(this.apiUrl + 'customerInfo/' + fromDate + '/' + toDate);
   }
 
-  createTransactionRequest(transactionStatement): Observable<TransactionStatement> {
-    return this.http.post<TransactionStatement>(this.apiUrl + 'customerInfo/', transactionStatement);
+  createTransactionRequest(transactionStatement): Observable<any> {
+    return this.http.post<any>(this.apiUrl + 'transact/', transactionStatement);
   }
 
   createBeneficiaryRequest(customerId): Observable<Beneficiary> {
