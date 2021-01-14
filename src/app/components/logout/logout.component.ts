@@ -10,11 +10,14 @@ import { Router } from '@angular/router';
 export class LogoutComponent implements OnInit {
 
 
-  constructor() { 
+  constructor(public router:Router) { 
     
   }
 
   ngOnInit() {
+    setTimeout(() => {
+      this.router.navigate(['home']);
+    }, 5000);
   }
 
  

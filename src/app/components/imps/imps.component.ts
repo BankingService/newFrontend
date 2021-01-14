@@ -56,7 +56,7 @@ export class ImpsComponent implements OnInit {
            console.log(response);
            this. msg=response.message;
            this.showstatus()
-         this.route.navigate(['fundtransfer']);
+         this.route.navigate(['transsuccess']);
          })
 
       
