@@ -56,6 +56,7 @@ message:string
 
 userlogin(form){
   this.login = new UserLogin(form.value.customerId, form.value.loginPassword)
+  console.log(this.login)
 
   this.service.verifyUserLogin(this.login).subscribe(response =>
     {  alert(JSON.stringify(response));
