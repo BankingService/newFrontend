@@ -16,8 +16,9 @@ export class ImpsComponent implements OnInit {
   transactionRequest:Transaction;
   flag:boolean = false;
   fromAccountNo:string=sessionStorage.getItem('accountNumber');
-  toAccountNo:any[] = [1111,222,333,44,55,6,76,878,79,87,44];
+  toAccountNo:any[] = [1111,222,333,44,55,6,76,878,79,87,44]  ;
   msg:string;
+  
 
   constructor(private route:Router,private transaction:TransactionstatementService) { }
 
