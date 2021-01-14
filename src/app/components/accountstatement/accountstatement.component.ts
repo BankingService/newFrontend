@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { from } from 'rxjs';
+
 import { Transactiondatetime } from 'src/app/dtoClass/transactiondatetime';
 import { TransactionStatement } from 'src/app/model_classes/transaction-statement';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
@@ -15,14 +15,32 @@ export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
   transactionstatement:TransactionStatement[]=[];
-  constructor(private router: Router, private transaction: TransactionstatementService) { }
+  
+  error_messages = {
+
+    'fromdate': [
+      { type: 'required', message: 'Admin Id is required.' }
+    ],
+
+    'todate': [
+      { type: 'required', message: 'todate is required.' }
+    ],
+  }
+
+  constructor(private router: Router, private transaction: TransactionstatementService,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-    this.form = new FormGroup({
-      fromdate: new FormControl(''),
-      todate: new FormControl('')
+    this.form = this.formBuilder.group({
 
-    });
+      fromdate: new FormControl('', Validators.compose([
+        Validators.required
+
+      ])),
+
+      todate: new FormControl('', Validators.compose([
+        Validators.required
+      ]))
+    })
   }
 
   onTransactionStatementRequest(formdata) {
