@@ -24,6 +24,7 @@ import { ImpsComponent } from './components/imps/imps.component';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { NeftComponent } from './components/neft/neft.component';
+import { ProfilepassComponent } from './components/profilepass/profilepass.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
@@ -37,8 +38,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
-  { path: 'acceptedcust' , component:AdminAcceptedCustomersComponent},
-  { path:'activecustdetails', component:ActiveCustomerDetailsComponent},
+  { path: 'acceptedcust', component: AdminAcceptedCustomersComponent },
+  { path: 'activecustdetails', component: ActiveCustomerDetailsComponent },
   { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'admindashboard', component: AdminDashBoardComponent },
   { path: 'adminnavbar', component: AdminNavbarComponent },
@@ -49,6 +50,7 @@ const routes: Routes = [
   { path: 'customerdetailsadmin', component: CustomerDetailsComponent },
   { path: 'dashboardsidebar', component: DashboardsidebarComponent },
   { path: 'faq', component: FAQComponent },
+  { path: 'profilepass', component: ProfilepassComponent },
   { path: 'forgotpass', component: ForgotPasswordComponent },
   { path: 'fundtransfer', component: FundTransferComponent },
   { path: 'logout', component: LogoutComponent },

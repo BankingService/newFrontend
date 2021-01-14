@@ -16,6 +16,7 @@ export class UserService {
     let url = "http://localhost:8086/userLogin";
    return this.http.post<any>(url, login); 
   }
+<<<<<<< HEAD
 
 
   registerUser(register: Register): Observable<any>  {
@@ -24,4 +25,11 @@ export class UserService {
    return this.http.post<any>(url, register); 
   }
 
+=======
+  verifyProfile(profilepass,customerID): Observable<any>  {
+   // console.log(login);
+    let url = "http://localhost:8086/userLogin";
+   return this.http.post<any>(url,profilepass ); 
+  }
+>>>>>>> ae564d4e1ea2f5647c59734f74d92aee75b01387
 }
