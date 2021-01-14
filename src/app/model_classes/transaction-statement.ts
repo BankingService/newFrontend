@@ -14,13 +14,13 @@ export class TransactionStatement {
         transactionType: string,
         transactionAmount: number,
         updatedBalance: number) {
-
+       
         this.transactionAmount = transactionAmount;
         this.transactionType = transactionType;
-        this.date = date;
-        this.message = message;
-        this.transactionId = transactionId
+        this.date=date;
+        this.message=message;
+        this.transactionId=transactionId
         this.updatedBalance = updatedBalance;
-
+        
     }
 }
