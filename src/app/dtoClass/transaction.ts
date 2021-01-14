@@ -15,7 +15,7 @@ export class Transaction {
          toAccountNumber:string,
         transactionAmount:number,
          transactionModeId:number,
-         transactionDateTime:string,
+         
          transactionPassword:string,
          remark:string,
          otp:number,
@@ -24,7 +24,6 @@ export class Transaction {
             this.toAccountNumber=toAccountNumber;
             this.transactionAmount=transactionAmount;
             this.transactionModeId=transactionModeId;
-            this.transactionDateTime=transactionDateTime;
             this.transactionPassword=transactionPassword;
             this.remark=remark;
             this.otp=otp;
