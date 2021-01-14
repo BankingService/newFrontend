@@ -51,7 +51,7 @@ ngOnInit() {
 }
  //timer= setTimeout(() => alert("say hii"), 1000);
 
-changeredir(){
+login(){
   //alert("hi there");
   this.router.navigate(['accountsummary']);
 }

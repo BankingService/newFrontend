@@ -10,7 +10,7 @@ export class CustomerserviceService {
   apiUrl:string='http://localhost:8086/';
   headers=new HttpHeaders().set('Content-Type', 'application/json')
   constructor(private http:HttpClient) {
-    // http://localhost:8086/customerInfo/
+    // http://localhost:8086/createAccount/
    }
    createCustomerRequest(customerReqest):Observable<any>{
      console.log(JSON.stringify(customerReqest));
@@ -18,9 +18,6 @@ export class CustomerserviceService {
     //alert(JSON.stringify(temp));
     
   }
-  // getReferenceId(): Observable<any>{
-  //   return this.http.get<Customerinfo>(this.apiUrl+'customerInfo/');
-  // }
 
   
 }

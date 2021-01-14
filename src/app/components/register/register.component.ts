@@ -117,14 +117,13 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(10),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
-      RxwebValidators.compare({fieldName:'profilePassword'})
-      ]))
+    //  RxwebValidators.compare({fieldName:'profilePassword'})
+      ])),
       
-    }
-      //  { 
-      //   validators: this.password.bind(this)
+     //   validators: this.password.bind(this),
 
-      // }
+
+      }
     );
   }
 
