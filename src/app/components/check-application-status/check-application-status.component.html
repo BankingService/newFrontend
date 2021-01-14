@@ -8,7 +8,7 @@
       <p><b></b></p>
         <div>
       
-          <form class="form" [formGroup]="form" (ngSubmit) = "view()">
+          <form [formGroup]="form" (ngSubmit) = "view(form.value.refId)">
                     
                     <div class="form-group row">
                           <label class="col-sm-4 col-form-label">Reference ID </label>
@@ -37,7 +37,7 @@
 
 <div class="wrapper" *ngIf="showComponent" >
 
- <h3 class="w3-center"> Your Savings Account Application is {{id.Status}}</h3>
+ <h3 class="w3-center">  {{message}}</h3>
 
 </div>
 

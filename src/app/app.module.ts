@@ -39,6 +39,8 @@ import { CustomerserviceService } from './services/customerservice.service';
 import { AdminServiceService } from './services/admin-service.service';
 import { TransactionstatementService } from './services/transactionstatement.service';
 import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
+import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
+import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -75,7 +77,9 @@ import { ChangeuserdetailsComponent } from './components/changeuserdetails/chang
     HomeNavBarComponent,
     HomeFooterComponent,
     CreateaccountstatusComponent,
-    ChangeuserdetailsComponent
+    ChangeuserdetailsComponent,
+    AdminAcceptedCustomersComponent,
+    ActiveCustomerDetailsComponent
   ],
   imports: [
     FormsModule,

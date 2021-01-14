@@ -121,11 +121,10 @@ export class RegisterComponent implements OnInit {
         RxwebValidators.compare({fieldName:'profilePassword'})
       ]))
       
-    }
-      //  { 
-      //   validators: this.password.bind(this)
+     //   validators: this.password.bind(this),
 
-      // }
+
+      }
     );
   }
 

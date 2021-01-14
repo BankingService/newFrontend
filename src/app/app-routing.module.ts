@@ -3,7 +3,9 @@ import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AccountstatementComponent } from './components/accountstatement/accountstatement.component';
 import { AccountsummaryComponent } from './components/accountsummary/accountsummary.component';
+import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
 import { AddBeneficiaryComponent } from './components/add-beneficiary/add-beneficiary.component';
+import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
 import { AdminDashBoardComponent } from './components/admin-dash-board/admin-dash-board.component';
 import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.component';
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
+  { path: 'acceptedcust' , component:AdminAcceptedCustomersComponent},
+  { path:'activecustdetails', component:ActiveCustomerDetailsComponent},
   { path: 'accountstatement', component: AccountstatementComponent },
   { path: 'admindashboard', component: AdminDashBoardComponent },
   { path: 'adminnavbar', component: AdminNavbarComponent },

@@ -17,7 +17,7 @@ export class AdminServiceService {
    return this.http.post<any>(url, login); 
   }
 
-  getPendingById(id: number) : Observable<any> {
+  getPendingById(id) : Observable<any> {
     let url = 'http://localhost:8086/viewPending/'+id;
      return this.http.get<any>(url); 
   }
@@ -25,6 +25,11 @@ export class AdminServiceService {
   getAcceptedCutomers():Observable<any>{
     let url='http://localhost:8086/viewAccepted';
     return this.http.get<any>(url);
+  }
+
+  getAcceptedById(id) : Observable<any> {
+    let url = 'http://localhost:8086/viewAccepted/'+id;
+     return this.http.get<any>(url); 
   }
 
   getPending():Observable<any>{
@@ -36,5 +41,11 @@ export class AdminServiceService {
     let url='http://localhost:8086/viewAction/'+id+'/'+refid+'/'+action;
     return this.http.get<any>(url);
   }
+
+  getAppStatus(id) : Observable<Text> {
+    let url = 'http://localhost:8086/checkStatus/'+id;
+     return this.http.get<Text>(url); 
+  }
+
 
 }

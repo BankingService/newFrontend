@@ -19,11 +19,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let cust of customers">
-          <td><span><button class="btn btn-link" routerLink="/customerdetailsadmin">{{cust.referenceId}}</button></span></td>
-          <td><span><button class="btn btn-link" routerLink="/customerdetailsadmin">{{cust.customerId}}</button></span></td>
+          <td><span><button class="btn btn-link" (click)='viewdets(cust.referenceId)'>{{cust.referenceId}}</button></span></td>
+          <td><span>{{cust.customerId}}</span></td>
         </tr>
       </tbody>
     </table>
     <br><br><br>
   </div>
 </div>
+<router-outlet></router-outlet>

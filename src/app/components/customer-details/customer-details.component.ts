@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Customerinfo } from 'src/app/model_classes/customerinfo';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 
 @Component({
@@ -7,17 +9,46 @@ import { AdminServiceService } from 'src/app/services/admin-service.service';
   styleUrls: ['./customer-details.component.css']
 })
 export class CustomerDetailsComponent implements OnInit {
-  customerdets:any=[]
-  constructor( private service:AdminServiceService) { }
+  custdetails: any=[]
+  constructor(private service: AdminServiceService, private route: ActivatedRoute, private router:Router) { }
 
 
- loadPending(){
-  //this.service.getPendingById().subscribe((data: {}) => { this.customerdets = data})
-  }
-   adminName:string
+  adminName: string
+  refid: string
   ngOnInit() {
-
-    this.adminName = sessionStorage.getItem('adminName');
-    this.loadPending();
+    this.route.params.subscribe((params: Params) => { this.refid = params['refid'] });
+    console.log(this.refid)
+    this.loadPending()
   }
-}
+
+  loadPending() {
+    console.log(this.refid)
+    this.service.getPendingById(this.refid)
+    .subscribe((data: {}) => { 
+      this.custdetails.push(data) 
+    }
+    )
+    console.log(this.custdetails)
+    
+    }
+
+    redirectTo()
+    {
+      this.router.navigate(['/admindashboard'])
+    }
+
+    adminId = sessionStorage.adminId; 
+    
+    sendAdminRemarks(remark){
+      this.service.performAction(this.adminId,this.refid,remark).subscribe((response: {}) => 
+      { alert(JSON.stringify(response));
+        this.router.navigate(['/admindashboard'])
+
+      })
+
+    }
+
+  
+    
+   
+   }

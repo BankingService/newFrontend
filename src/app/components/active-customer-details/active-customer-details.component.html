@@ -1,4 +1,5 @@
 <app-admin-navbar></app-admin-navbar>
+
 <style>
     table,
     th,
@@ -12,12 +13,13 @@
         text-align: left;
     }
 </style>
+<div class="frm">
+
 <h2 style="text-align: center;width:100%;">Customer Details</h2>
 
-<div class="frm">
-    <div class="input" *ngFor="let cust of custdetails">
-        <table style="width:100%">
-            <tr><b>Personal Details</b></tr><br>
+<div class="input" *ngFor="let cust of custdetails">
+    <table style="width:100%">
+        <tr><b>Personal Details</b></tr><br>
             <tr>
                 <th>Title:</th>
                 <td>{{cust.title}}</td>
@@ -132,12 +134,8 @@
                 <td>{{cust.grossAnnualIncome}}</td>
             </tr>
             <br>
-        </table>
-    </div>
-    <button class="btn btn-light" type="button" (click)="redirectTo()" style="margin: 20px; width: 100px;">Back</button>
-    <button class="btn btn-success" type="button" (click)="sendAdminRemarks('Accepted')"
-        style="margin: 20px; width: 100px;">Approve</button>
-    <button class="btn btn-danger" type="button" (click)="sendAdminRemarks('Reject')"
-        style="margin: 20px; width: 100px;">Reject</button><br>
-
+    </table>
 </div>
+</div>
+
+<router-outlet></router-outlet>
