@@ -11,8 +11,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
-  verifyUserLogin(login: UserLogin): Observable<any>  {
-    console.log(login);
+  verifyUserLogin(login): Observable<any>  {
     let url = "http://localhost:8086/userLogin";
    return this.http.post<any>(url, login); 
   }

@@ -1,3 +1,4 @@
+import { verifyHostBindings } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -55,11 +56,21 @@ ngOnInit() {
 login:UserLogin
 message:string
 
+
+login2:Login2
+login3:Login3
+
+
 userlogin(form){
   this.login = new UserLogin(form.value.customerId, form.value.loginPassword)
-  console.log(this.login)
+  this.login2=new Login2(this.login)
+  this.login3=new Login3(this.login2)
+  this.verify()
+}
 
-  this.service.verifyUserLogin(this.login).subscribe(response =>
+  verify(){
+  console.log(this.login3)
+  this.service.verifyUserLogin(this.login3).subscribe(response =>
     {  alert(JSON.stringify(response));
        console.log(response)
        if(response.status=='SUCCESS'){
@@ -76,3 +87,18 @@ userlogin(form){
      })
 }
 }
+
+export class Login2{
+  private login2:UserLogin
+  constructor(login2){
+    this.login2=login2
+  }
+}
+
+export class Login3{
+  private login3:Login2
+  constructor(login3){
+    this.login3=login3
+  }
+}
+
