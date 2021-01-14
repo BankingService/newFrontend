@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
 form: FormGroup;
+customerId:string="hii there";
 error_messages = {
   'id': [
     {  type: 'required', message: 'User Id is required.' }
@@ -56,6 +57,7 @@ message:string
 
 userlogin(form){
   this.login = new UserLogin(form.value.customerId, form.value.loginPassword)
+  console.log(this.login)
 
   this.service.verifyUserLogin(this.login).subscribe(response =>
     {  alert(JSON.stringify(response));

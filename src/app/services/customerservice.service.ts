@@ -15,8 +15,11 @@ export class CustomerserviceService {
    createCustomerRequest(customerReqest):Observable<any>{
      console.log(JSON.stringify(customerReqest));
     return this.http.post<any>(this.apiUrl+'createAccount/',customerReqest);
-    //alert(JSON.stringify(temp));
     
+  }
+  picUpload(formData: FormData) : Observable<any> {
+    let url = "http://localhost:8086/createAccount/docs/";
+   return this.http.post<any>(url, formData); 
   }
 
   

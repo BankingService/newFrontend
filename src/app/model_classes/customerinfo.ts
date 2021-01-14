@@ -16,11 +16,13 @@ export class Customerinfo {
 	private grossAnnualIncome:number;
     private panNumber:string;
     private address:Customeraddress;
-    private customerDoc:Customerdocs;
+ //   private customerDoc:Customerdocs;
 
     constructor(title:string,firstName:string,middleName:string,lastName:string,fatherName:string, mobileNumber:number,
         emailId:string, aadharCardNo:number,dateOfBirth:Date,occupationType:string,sourceOfIncome:string,
-        grossAnnualIncome:number,panNumber:string,address:Customeraddress,customerDoc:Customerdocs){
+        grossAnnualIncome:number,panNumber:string,address:Customeraddress
+        //,customerDoc:Customerdocs
+        ){
             this.title=title;
             this.firstName=firstName;
             this.middleName=middleName;
@@ -35,7 +37,7 @@ export class Customerinfo {
             this.grossAnnualIncome=grossAnnualIncome;
             this.panNumber=panNumber;
             this.address=address;
-            this.customerDoc=customerDoc;
+          //  this.customerDoc=customerDoc;
 
     }
 }

@@ -30,7 +30,7 @@ export class CheckApplicationStatusComponent implements OnInit {
     );
   }
 
-  message:String
+  message: any
 
   changeBoolean() {
     this.showComponent = true;

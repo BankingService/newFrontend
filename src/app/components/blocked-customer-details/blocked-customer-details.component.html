@@ -1,0 +1,148 @@
+<app-admin-navbar></app-admin-navbar>
+
+<style>
+    table,
+    th,
+    td {
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+<div class="frm">
+
+    <h2 style="text-align: center;width:100%;">Blocked Customer Details</h2>
+
+    <div class="input" *ngFor="let cust of custdetails">
+        <table style="width:100%">
+            <tr><b>Personal Details</b></tr><br>
+            <tr>
+                <th>Title:</th>
+                <td>{{cust.title}}</td>
+            </tr>
+            <tr>
+                <th>First Name:</th>
+                <td>{{cust.firstName}}</td>
+            </tr>
+            <tr>
+                <th>Middle Name:</th>
+                <td>{{cust.middleName}}</td>
+            </tr>
+            <tr>
+                <th>Last Name:</th>
+                <td>{{cust.lastName}}</td>
+            </tr>
+            <tr>
+                <th>Mobile Number:</th>
+                <td>{{cust.mobileNumber}}</td>
+            </tr>
+            <tr>
+                <th>Email Id::</th>
+                <td>{{cust.emailId}}</td>
+            </tr>
+            <tr>
+                <th>Aadhar Card Number:</th>
+                <td>{{cust.aadharCardNo}}</td>
+            </tr>
+            <tr>
+                <th>Aadhar Card File:</th>
+                <td>{{cust.aadharCardNo}}</td>
+            </tr>
+            <tr>
+                <th>PAN Card Number:</th>
+                <td>{{cust.panNumber}}</td>
+            </tr>
+            <tr>
+                <th>PAN Card File::</th>
+                <td>{{cust.panNumber}}</td>
+            </tr>
+            <tr>
+                <th>Date of Birth:</th>
+                <td>{{cust.dateOfBirth}}</td>
+            </tr><br>
+            <tr><b>Resedential Address</b></tr>
+            <br>
+            <tr>
+                <th>Address Line 1:</th>
+                <td>{{cust.cAddressLine1}}</td>
+            </tr>
+            <tr>
+                <th>Address Line 2:</th>
+                <td>{{cust.cAddressLine2}}</td>
+            </tr>
+            <tr>
+                <th>Landmark:</th>
+                <td>{{cust.cLandMark}}</td>
+
+            </tr>
+            <tr>
+                <th>City:</th>
+                <td>{{cust.cCity}}</td>
+            </tr>
+            <tr>
+                <th>State:</th>
+                <td>{{cust.cState}}</td>
+            </tr>
+            <tr>
+                <th>Pincode:</th>
+                <td>{{cust.cPincode}}</td>
+            </tr>
+            <br>
+            <tr><b>Permanent Address</b></tr>
+            <br>
+            <tr>
+
+                <th>Address Line 1:</th>
+                <td>{{cust.pAddressLine1}}</td>
+            </tr>
+            <tr>
+                <th>Address Line 2:</th>
+                <td>{{cust.pAddressLine2}}</td>
+            </tr>
+            <tr>
+                <th>Landmark:</th>
+                <td>{{cust.pLandMark}}</td>
+
+            </tr>
+            <tr>
+                <th>City:</th>
+                <td>{{cust.pCity}}</td>
+            </tr>
+            <tr>
+                <th>State:</th>
+                <td>{{cust.pState}}</td>
+            </tr>
+            <tr>
+                <th>Pincode:</th>
+                <td>{{cust.pPincode}}</td>
+            </tr>
+            <br>
+            <tr><b>Occupation Details</b></tr><br>
+            <tr>
+
+                <th>Occupation Type:</th>
+                <td>{{cust.occupationType}}</td>
+            </tr>
+            <tr>
+                <th>Source of Income:</th>
+                <td>{{cust.sourceOfIncome}}</td>
+            </tr>
+            <tr>
+                <th>Gross Annual Income:</th>
+                <td>{{cust.grossAnnualIncome}}</td>
+            </tr>
+            <br>
+        </table>
+    </div>
+    <button class="btn btn-light" type="button" (click)="redirectTo()" style="margin: 20px; width: 100px;">Back</button>
+    <button class="btn btn-success" type="button" (click)="sendAdminRemarks('Accepted')"
+        style="margin: 20px; width: 100px;">UnBlock</button>
+    <button class="btn btn-danger" type="button" (click)="sendAdminRemarks('Reject')"
+        style="margin: 20px; width: 100px;">Reject</button><br>
+</div>
+
+<router-outlet></router-outlet>

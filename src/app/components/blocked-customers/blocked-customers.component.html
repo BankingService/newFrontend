@@ -1,0 +1,34 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="cardz">
+
+    <h3 class="w3-left">{{message}}</h3><br><br>
+    <h3 class="w3-left">Welcome {{adminName}}</h3>
+    <h2 style="text-align: center;width:100%;">Blocked Customers</h2>
+    <br>
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Customer ID</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Middle Name</th>
+                    <th scope="col">Last Name</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cust of customers">
+                    <td><span><button class="btn btn-link" (click)='viewdets(cust.customerId)'>{{cust.customerId}}</button></span></td>
+                    <td>{{cust.title}}</td>
+                    <td>{{cust.firstName}}</td>
+                    <td>{{cust.middleName}}</td>
+                    <td>{{cust.lastName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br><br><br>
+    </div>
+</div>
+<router-outlet></router-outlet>
