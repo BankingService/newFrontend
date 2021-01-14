@@ -44,6 +44,8 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
 import { UserService } from './services/user.service';
 import { CreateAccount2Component } from './Components/create-account2/create-account2.component';
 import { ProfilepassComponent } from './components/profilepass/profilepass.component';
+import { BlockedCustomersComponent } from './Components/blocked-customers/blocked-customers.component';
+import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -84,7 +86,9 @@ import { ProfilepassComponent } from './components/profilepass/profilepass.compo
     AdminAcceptedCustomersComponent,
     ActiveCustomerDetailsComponent,
     CreateAccount2Component,
-    ProfilepassComponent
+    ProfilepassComponent,
+    BlockedCustomersComponent,
+    BlockedCustomerDetailsComponent
   ],
   imports: [
     FormsModule,
