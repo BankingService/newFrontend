@@ -41,6 +41,7 @@ import { TransactionstatementService } from './services/transactionstatement.ser
 import { ChangeuserdetailsComponent } from './components/changeuserdetails/changeuserdetails.component';
 import { AdminAcceptedCustomersComponent } from './Components/admin-accepted-customers/admin-accepted-customers.component';
 import { ActiveCustomerDetailsComponent } from './Components/active-customer-details/active-customer-details.component';
+import { UserService } from './services/user.service';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -90,7 +91,7 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
     HttpClientModule
  //   RxReactiveFormsModule
   ],
-  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
+  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

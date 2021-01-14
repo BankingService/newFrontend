@@ -5,19 +5,19 @@
 <div class="container">
 	<div class="card" style="width:80%">
 
-		<form [formGroup]="loginForm" (ngSubmit)="Registration()">
+		<form [formGroup]="form" (ngSubmit)="Registration(form)">
 			<div class="form-group row">
 				<label for="staticEmail" class="col-sm-4 col-form-label">Enter Account Number <span
 						style="color:red">*</span></label>
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="accno" type="text" placeholder="Enter Account Number"
-						 />
+					<input class="form-control" formControlName="accountNumber" type="text"
+						placeholder="Enter Account Number" />
 				</div>
 			</div>
 			<div class="error-messages">
-				<ng-container *ngFor="let error of error_messages.accno">
+				<ng-container *ngFor="let error of error_messages.accountNumber">
 					<div class="error-message"
-						*ngIf="loginForm.get('accno').hasError(error.type) && (loginForm.get('accno').dirty || loginForm.get('accno').touched)">
+						*ngIf="form.get('accountNumber').hasError(error.type) && (form.get('accountNumber').dirty || form.get('accountNumber').touched)">
 						{{ error.message }}
 					</div>
 				</ng-container>
@@ -31,14 +31,14 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="password" type="password"
+					<input class="form-control" formControlName="loginPassword" type="password"
 						placeholder="Enter Login Password" />
 				</div>
 			</div>
 			<div class="error-messages">
-				<ng-container *ngFor="let error of error_messages.password">
+				<ng-container *ngFor="let error of error_messages.loginPassword">
 					<div class="error-message"
-						*ngIf="loginForm.get('password').hasError(error.type) && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+						*ngIf="form.get('loginPassword').hasError(error.type) && (form.get('loginPassword').dirty || form.get('loginPassword').touched)">
 						{{ error.message }}
 
 					</div>
@@ -51,14 +51,14 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="confirmpassword" type="password"
+					<input class="form-control" formControlName="confirmLoginPassword" type="password"
 						placeholder="Enter Password" />
 				</div>
 			</div>
 			<div class="error-messages">
-				<ng-container *ngFor="let error of error_messages.confirmpassword">
+				<ng-container *ngFor="let error of error_messages.confirmLoginPassword">
 					<div class="error-message"
-						*ngIf="loginForm.get('confirmpassword').hasError(error.type) && (loginForm.get('confirmpassword').dirty || loginForm.get('confirmpassword').touched)">
+						*ngIf="form.get('confirmLoginPassword').hasError(error.type) && (form.get('confirmLoginPassword').dirty || form.get('confirmLoginPassword').touched)">
 						{{ error.message }}
 					</div>
 				</ng-container>
@@ -70,14 +70,14 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="tpassword" type="password"
+					<input class="form-control" formControlName="transactionPassword" type="password"
 						placeholder="Enter Transaction Password" />
 				</div>
 			</div>
 			<div class="error-messages">
-				<ng-container *ngFor="let error of error_messages.tpassword">
+				<ng-container *ngFor="let error of error_messages.transactionPassword">
 					<div class="error-message"
-						*ngIf="loginForm.get('tpassword').hasError(error.type) && (loginForm.get('tpassword').dirty || loginForm.get('tpassword').touched)">
+						*ngIf="form.get('transactionPassword').hasError(error.type) && (form.get('transactionPassword').dirty || form.get('transactionPassword').touched)">
 						{{ error.message }}
 
 					</div>
@@ -90,14 +90,14 @@
 						style="color:red">*</span></label>
 
 				<div class="col-sm-6">
-					<input class="form-control" formControlName="tcconfirmpassword" type="password"
+					<input class="form-control" formControlName="confirmTransactionPassword" type="password"
 						placeholder="Enter Password" />
 				</div>
 			</div>
 			<div class="error-messages">
-				<ng-container *ngFor="let error of error_messages.tcconfirmpassword">
+				<ng-container *ngFor="let error of error_messages.confirmTransactionPassword">
 					<div class="error-message"
-						*ngIf="loginForm.get('tcconfirmpassword').hasError(error.type) && (loginForm.get('tcconfirmpassword').dirty || loginForm.get('tcconfirmpassword').touched)">
+						*ngIf="form.get('confirmTransactionPassword').hasError(error.type) && (form.get('confirmTransactionPassword').dirty || form.get('confirmTransactionPassword').touched)">
 						{{ error.message }}
 					</div>
 				</ng-container>
@@ -115,7 +115,7 @@
 			<div class="error-messages">
 				<ng-container *ngFor="let error of error_messages.profilePassword">
 					<div class="error-message"
-						*ngIf="loginForm.get('profilePassword').hasError(error.type) && (loginForm.get('profilePassword').dirty || loginForm.get('profilePassword').touched)">
+						*ngIf="form.get('profilePassword').hasError(error.type) && (form.get('profilePassword').dirty || form.get('profilePassword').touched)">
 						{{ error.message }}
 
 					</div>
@@ -135,13 +135,13 @@
 			<div class="error-messages">
 				<ng-container *ngFor="let error of error_messages.confirmProfilePassword">
 					<div class="error-message"
-						*ngIf="loginForm.get('confirmProfilePassword').hasError(error.type) && (loginForm.get('confirmProfilePassword').dirty || loginForm.get('confirmProfilePassword').touched)">
+						*ngIf="form.get('confirmProfilePassword').hasError(error.type) && (form.get('confirmProfilePassword').dirty || form.get('confirmProfilePassword').touched)">
 						{{ error.message }}
 					</div>
 				</ng-container>
 			</div>
 
-			<div class="form-group row">
+			<!-- <div class="form-group row">
 
 				<label for="inputPassword" class="col-sm-4 col-form-label"> Enter OTP <span
 						style="color:red">*</span></label>
@@ -153,18 +153,19 @@
 			<div class="error-messages">
 				<ng-container *ngFor="let error of error_messages.lname">
 					<div class="error-message"
-						*ngIf="loginForm.get('otp').hasError(error.type) && (loginForm.get('otp').dirty || loginForm.get('otp').touched)">
+						*ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
 						{{ error.message }}
 
 					</div>
 				</ng-container>
-			</div>
+			</div> -->
 
 			<div class="wrapper" class="text-center">
 				<button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
-					[disabled]="!loginForm.valid">Register</button>
+					
+					>Register</button>
 			</div>
-
+			<!-- [disabled]="!form.valid" -->
 		</form>
 
 	</div>
