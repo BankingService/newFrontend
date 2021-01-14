@@ -1,17 +1,26 @@
+.frm{
+  margin:auto;
+  border-style: groove;
+  width: 80vh;
+}
 
-   .container
-   {
-       display: flex;
-       
-   justify-content: center;
-   margin-top: 20px;
-   
-   }  
-   .card{
-     
-     
-     padding: 16px;
-    
-      text-align: left;
-   
-   }
+.input{
+  display: flex;
+  border-bottom: groove;
+  padding:15px;
+  
+}
+
+#selector {
+  width:35vh;
+}
+
+select{
+  width:20vh;
+}
+
+
+a{
+  padding-right:10px;
+}
+

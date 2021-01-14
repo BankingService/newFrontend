@@ -1,26 +1,23 @@
-.frm{
-    margin:auto;
-    border-style: groove;
-    width: 80vh;
-}
 
-.input{
-    display: flex;
-    border-bottom: groove;
-    padding:15px;
+   .container
+   {
+       display: flex;
+       
+   justify-content: center;
+   margin-top: 20px;
+   
+   }  
+   .card{
+     
+     
+     padding: 16px;
     
-}
-
-#selector {
-    width:35vh;
-}
-
-select{
-    width:20vh;
-}
-
-
-a{
-    padding-right:10px;
-}
-
+      text-align: left;
+   
+   }
+   .error-message {
+    color: red;
+  }
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  } 

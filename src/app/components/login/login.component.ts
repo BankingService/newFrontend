@@ -14,12 +14,12 @@ export class LoginComponent implements OnInit {
 form: FormGroup;
 customerId:string="hii there";
 error_messages = {
-  'id': [
+  'customerId': [
     {  type: 'required', message: 'User Id is required.' }
   ],
 
 
-  'password': [
+  'loginPassword': [
     { type: 'required', message: 'Password is required.' },
       { type: 'minlength', message: 'Password length too small' },
       { type: 'maxlength', message: 'Exceeds password length limit' },
@@ -33,14 +33,14 @@ constructor(public formBuilder: FormBuilder,private router:Router, private servi
 
 ngOnInit() {
   this.form = this.formBuilder.group({
-    id: new FormControl('', Validators.compose([
+    customerId: new FormControl('', Validators.compose([
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(8)
       
     ])),
     
-   password: new FormControl('', Validators.compose([
+   loginPassword: new FormControl('', Validators.compose([
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(15),
