@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CreateAccount } from 'src/app/model_classes/create-account';
 import { Customeraddress } from 'src/app/model_classes/customeraddress';
 import { Customerdocs } from 'src/app/model_classes/customerdocs';
 import { Customerinfo } from 'src/app/model_classes/customerinfo';
+import { ImageDocs } from 'src/app/model_classes/image-docs';
 import { CustomerserviceService } from 'src/app/services/customerservice.service';
 @Component({
   selector: 'app-create-account',
@@ -13,9 +15,7 @@ import { CustomerserviceService } from 'src/app/services/customerservice.service
 export class CreateAccountComponent implements OnInit {
 
   form: FormGroup;
-  customerRequest:Customerinfo;
-  customerRequestAddress:Customeraddress;
-  customerRequestDocs:Customerdocs;
+  
   refId:string;
   msg:string;
 
@@ -186,12 +186,31 @@ export class CreateAccountComponent implements OnInit {
 
   }
 
+  aadharCard:any
+  panCard:any
+ 
+  onFileChange(event) {
+    this.aadharCard = event.target.files[0];
+  }
+
+  onFileChange1(event) {
+    this.panCard = event.target.files[0];
+  }
+
+  customerRequest:Customerinfo;
+  customerRequestAddress:Customeraddress;
+  customerRequestDocs:Customerdocs;
+customerInfo:Customerinfo;
+imageDocs:ImageDocs;
+
+createAccount:CreateAccount
+
   view(createCustomerFormObj){
     this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
       createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
       createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
-    this.customerRequestDocs=new Customerdocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard);
+ // this.customerRequestDocs=new Customerdocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard);
 
  //   alert(JSON.stringify(this.customerRequestAddress));
     this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
@@ -199,7 +218,21 @@ export class CreateAccountComponent implements OnInit {
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
       createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress,this.customerRequestDocs);
    
-    this.addcustomerrequest(this.customerRequest);
+
+  //  this.imageDocs = new ImageDocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard)
+
+   // this.createAccount = new CreateAccount(this.customerRequest,this.imageDocs)
+
+  
+
+    let images: FormData = new FormData();
+    images.append('aadharCard', this.aadharCard);
+    images.append('panCard',this.panCard)
+
+   
+    this.createAccount = new CreateAccount(this.customerRequest,images)
+    console.log(this.createAccount)
+    this.addcustomerrequest(this.createAccount)
   }
 
   addcustomerrequest(customerrequest){

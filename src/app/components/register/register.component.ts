@@ -119,12 +119,14 @@ export class RegisterComponent implements OnInit {
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
        RxwebValidators.compare({fieldName:'profilePassword'})
       ]))
-      
-    }
-      //  { 
-      //   validators: this.password.bind(this)
+    //  RxwebValidators.compare({fieldName:'profilePassword'})
+      // ])),
 
-      // }
+      
+     //   validators: this.password.bind(this),
+
+
+      }
     );
   }
 

@@ -87,7 +87,7 @@ import { ActiveCustomerDetailsComponent } from './Components/active-customer-det
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
  //   RxReactiveFormsModule
   ],
   providers: [CustomerserviceService,AdminServiceService,TransactionstatementService],
