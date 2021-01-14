@@ -11,6 +11,7 @@ import { AdminNavbarComponent } from './components/admin-navbar/admin-navbar.com
 import { AdminloginComponent } from './components/adminlogin/adminlogin.component';
 import { CheckApplicationStatusComponent } from './components/check-application-status/check-application-status.component';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { CreateAccount2Component } from './Components/create-account2/create-account2.component';
 import { CreateaccountstatusComponent } from './Components/createaccountstatus/createaccountstatus.component';
 import { CustomerDetailsComponent } from './components/customer-details/customer-details.component';
 import { DashboardsidebarComponent } from './components/dashboardsidebar/dashboardsidebar.component';
@@ -45,6 +46,7 @@ const routes: Routes = [
   { path: 'createstatus', component: CreateaccountstatusComponent },
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
   { path: 'createaccount', component: CreateAccountComponent },
+  { path: 'createaccount2', component: CreateAccount2Component },
   { path: 'customerdetailsadmin', component: CustomerDetailsComponent },
   { path: 'dashboardsidebar', component: DashboardsidebarComponent },
   { path: 'faq', component: FAQComponent },

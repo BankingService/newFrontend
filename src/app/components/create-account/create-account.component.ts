@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Session } from 'protractor';
 import { CreateAccount } from 'src/app/model_classes/create-account';
 import { Customeraddress } from 'src/app/model_classes/customeraddress';
 import { Customerdocs } from 'src/app/model_classes/customerdocs';
@@ -42,17 +43,11 @@ export class CreateAccountComponent implements OnInit {
       { type: 'maxLength', message: 'Aadhar Number Should be of 12 digit' },
       { type: 'minLength', message: 'Aadhar Number Should be of 12 digit' }
     ],
-    'aadharCard' :[
-      { type : 'required',message :'please upload aadhar'},
-      { type : 'pattern',message : 'please upload in these formats(jpg,png,pdf)' }
-    ],
+   
     'panNumber': [
       { type: 'required', message: 'pan is required.' },
     ],
-    'panCard' :[
-      { type : 'required',message :'please upload pan'},
-      { type : 'pattern',message : 'please upload in these formats(jpg,png,pdf)' }
-    ],
+   
     'dateOfBirth' : [
       {type : 'required', message : 'dob is required'}
     ],
@@ -123,18 +118,12 @@ export class CreateAccountComponent implements OnInit {
         Validators.minLength(12),
         Validators.maxLength(12)
       ])),
-      aadharCard: new FormControl('',Validators.compose([
-        Validators.required,
-        Validators.pattern('^.+\.(([pP][dD][fF])|([jJ][pP][gG])|([pP][nN][gG]))$')
-      ])),
+     
 
       panNumber: new FormControl('', Validators.compose([
         Validators.required
       ])),
-      panCard: new FormControl('',Validators.compose([
-        Validators.required,
-        Validators.pattern('^.+\.(([pP][dD][fF])|([jJ][pP][gG])|([pP][nN][gG]))$')
-      ])),
+ 
       dateOfBirth: new FormControl('',Validators.compose([
         Validators.required
       ])),
@@ -185,60 +174,35 @@ export class CreateAccountComponent implements OnInit {
     });
 
   }
-
-  aadharCard:any
-  panCard:any
- 
-  onFileChange(event) {
-    this.aadharCard = event.target.files[0];
-    this.panCard= event.target.files[1];
-  }
-
   customerRequest:Customerinfo;
   customerRequestAddress:Customeraddress;
-  customerRequestDocs:Customerdocs;
-customerInfo:Customerinfo
-imageDocs:ImageDocs
 
-createAccount:CreateAccount
 
   view(createCustomerFormObj){
     this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
       createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
       createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
- // this.customerRequestDocs=new Customerdocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard);
 
- //   alert(JSON.stringify(this.customerRequestAddress));
     this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
-      createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress,this.customerRequestDocs);
+      createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
    
 
-   // this.imageDocs = new ImageDocs(createCustomerFormObj.value.aadharCard,createCustomerFormObj.value.panCard)
 
-   // this.createAccount = new CreateAccount(this.customerRequest,this.imageDocs)
 
-  
-
-    let images: FormData = new FormData();
-    images.append('aadharCard', this.aadharCard);
-    images.append('panCard',this.panCard)
-
-    this.createAccount = new CreateAccount(this.customerRequest,images)
-    this.addcustomerrequest(this.createAccount)
-
+    this.addcustomerrequest(this.customerRequest)
 
   }
 
   addcustomerrequest(customerrequest){
     this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
       {  alert(JSON.stringify(response));
-           console.log(response);
-           let refId=response.refId;
+           let cid=response.id;
            let msg=response.msg;
-         this.router.navigate(['createstatus',{refId,msg}]);
+           alert(msg)
+         this.router.navigate(['createaccount2',{cid}]);
          })
   }
 
