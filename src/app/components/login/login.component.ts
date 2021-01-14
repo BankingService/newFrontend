@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserLogin } from 'src/app/model_classes/user-login';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +28,7 @@ error_messages = {
   
 }  
 
-constructor(public formBuilder: FormBuilder,private router:Router) { }
+constructor(public formBuilder: FormBuilder,private router:Router, private service:UserService) { }
 
 ngOnInit() {
   this.form = this.formBuilder.group({
@@ -49,10 +51,26 @@ ngOnInit() {
     
   );
 }
- //timer= setTimeout(() => alert("say hii"), 1000);
+login:UserLogin
+message:string
 
-login(){
-  //alert("hi there");
-  this.router.navigate(['accountsummary']);
+userlogin(form){
+  this.login = new UserLogin(form.value.customerId, form.value.loginPassword)
+
+  this.service.verifyUserLogin(this.login).subscribe(response =>
+    {  alert(JSON.stringify(response));
+       console.log(response)
+       if(response.status=='SUCCESS'){
+         let customerId = response.customerId;
+         let accountNumber = response.accountNumber;
+         this.message=response.message;
+         sessionStorage.setItem('customerId', String(customerId));
+         sessionStorage.setItem('accountNumber', String(accountNumber));
+       this.router.navigate(['accountsummary']);
+       }
+       else
+       this.message = response.message;
+       alert(this.message)
+     })
 }
 }
