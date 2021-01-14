@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
 form: FormGroup;
+customerId:string="hii there";
 error_messages = {
   'id': [
     {  type: 'required', message: 'User Id is required.' }
@@ -54,5 +55,6 @@ ngOnInit() {
 changeredir(){
   //alert("hi there");
   this.router.navigate(['accountsummary']);
+  sessionStorage.setItem('custId', this.customerId);
 }
 }
