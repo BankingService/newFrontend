@@ -15,6 +15,11 @@ export class OtpserviceService {
   }
 
   getOtpByAccountNumber(accNo):Observable<any>{
+    let url = "http://localhost:8086/forgotuserid/"+accNo;
+    return this.http.get<any>(url);
+  }
+
+  verifyOtpByAccountNumber(accNo):Observable<any>{
     let url = "http://localhost:8086/forgotUserIdOtpVerified/"+accNo;
     return this.http.get<any>(url);
   }
