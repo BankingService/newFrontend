@@ -80,6 +80,10 @@ export class ForgotPasswordComponent implements OnInit {
         alert("verified");
         this.router.navigate(['setnewpasswordbeforelogin']);
       }
+      else
+      {
+        alert("Invalid otp")
+      }
     
   }
 

@@ -56,10 +56,6 @@ login:UserLogin
 message:string
 
 
-login2:Login2
-login3:Login3
-
-
 userlogin(form){
   this.login = new UserLogin(form.value.customerId, form.value.loginPassword)
   // this.login2=new Login2(this.login)
@@ -93,17 +89,6 @@ userlogin(form){
 }
 }
 
-export class Login2{
-  private login2:UserLogin
-  constructor(login2){
-    this.login2=login2
-  }
-}
 
-export class Login3{
-  private login3:Login2
-  constructor(login3){
-    this.login3=login3
-  }
-}
+
 
