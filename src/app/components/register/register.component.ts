@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
 
   error_messages = {
     'customerId': [
-      { type: 'required', message: 'Account Number is required.' },
+      { type: 'required', message: 'Customer Id is required.' },
     //  { type: 'required', message: 'Account Number must be of 8 digit' }
     ],
 
