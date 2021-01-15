@@ -45,7 +45,7 @@ export class AddBeneficiaryComponent implements OnInit {
     })
   }
   else{
-    alert("hi there")
+    alert("hi there"+f.value.otp+"this is"+this.otpmessage);
   }
 }
   getOtp(){
