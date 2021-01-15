@@ -52,6 +52,9 @@ export class AccountstatementComponent implements OnInit {
     this.transactiondatetime = new Transactiondatetime(fromdate, todate, sessionStorage.getItem('accountNumber'));
      this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data:{})=>{
     this.transactionstatement.push(data);
+    if(this.transactionstatement[0].length==0){
+      alert("no transactions are done within selected date")
+    }
      })
 
     // this.transaction.createTransactionRequest(this.transactiondatetime).subscribe((data: {}) => {
