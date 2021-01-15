@@ -52,14 +52,16 @@
               <th>Transaction Type</th>
               <th>Balance</th>
             </tr>
+            
             <tr *ngFor="let transaction of transactionstatement[0]">
 
-              <td>{{transaction.transactionId}}</td>
+              <td>{{transaction.transactionId}}</td> 
               <td>{{transaction.message}}</td>
               <td>{{transaction.transactionAmount}}</td>
               <td>{{transaction.transactionType}}</td>
               <td>{{transaction. updatedBalance}}</td>
             </tr>
+          
           </table>
         </div>
 

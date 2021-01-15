@@ -75,7 +75,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(8),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/)
 
       ])),
       // otp: new FormControl('', Validators.compose([
@@ -88,7 +88,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         
       ])),
 
@@ -96,7 +96,7 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         RegisterComponent.matchValues('loginPassword'),
       ])),
 
@@ -104,13 +104,13 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       confirmTransactionPassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         RegisterComponent.matchValues('transactionPassword'),
       ])),
 
@@ -118,13 +118,13 @@ export class RegisterComponent implements OnInit {
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/)
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       confirmProfilePassword: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(15),
-        Validators.pattern(/^-?(0|[1-9]\d*)?$/),
+        // Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         RegisterComponent.matchValues('confirmProfilePassword'),
     //  RxwebValidators.compare({fieldName:'profilePassword'})
       ])),

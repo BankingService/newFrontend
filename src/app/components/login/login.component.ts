@@ -75,9 +75,15 @@ userlogin(form){
        if(response.status=='SUCCESS'){
          let customerId = response.customerId;
          let accountNumber = response.accountNumber;
+         let customerName = response.customerName;
+         let ifsc = response.ifsc;
+         let balance = response.accountBalance;
          this.message=response.message;
          sessionStorage.setItem('customerId', String(customerId));
          sessionStorage.setItem('accountNumber', String(accountNumber));
+         sessionStorage.setItem('customerName', String(customerName));
+         sessionStorage.setItem('ifsc', String(ifsc));
+         sessionStorage.setItem('balance', String(balance));
        this.router.navigate(['accountsummary']);
        }
        else

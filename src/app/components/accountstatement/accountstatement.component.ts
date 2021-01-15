@@ -14,8 +14,9 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
 export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
-  transactionstatement: any
+  transactionstatement: any=[]
 
+  flag: boolean = false;
   error_messages = {
 
     'fromdate': [
@@ -50,13 +51,17 @@ export class AccountstatementComponent implements OnInit {
     fromdate = fromdate + "T00:00:00.001";
     todate = todate + "T23:59:59.999";
     this.transactiondatetime = new Transactiondatetime(fromdate, todate, sessionStorage.getItem('accountNumber'));
-     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data:{})=>{
-       alert(data);
-    this.transactionstatement.push(data);
-    if(this.transactionstatement[0].length==0){
-      alert("no transactions are done within selected date")
-    }
-     })
+    this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
+      alert(JSON.stringify(data));
+      this.transactionstatement.push(data);
+      alert(this.transactionstatement)
+      if (this.transactionstatement[0].length == 0) {
+        alert("no transactions are done within selected date")
+      }
+      else {
+        this.flag = true;
+      }
+    })
 
     // this.transaction.createTransactionRequest(this.transactiondatetime).subscribe((data: {}) => {
     //   alert(JSON.stringify(data))

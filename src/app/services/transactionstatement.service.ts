@@ -21,8 +21,9 @@ export class TransactionstatementService {
     return this.http.post<any>(this.apiUrl + 'transact/', transactionStatement);
   }
 
-  createBeneficiaryRequest(customerId, beneficiary): Observable<any> {
-    return this.http.post<any>(this.apiUrl + 'addBeneficiary/'+customerId,beneficiary);
+  createBeneficiaryRequest(beneficiary): Observable<any> {
+    alert(beneficiary);
+    return this.http.post<any>(this.apiUrl + 'addBeneficiary/',beneficiary);
   }
 
   createNoOfBeneficiariesRequest(customerId):Observable<any>{
@@ -31,6 +32,10 @@ export class TransactionstatementService {
 
   getBeneficiaryOtp(customerId):Observable<any>{
     return this.http.get<any>(this.apiUrl+'addBeneficiaryOtp/'+customerId);
+  }
+
+  getTransactionOtp(customerId):Observable<any>{
+    return this.http.get<any>(this.apiUrl+'getTransactionOtp/'+customerId);
   }
 
 

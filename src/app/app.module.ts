@@ -99,7 +99,7 @@ import { OtpserviceService } from './services/otpservice.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
  //   RxReactiveFormsModule
   ],
   providers: [CustomerserviceService,AdminServiceService,TransactionstatementService,UserService,OtpserviceService],

@@ -1,5 +1,14 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
 
-<p style="margin-left:15%;padding:1px 16px;">accountsummary works!{{msge.test1.blue}}</p>
+<!-- <p style="margin-left:15%;padding:1px 16px;">accountsummary works!{{msge.test1.blue}}</p> -->
 
+<div class="card bg-light mb-3" style="margin-left: 30vh;margin-right: 20vh; margin-top: 10vh; position: relative; ">
+    <div class="card-header">{{customerName}}</div>
+    <div class="card-body">
+      <h5 class="card-title">Customer Id: {{customerId}}</h5>
+      <h5 class="card-title">Account Number: {{accountNumber}}</h5>
+      <h5 class="card-title">IFSC: {{ifsc}}</h5>
+      <h5 class="card-title">Account Balance: {{balance}}</h5>
+    </div>
+  </div>
