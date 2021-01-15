@@ -30,6 +30,7 @@ import { NeftComponent } from './components/neft/neft.component';
 import { ProfilepassComponent } from './components/profilepass/profilepass.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RtgsComponent } from './components/rtgs/rtgs.component';
+import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
 import { SetnewpasswordComponent } from './components/setnewpassword/setnewpassword.component';
 import { TransactionHistoryComponent } from './components/transaction-history/transaction-history.component';
 import { TransactionSuccessfulComponent } from './components/transaction-successful/transaction-successful.component';
@@ -62,6 +63,7 @@ const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
+  { path: 'setnewpasswordbeforelogin', component: SetNewPasswordBeforeLoginComponent },
   { path: 'transhistory', component: TransactionHistoryComponent },
   { path: 'transsuccess', component: TransactionSuccessfulComponent },
   { path: 'useraccount', component: UserAccountComponent },

@@ -13,12 +13,9 @@ export class AddBeneficiaryComponent implements OnInit {
   form1: FormGroup;
   flag:boolean = false;
   beneficiary: any[] = [];
+  otpmessage: any;
   constructor( private service : TransactionstatementService) { }
 
-  setFlag(){
-    console.log("hello")
-    this.flag = true;
-  }
   ngOnInit() {
     this.form1 = new FormGroup({
       accountNo: new FormControl('', [Validators.required, Validators.pattern("[0-9]*")]),
@@ -30,36 +27,29 @@ export class AddBeneficiaryComponent implements OnInit {
     })
   }
 
-  customerId:any
-  otp:any
+  customerId = sessionStorage.customerId
+
 
   addBeneficiary(f){
-    this.beneficiary.push(f.value);
-    console.log("this is the userList: "+this.beneficiary.toString())
+    if(f.value.otp == this.otpmessage){
+      this.beneficiary.push(f.value);
     console.log(JSON.stringify(this.beneficiary));
-    this.customerId=sessionStorage.customerId
-
-    this.service.createBeneficiaryRequest(f,this.customerId).subscribe(response =>{
-
-      alert(JSON.stringify(response))
-       this.otp = response.otp;
-
-    }
-      
-      )
-    
+    this.service.createBeneficiaryRequest(f,this.customerId).subscribe(response => {
+            alert(JSON.stringify(response))
+    })
   }
 
+  else{
+    alert("incorrect otp")
+  }
+}
   getOtp(){
+    this.service.getBeneficiaryOtp(this.customerId).subscribe(response=>{
+    alert(JSON.stringify(response))
+   this.otpmessage=response.message
+   alert(this.otpmessage)
+    })
     
-  }
-
-
-  checkOtp(formOtp){
- if(formOtp == this.otp){
-
- }
-
   }
 
 
