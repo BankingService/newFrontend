@@ -33,9 +33,13 @@ export class AddBeneficiaryComponent implements OnInit {
 
   addBeneficiary(f){
     if(f.value.otp == this.otpmessage){
-      this.beneficiary = new Beneficiary(this.customerId, f.value.beneficiaryAccountNumber,f.value.beneficiaryName,
-        f.value.beneficiaryNickname, f.value.beneficiaryIfsc)
-    // console.log(JSON.stringify(this.beneficiary));
+
+      this.beneficiary = new Beneficiary(this.customerId, f.value.accountNo,f.value.name,
+        f.value.nickName, f.value.ifsc)
+
+        console.log(f.value.accountNo)
+
+    console.log(JSON.stringify(this.beneficiary));
     this.service.createBeneficiaryRequest(this.beneficiary).subscribe(response => {
             alert(JSON.stringify(response))
     })

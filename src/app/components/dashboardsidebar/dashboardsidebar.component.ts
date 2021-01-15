@@ -19,7 +19,6 @@ export class DashboardsidebarComponent implements OnInit {
 
 toggleactivelink(k){
   
- 
       var current = document.getElementsByClassName("active");
       current[0].className = current[0].className.replace(" active", "");
        this.links[k].className += " active";
