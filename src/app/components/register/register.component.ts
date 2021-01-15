@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
 
 
   error_messages = {
-    'accountNumber': [
+    'customerId': [
       { type: 'required', message: 'Account Number is required.' },
     //  { type: 'required', message: 'Account Number must be of 8 digit' }
     ],
@@ -71,7 +71,7 @@ export class RegisterComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private service:UserService, private router:Router) { }
   ngOnInit() {
     this.form = this.formBuilder.group({
-      accountNumber: new FormControl('', Validators.compose([
+      customerId: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(8),
         Validators.maxLength(8),
@@ -102,28 +102,28 @@ export class RegisterComponent implements OnInit {
 
       transactionPassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(4),
+        Validators.minLength(6),
+        Validators.maxLength(15),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       confirmTransactionPassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(4),
+        Validators.minLength(6),
+        Validators.maxLength(15),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         RegisterComponent.matchValues('transactionPassword'),
       ])),
 
       profilePassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(4),
+        Validators.minLength(6),
+        Validators.maxLength(15),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/)
       ])),
       confirmProfilePassword: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(10),
+        Validators.minLength(6),
+        Validators.maxLength(15),
         Validators.pattern(/^-?(0|[1-9]\d*)?$/),
         RegisterComponent.matchValues('confirmProfilePassword'),
     //  RxwebValidators.compare({fieldName:'profilePassword'})
@@ -151,7 +151,7 @@ export class RegisterComponent implements OnInit {
   register:Register
 message:string
   Registration(form) {
-    this.register = new Register(form.value.accountNumber, form.value.loginPassword,form.value.transactionPassword,form.value.profilePassword)
+    this.register = new Register(form.value.customerId, form.value.loginPassword,form.value.transactionPassword,form.value.profilePassword)
     console.log(this.register)
     this.service.registerUser(this.register).subscribe(response =>
       {  alert(JSON.stringify(response));

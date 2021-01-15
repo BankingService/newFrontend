@@ -1,11 +1,17 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
+<div>
+<div *ngIf="flag==true" style="margin-left:15%;padding:1px 16px;height:1000px;text-align: center;" class="error-message">
+  please add beneficiaries to send and recieve 
+</div>
 <div style="margin-left:15%;padding:1px 16px;height:1000px;text-align: center;">
 <ul class="nav navbar-nav">
   <li><a href="#" routerLink="/imps">IMPS Transaction</a></li>
   <li><a href="#" routerLink="/neft">Neft Transaction</a></li>
   <li><a href="#" routerLink="/rtgs">RTGS Transaction</a></li>
 </ul>
+
+</div>
 </div>
 <router-outlet></router-outlet>
 

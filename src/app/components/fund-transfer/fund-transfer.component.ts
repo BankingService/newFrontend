@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 
 @Component({
   selector: 'app-fund-transfer',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fund-transfer.component.css']
 })
 export class FundTransferComponent implements OnInit {
-
-  constructor() { }
+  num:any=[]
+  flag:boolean=false;
+  constructor(private noOfBeneficiaries:TransactionstatementService) { }
 
   ngOnInit() {
+    this.noOfBeneficiaries.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
+      this.num.push(data);
+      if(this.num.length==0){
+        this.flag=true;
+      }
+    })
   }
+
 
 }

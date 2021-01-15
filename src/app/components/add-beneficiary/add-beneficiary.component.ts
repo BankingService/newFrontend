@@ -50,10 +50,14 @@ export class AddBeneficiaryComponent implements OnInit {
     
   }
 
+  getOtp(){
+    
+  }
+
 
   checkOtp(formOtp){
  if(formOtp == this.otp){
-   
+
  }
 
   }

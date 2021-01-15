@@ -35,19 +35,20 @@ import { TransactionHistoryComponent } from './components/transaction-history/tr
 import { TransactionSuccessfulComponent } from './components/transaction-successful/transaction-successful.component';
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
+import { AdminAuthGuardService } from './services/admin-auth-guard.service';
 
 const routes: Routes = [
   // {path : '', component:HomeComponent},
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'adminlogin', component: AdminloginComponent },
-  { path: 'acceptedcust', component: AdminAcceptedCustomersComponent },
-  { path: 'activecustdetails', component: ActiveCustomerDetailsComponent },
-  { path: 'blockedcust', component:BlockedCustomersComponent},
-  { path: 'blockedcustdetails', component: BlockedCustomerDetailsComponent },
+  { path: 'acceptedcust', component: AdminAcceptedCustomersComponent ,canActivate:[AdminAuthGuardService]},
+  { path: 'activecustdetails', component: ActiveCustomerDetailsComponent ,canActivate:[AdminAuthGuardService]},
+  { path: 'blockedcust', component:BlockedCustomersComponent ,canActivate:[AdminAuthGuardService]},
+  { path: 'blockedcustdetails', component: BlockedCustomerDetailsComponent ,canActivate:[AdminAuthGuardService]},
+  { path: 'admindashboard', component: AdminDashBoardComponent ,canActivate:[AdminAuthGuardService]},
+  { path: 'adminnavbar', component: AdminNavbarComponent ,canActivate:[AdminAuthGuardService]},
   { path: 'accountstatement', component: AccountstatementComponent },
-  { path: 'admindashboard', component: AdminDashBoardComponent },
-  { path: 'adminnavbar', component: AdminNavbarComponent },
   { path: 'createstatus', component: CreateaccountstatusComponent },
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
   { path: 'createaccount', component: CreateAccountComponent },
