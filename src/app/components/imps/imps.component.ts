@@ -19,6 +19,7 @@ export class ImpsComponent implements OnInit {
   fromAccountNo:string[]=[sessionStorage.getItem('accountNumber')];
   toAccountNo:any = [] ;
   msg:string;
+  ImpsNumber:number=3;
   otpMessage:string;
 
   constructor(private route:Router,private transaction:TransactionstatementService) { }
@@ -55,16 +56,16 @@ export class ImpsComponent implements OnInit {
     // fromDate":"2017-01-13T17:09:42.411",
     //alert(form2.value.fromAccount+form2.value.toAccount);
     this.transactionRequest=new Transaction(form2.value.fromAccount,form2.value.toAccount,
-      form2.value.amount,3,form2.value.transactionPwd ,form2.value.remark,sessionStorage.getItem('customerId'));
-
+      form2.value.amount,this.ImpsNumber,form2.value.transactionPwd ,form2.value.remark,sessionStorage.getItem('customerId'));
+      alert(JSON.stringify(this.transactionRequest));
    // alert(JSON.stringify(this.transactionRequest));
     this.transaction.createTransactionRequest(this.transactionRequest).subscribe(response =>
       {  //alert(JSON.stringify(response));
            console.log(response);
            this. msg=response.message;
            this.showstatus();
-           sessionStorage.balance=response.updatedBalance;
-           alert("updated:"+sessionStorage.balance)
+          //  sessionStorage.balance=response.updatedBalance;
+          //  alert("updated:"+sessionStorage.balance)
          this.route.navigate(['transsuccess',response]);
          })
 
