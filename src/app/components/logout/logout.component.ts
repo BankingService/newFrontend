@@ -20,6 +20,7 @@ export class LogoutComponent implements OnInit {
     
    
 this.preventBackButton();
+this.lastlogin();
     setTimeout(() => {
       this.router.navigate(['home']);
     }, 5000);
@@ -34,7 +35,7 @@ this.preventBackButton();
   lastlogin(){
   this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {}) => { 
     this.lastlog.push(data)
-    this.locationfind();
+    //this.locationfind();
   })
   // location from ip address
   // https://www.melissa.com/v2/lookups/iplocation/ip/223.182.242.158?fmt=json&id=
