@@ -32,7 +32,7 @@ export class UserService {
 
   viewProfileById(id): Observable<any>  {
     let url = "http://localhost:8086/viewProfileDetails/"+id;
-   return this.http.post<any>(url, id); 
+   return this.http.get<any>(url); 
   }
 
   editDetails(customerInfo): Observable<any>  {
