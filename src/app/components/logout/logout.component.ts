@@ -11,10 +11,7 @@ import { LogoutService } from 'src/app/services/logout.service';
 })
 export class LogoutComponent implements OnInit {
 
-  lastlog:{
-    "lastLoginDateTime":"",
-     "lastLoginIpAddress":""
-  };
+  lastlog:any=[]
   constructor(public router:Router,private locationStrategy: LocationStrategy,public service:LogoutService) { 
     
   }
@@ -35,9 +32,8 @@ this.preventBackButton();
     })
   }
   lastlogin(){
-  this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {"lastLoginDateTime":"",
-  "lastLoginIpAddress":""}) => { 
-    this.lastlog=data;
+  this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {}) => { 
+    this.lastlog.push(data)
     this.locationfind();
   })
   // location from ip address
