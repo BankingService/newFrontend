@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-transaction-successful',
@@ -15,12 +16,16 @@ export class TransactionSuccessfulComponent implements OnInit {
     "Date": "12-10-2100",
     "Remarks": "Enjoy!!"
   }
-  constructor( ) { 
+  constructor(private router:Router ) { 
   }
 
   ngOnInit() {
   }
 getTransactionDetails(customerId){
+
+  }
+  changedir(){
+    this.router.navigate(["accountsummary"]);
 
   }
 }

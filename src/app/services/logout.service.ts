@@ -11,7 +11,7 @@ export class LogoutService {
    
   lastLogin(custId): Observable<any>  {
     
-    let url = "http://localhost:8086/userLogin/logout/"+custId;
+    let url = "http://localhost:8086/logout/"+custId;
    return this.http.get<any>(url); 
   }
   lastLocation(ipadd): Observable<any>  {
