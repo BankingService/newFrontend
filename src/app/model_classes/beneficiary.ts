@@ -1,13 +1,13 @@
 export class Beneficiary {
-    private beneficiaryID:number;
+    private customerId:number;
 	private beneficiaryAccountNumber:number;
 	private beneficiaryName:string;
     private beneficiaryNickName:string;
     private beneficiaryIfsc:string;
 
-    constructor(beneficiaryID:number,beneficiaryAccountNumber:number,beneficiaryName:string,
+    constructor(customerId:number,beneficiaryAccountNumber:number,beneficiaryName:string,
         beneficiaryNickName:string,beneficiaryIfsc:string){
-            this.beneficiaryID=beneficiaryID;
+            this.customerId=customerId;
             this.beneficiaryAccountNumber=beneficiaryAccountNumber;
             this.beneficiaryName=beneficiaryName;
             this.beneficiaryNickName=beneficiaryNickName;
