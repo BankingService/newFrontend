@@ -33,6 +33,10 @@ export class TransactionstatementService {
     return this.http.get<any>(this.apiUrl+'addBeneficiaryOtp/'+customerId);
   }
 
+  getTransactionOtp(customerId):Observable<any>{
+    return this.http.get<any>(this.apiUrl+'getTransactionOtp/'+customerId);
+  }
+
 
 
 }

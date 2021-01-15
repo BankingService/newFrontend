@@ -13,10 +13,10 @@ export class RtgsComponent implements OnInit {
   form1: FormGroup;
   transactionRequest:Transaction;
   flag:boolean = false;
-  fromAccountNo:string=sessionStorage.getItem('accountNumber');
+  fromAccountNo:string[]=[sessionStorage.getItem('accountNumber')];
   toAccountNo:any = [];
   msg:string;
-
+  otpMessage:string;
   constructor(private route:Router,private transaction:TransactionstatementService) { }
 
   ngOnInit() {
@@ -34,6 +34,7 @@ export class RtgsComponent implements OnInit {
     })
   }
   setFlag(){
+    this.getOtp();
     this.flag = true;
   }
   transactionrequest(form2){
@@ -50,7 +51,7 @@ export class RtgsComponent implements OnInit {
     // fromDate":"2017-01-13T17:09:42.411",
     //alert(form2.value.fromAccount+form2.value.toAccount);
     this.transactionRequest=new Transaction(form2.value.fromAccount,form2.value.toAccount,form2.value.amount,2,
-      form2.value.transactionPwd ,form2.value.remark,form2.value.otp,sessionStorage.getItem('customerId'));
+      form2.value.transactionPwd ,form2.value.remark,sessionStorage.getItem('customerId'));
 
    // alert(JSON.stringify(this.transactionRequest));
     this.transaction.createTransactionRequest(this.transactionRequest).subscribe(response =>
@@ -65,6 +66,13 @@ export class RtgsComponent implements OnInit {
   }
   showstatus(){
     alert(this.msg);
+  }
+  getOtp(){
+    this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response=>{
+      alert(JSON.stringify(response))
+     this.otpMessage=response.message
+     alert(this.otpMessage)
+      })
   }
  
 }
