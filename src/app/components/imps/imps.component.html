@@ -29,6 +29,10 @@
                 <select id="toAccount" class="form-control" formControlName="toAccount">
                     <option>-Select-</option>
                     <option *ngFor="let account of toAccountNo[0]" value="{{account.beneficiaryAccountNumber}}">{{account.beneficiaryAccountNumber}}</option>
+<<<<<<< HEAD
+                    <!-- <option *ngFor="let account of toAccountNo" value="{{account}}">{{account}}</option> -->
+=======
+>>>>>>> 77d19aa330193ca085d3086e63fcbcf3d14ef2c7
                 </select>
 
                 <div *ngIf="form1.get('toAccount').touched && form1.get('toAccount').invalid" class="alert alert-danger">

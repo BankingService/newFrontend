@@ -32,12 +32,16 @@ export class UserService {
 
   viewProfileById(id): Observable<any>  {
     let url = "http://localhost:8086/viewProfileDetails/"+id;
-   return this.http.get<any>(url); 
+   return this.http.post<any>(url, id); 
   }
 
   editDetails(customerInfo): Observable<any>  {
     let url = "http://localhost:8086/editCustomerDetails/";
    return this.http.post<any>(url,customerInfo); 
   }
-
+  
+  setNewPasswords(id,loginPassword,transactionPassword):Observable<any>{
+    let url = "http://localhost:8086/setnewpassword/"+id+"/"+loginPassword+"/"+transactionPassword;
+    return this.http.get<any>(url);
+  }
 }

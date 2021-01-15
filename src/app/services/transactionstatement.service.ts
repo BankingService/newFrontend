@@ -21,7 +21,8 @@ export class TransactionstatementService {
     return this.http.post<any>(this.apiUrl + 'transact/', transactionStatement);
   }
 
-  createBeneficiaryRequest( beneficiary): Observable<any> {
+  createBeneficiaryRequest(beneficiary): Observable<any> {
+    alert(beneficiary);
     return this.http.post<any>(this.apiUrl + 'addBeneficiary/',beneficiary);
   }
 
