@@ -1,4 +1,4 @@
-import { Timestamp } from "rxjs";
+
 
 export class Transaction {
     private fromAccountNumber:string;
