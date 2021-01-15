@@ -1,6 +1,6 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
-<h3 style="text-align: center;width:100%;">Initiate IMPS Transaction</h3>
+<h3 style="text-align: center;width:100%;">Initiate RTGS Transaction</h3>
 <div class=frm>
     <form [formGroup]="form1" (ngSubmit)="transactionrequest(form1)">
 
@@ -28,7 +28,7 @@
             <div>
                 <select id="toAccount" class="form-control" formControlName="toAccount">
                     <option>-Select-</option>
-                    <option *ngFor="let account of toAccountNo[0]" value="{{account.beneficiaryAccountNumber}}">{{account}}</option>
+                    <option *ngFor="let account of toAccountNo[0]" value="{{account.beneficiaryAccountNumber}}">{{account.beneficiaryAccountNumber}}</option>
                 </select>
 
                 <div *ngIf="form1.get('toAccount').touched && form1.get('toAccount').invalid" class="alert alert-danger">
