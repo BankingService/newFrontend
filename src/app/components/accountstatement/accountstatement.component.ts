@@ -14,7 +14,7 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
 export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
-  transactionstatement: TransactionStatement[] = [];
+  transactionstatement: any = [];
 
   error_messages = {
 
@@ -57,6 +57,7 @@ export class AccountstatementComponent implements OnInit {
 
     this.transaction.createTransactionRequest(this.transactiondatetime).subscribe((data: {}) => {
       alert(JSON.stringify(data))
+      this.transactionstatement.push(data);
     })
     // location from ip address
     // https://www.melissa.com/v2/lookups/iplocation/ip/223.182.242.158?fmt=json&id=
