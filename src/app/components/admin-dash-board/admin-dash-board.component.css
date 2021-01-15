@@ -10,3 +10,8 @@
     border: 1px solid black;
     border-collapse: collapse;
   }
+  .frm{
+    margin:auto;
+    border-style: groove;
+    width: 100vh;
+}
