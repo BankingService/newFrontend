@@ -140,8 +140,14 @@
 					</div>
 				</ng-container>
 			</div>
+			<div class="form-group row" class="text-center">
+				<input type="button" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;"
+				  (click)="getOtp(form.value.customerId)" value="Proceed">
+				</div>
 
-			<!-- <div class="form-group row">
+		  
+				<div *ngIf="flag==true">
+			 <div class="form-group row">
 
 				<label for="inputPassword" class="col-sm-4 col-form-label"> Enter OTP <span
 						style="color:red">*</span></label>
@@ -158,7 +164,7 @@
 
 					</div>
 				</ng-container>
-			</div> -->
+			</div>
 
 			<div class="wrapper" class="text-center">
 				<button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
@@ -166,6 +172,7 @@
 					>Register</button>
 			</div>
 			<!-- [disabled]="!form.valid" -->
+		</div>
 		</form>
 
 	</div>

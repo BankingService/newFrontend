@@ -22,5 +22,9 @@ export class CustomerserviceService {
    return this.http.post<any>(url, formData); 
   }
 
+  verifyEmailOtp(emailId) : Observable<any> {
+    let url = 'http://localhost:8086/verifyEmailOtp/'+emailId;
+     return this.http.get<any>(url); 
+  }
   
 }

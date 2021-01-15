@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
 import { Register } from 'src/app/model_classes/register';
 import { UserService } from 'src/app/services/user.service';
+import { OtpserviceService } from 'src/app/services/otpservice.service';
 //import { RxwebValidators } from '@rxweb/reactive-form-validators';
 @Component({
   selector: 'app-register',
@@ -65,10 +66,15 @@ export class RegisterComponent implements OnInit {
       { type: 'minlength', message: 'password length.' },
       { type: 'maxlength', message: 'password length.' },
       { type: 'pattern', message: 'password must consist one special character,one alphabet and one numeric' }
+    ],
+    'otp': [
+      { type: 'required', message: 'OTP is required' },
+      { type: 'minlength', message: 'Enter 4 digit OTP' },
+      { type: 'maxlength', message: 'Enter 4 digit OTP' },
     ]
   }
 
-  constructor(public formBuilder: FormBuilder, private service:UserService, private router:Router) { }
+  constructor(public formBuilder: FormBuilder, private service:UserService, private router:Router, private otpservice:OtpserviceService) { }
   ngOnInit() {
     this.form = this.formBuilder.group({
       customerId: new FormControl('', Validators.compose([
@@ -128,6 +134,11 @@ export class RegisterComponent implements OnInit {
         RegisterComponent.matchValues('confirmProfilePassword'),
     //  RxwebValidators.compare({fieldName:'profilePassword'})
       ])),
+      otp: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(4),
+      ])),
 })
     }
   
@@ -153,6 +164,11 @@ message:string
   Registration(form) {
     this.register = new Register(form.value.customerId, form.value.loginPassword,form.value.transactionPassword,form.value.profilePassword)
     console.log(this.register)
+    let otp = form.value.otp
+    console.log(otp)
+    if(otp==this.message){
+        alert("verified");
+      }
     this.service.registerUser(this.register).subscribe(response =>
       {  alert(JSON.stringify(response));
          console.log(response)
@@ -168,6 +184,17 @@ message:string
        })
   }
 
+  flag:boolean=false;
+
+  getOtp(id){
+    this.flag=true;
+    console.log(id);
+    let temp=id;
+    sessionStorage.setItem('initialId',temp)
+    this.otpservice.getOtpForRegistration(id).subscribe(response => {
+      alert(response.message)
+      this.message = response.message;})
+  }
 
 
   }
