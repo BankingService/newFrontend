@@ -21,3 +21,8 @@
   input.ng-touched.ng-invalid {
     border: 1px solid red;
   } 
+  .frm{
+    margin:auto;
+    border-style: groove;
+    width: 100vh;
+}
