@@ -37,6 +37,7 @@ import { TransactionSuccessfulComponent } from './components/transaction-success
 import { UserAccountComponent } from './components/user-account/user-account.component';
 import { UserdashboardComponent } from './components/userdashboard/userdashboard.component';
 import { AdminAuthGuardService } from './services/admin-auth-guard.service';
+import { UserAuthGaurdService } from './services/user-auth-gaurd.service';
 
 const routes: Routes = [
   // {path : '', component:HomeComponent},
@@ -49,32 +50,32 @@ const routes: Routes = [
   { path: 'blockedcustdetails', component: BlockedCustomerDetailsComponent ,canActivate:[AdminAuthGuardService]},
   { path: 'admindashboard', component: AdminDashBoardComponent ,canActivate:[AdminAuthGuardService]},
   { path: 'adminnavbar', component: AdminNavbarComponent ,canActivate:[AdminAuthGuardService]},
-  { path: 'accountstatement', component: AccountstatementComponent },
+  { path: 'accountstatement', component: AccountstatementComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'createstatus', component: CreateaccountstatusComponent },
   { path: 'checkapplication', component: CheckApplicationStatusComponent },
   { path: 'createaccount', component: CreateAccountComponent },
   { path: 'createaccount2', component: CreateAccount2Component },
   { path: 'customerdetailsadmin', component: CustomerDetailsComponent },
-  { path: 'dashboardsidebar', component: DashboardsidebarComponent },
-  { path: 'faq', component: FAQComponent },
-  { path: 'profilepass', component: ProfilepassComponent },
+  { path: 'dashboardsidebar', component: DashboardsidebarComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'faq', component: FAQComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'profilepass', component: ProfilepassComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'forgotpass', component: ForgotPasswordComponent },
-  { path: 'fundtransfer', component: FundTransferComponent },
-  { path: 'logout', component: LogoutComponent },
+  { path: 'fundtransfer', component: FundTransferComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'logout', component: LogoutComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'register', component: RegisterComponent },
   { path: 'setnewpassword', component: SetnewpasswordComponent },
   { path: 'setnewpasswordbeforelogin', component: SetNewPasswordBeforeLoginComponent },
   { path: 'transhistory', component: TransactionHistoryComponent },
-  { path: 'transsuccess', component: TransactionSuccessfulComponent },
+  { path: 'transsuccess', component: TransactionSuccessfulComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'useraccount', component: UserAccountComponent },
   { path:'changedetails', component:ChangeuserdetailsComponent},
-  { path: 'accountsummary', component: AccountsummaryComponent },
-  { path: 'userdashboard', component: UserdashboardComponent },
-  { path: 'neft', component: NeftComponent },
-  { path: 'rtgs', component: RtgsComponent },
-  { path: 'imps', component: ImpsComponent },
+  { path: 'accountsummary', component: AccountsummaryComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'userdashboard', component: UserdashboardComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'neft', component: NeftComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'rtgs', component: RtgsComponent ,canActivate:[UserAuthGaurdService]},
+  { path: 'imps', component: ImpsComponent ,canActivate:[UserAuthGaurdService]},
   { path: 'forgotuserid', component: ForgotuseridComponent },
-  { path: 'addBeneficiary', component: AddBeneficiaryComponent },
+  { path: 'addBeneficiary', component: AddBeneficiaryComponent ,canActivate:[UserAuthGaurdService]},
   { path: '', component: HomeComponent }
   // { path:'', redirectTo:'rtgs',pathMatch:'full'}
 ];
