@@ -11,10 +11,12 @@ export class FundTransferComponent implements OnInit {
   flag:boolean=false;
   constructor(private noOfBeneficiaries:TransactionstatementService) { }
 
-  ngOnInit() {
+  ngOnInit(){
+    alert("hello")
     this.noOfBeneficiaries.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
       this.num.push(data);
       if(this.num.length==0){
+        alert("hello2")
         this.flag=true;
       }
     })

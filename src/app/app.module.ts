@@ -98,7 +98,7 @@ import { SetNewPasswordBeforeLoginComponent } from './components/set-new-passwor
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
  //   RxReactiveFormsModule
   ],
   providers: [CustomerserviceService,AdminServiceService,TransactionstatementService,UserService],

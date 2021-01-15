@@ -21,7 +21,12 @@ export class TransactionstatementService {
     return this.http.post<any>(this.apiUrl + 'transact/', transactionStatement);
   }
 
+<<<<<<< HEAD
   createBeneficiaryRequest( beneficiary): Observable<any> {
+=======
+  createBeneficiaryRequest(beneficiary): Observable<any> {
+    alert(beneficiary);
+>>>>>>> 226995ac5915210d2d073a21b0884e5bc045f7d3
     return this.http.post<any>(this.apiUrl + 'addBeneficiary/',beneficiary);
   }
 

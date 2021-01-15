@@ -12,6 +12,7 @@ export class Beneficiary {
             this.beneficiaryName=beneficiaryName;
             this.beneficiaryNickName=beneficiaryNickName;
             this.beneficiaryIfsc=beneficiaryIfsc;
+            
 
     }
 

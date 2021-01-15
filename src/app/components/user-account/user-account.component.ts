@@ -14,7 +14,7 @@ export class UserAccountComponent implements OnInit {
   custdetails: any=[]
   constructor(private router:Router, private service:UserService) { }
  
-  customerId=sessionStorage.customerId
+  customerId: number =sessionStorage.customerId
 
   ngOnInit() {
       this.service.viewProfileById(this.customerId)
