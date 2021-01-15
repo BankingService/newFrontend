@@ -46,6 +46,7 @@ import { CreateAccount2Component } from './Components/create-account2/create-acc
 import { ProfilepassComponent } from './components/profilepass/profilepass.component';
 import { BlockedCustomersComponent } from './Components/blocked-customers/blocked-customers.component';
 import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
+import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -88,7 +89,8 @@ import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-d
     CreateAccount2Component,
     ProfilepassComponent,
     BlockedCustomersComponent,
-    BlockedCustomerDetailsComponent
+    BlockedCustomerDetailsComponent,
+    SetNewPasswordBeforeLoginComponent
   ],
   imports: [
     FormsModule,

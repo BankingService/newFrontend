@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { OtpserviceService } from 'src/app/services/otpservice.service';
 
 @Component({
   selector: 'app-forgot-password',
@@ -12,6 +13,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   
   loginForm: FormGroup;
+  form: FormGroup;
+  otp : any;
   
   flag:boolean=false;
   error_messages = {
@@ -27,7 +30,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   constructor(
-    public formBuilder: FormBuilder,private router:Router
+    public formBuilder: FormBuilder,private router:Router, private service: OtpserviceService
   //  private http: HttpClient,private router: Router,
    // private service:ConnectionService
   ) {
@@ -41,26 +44,39 @@ export class ForgotPasswordComponent implements OnInit {
         Validators.required,
         Validators.maxLength(6)
       ])),
-      
-      
+    },
+    )
+
+    this.form = this.formBuilder.group({
+         
       OTP: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(30),
         
       ])),
-    },
-    );
+    },);
     
     // { 
     //   validators: this.password.bind(this)
     // });
   }
-  changeredir(){
-    this.router.navigate(['login']);
+
+  message: any;
+  
+  getotp(id){
+    this.flag=true;
+    console.log(id);
+    this.service.getOtp(id).subscribe(response => {
+      this.message = response.message;})
   }
-  setchange(){
-this.flag=true;
+
+  verifyotp(otp){
+    console.log(otp)
+    if(otp==this.message){
+        alert("verified");
+      }
+    this.router.navigate(['setnewpasswordbeforelogin']);
   }
 
   

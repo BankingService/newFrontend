@@ -29,7 +29,8 @@ export class RtgsComponent implements OnInit {
       remark:new FormControl('')
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
-      this.toAccountNo.push(data);
+     alert(data);
+      // this.toAccountNo.push(data);
     })
   }
   setFlag(){
