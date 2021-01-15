@@ -67,7 +67,6 @@ export class ProfilepassComponent implements OnInit {
     this.router.navigate(['useraccount'])
   //   this.service.verifyProfile(this.profilecheck,1).subscribe(response =>
   //  {  alert(JSON.stringify(response));
-  //     console.log(response)
   //     if(response.status=='SUCCESS'){
   //       this.message=response.message;
   //     this.router.navigate(['admindashboard']);
