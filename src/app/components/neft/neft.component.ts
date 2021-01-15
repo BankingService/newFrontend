@@ -32,7 +32,7 @@ export class NeftComponent implements OnInit {
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
      alert(data);
-      //this.toAccountNo.push(data);
+      this.toAccountNo.push(data);
     })
   }
   setFlag(){
