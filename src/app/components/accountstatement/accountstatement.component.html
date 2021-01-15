@@ -52,6 +52,7 @@
               <th>Transaction Type</th>
               <th>Balance</th>
             </tr>
+            <!-- <div *ngIf="flag==true"> -->
             <tr *ngFor="let transaction of transactionstatement[0]">
 
               <td>{{transaction.transactionId}}</td>
@@ -60,6 +61,7 @@
               <td>{{transaction.transactionType}}</td>
               <td>{{transaction. updatedBalance}}</td>
             </tr>
+          <!-- </div> -->
           </table>
         </div>
 

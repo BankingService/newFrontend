@@ -12,6 +12,7 @@ import { LogoutService } from 'src/app/services/logout.service';
 export class LogoutComponent implements OnInit {
 
   lastlog:any=[]
+  flag:boolean = false;
   constructor(public router:Router,private locationStrategy: LocationStrategy,public service:LogoutService) { 
     
   }
@@ -37,7 +38,8 @@ this.lastlogin();
   this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {}) => { 
     alert(data);
    this.lastlog.push(data)
-    //this.locationfind();
+   this.flag=true;
+    // this.locationfind();
   })
   // location from ip address
   // https://www.melissa.com/v2/lookups/iplocation/ip/223.182.242.158?fmt=json&id=
