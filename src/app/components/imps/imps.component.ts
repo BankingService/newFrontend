@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { json } from '@rxweb/reactive-form-validators';
 
 import { Transaction } from 'src/app/dtoClass/transaction';
 
@@ -32,8 +33,8 @@ export class ImpsComponent implements OnInit {
       remark:new FormControl('')
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
-      alert(data);
-      //this.toAccountNo.push(data);
+      alert(JSON.stringify(data));
+      this.toAccountNo.push(data);
     })
   }
   setFlag(){
