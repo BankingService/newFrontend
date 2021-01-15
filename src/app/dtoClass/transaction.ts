@@ -8,7 +8,6 @@ export class Transaction {
 	private transactionDateTime:string;
 	private transactionPassword:string;
 	private remark:string;
-	private otp:number;
     private customerId:string;
     
     constructor( fromAccountNumber:string,
@@ -18,7 +17,6 @@ export class Transaction {
          
          transactionPassword:string,
          remark:string,
-         otp:number,
          customerId:string){
             this.fromAccountNumber=fromAccountNumber;
             this.toAccountNumber=toAccountNumber;
@@ -26,7 +24,6 @@ export class Transaction {
             this.transactionModeId=transactionModeId;
             this.transactionPassword=transactionPassword;
             this.remark=remark;
-            this.otp=otp;
             this.customerId=customerId;
 
         }
