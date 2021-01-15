@@ -58,7 +58,7 @@ export class AdminServiceService {
   }
 
   unblockAction(id,cid,action):Observable<any>{
-    let url='http://localhost:8086/viewAction/'+id+'/'+cid+'/'+action;
+    let url='http://localhost:8086/performAction/'+id+'/'+cid+'/'+action;
     return this.http.get<any>(url);
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { json } from '@rxweb/reactive-form-validators';
+import { Beneficiary } from 'src/app/model_classes/beneficiary';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 import { CheckApplicationStatusComponent } from '../check-application-status/check-application-status.component';
 
@@ -12,13 +13,10 @@ import { CheckApplicationStatusComponent } from '../check-application-status/che
 export class AddBeneficiaryComponent implements OnInit {
   form1: FormGroup;
   flag:boolean = false;
-  beneficiary: any[] = [];
+  beneficiary: Beneficiary
+  otpmessage: any;
   constructor( private service : TransactionstatementService) { }
 
-  setFlag(){
-    console.log("hello")
-    this.flag = true;
-  }
   ngOnInit() {
     this.form1 = new FormGroup({
       accountNo: new FormControl('', [Validators.required, Validators.pattern("[0-9]*")]),
@@ -30,36 +28,25 @@ export class AddBeneficiaryComponent implements OnInit {
     })
   }
 
-  customerId:any
-  otp:any
+  customerId = sessionStorage.customerId
+
 
   addBeneficiary(f){
-    this.beneficiary.push(f.value);
-    console.log("this is the userList: "+this.beneficiary.toString())
+    if(f.value.otp == this.otpmessage){
+      this.beneficiary = new Beneficiary(f.value.beneficiaryID, f.value.beneficiaryAccountNumber,f.value.beneficiaryName,
+        f.value.beneficiaryNickname, f.value.beneficiaryIfsc)
     console.log(JSON.stringify(this.beneficiary));
-    this.customerId=sessionStorage.customerId
-
-    this.service.createBeneficiaryRequest(f,this.customerId).subscribe(response =>{
-
-      alert(JSON.stringify(response))
-       this.otp = response.otp;
-
-    }
-      
-      )
-    
+    this.service.createBeneficiaryRequest(f,this.customerId).subscribe(response => {
+            alert(JSON.stringify(response))
+    })
   }
-
+}
   getOtp(){
+    this.service.getBeneficiaryOtp(this.customerId).subscribe(response=>{
+   this.otpmessage=response.message
+   alert(this.otpmessage)
+    })
     
-  }
-
-
-  checkOtp(formOtp){
- if(formOtp == this.otp){
-
- }
-
   }
 
 

@@ -8,19 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class AccountsummaryComponent implements OnInit {
  msge=
  {
-   "test":"12-10-2100"
+   "test":"12-10-2100",
+   "test1":{
+"blue":"might"
+   }
 }
- msge1:{};
+ 
 
  
   
   constructor() { }
 
   ngOnInit() {
-      this.msge.test=JSON.stringify(this.msge);
-      this.msge.test=JSON.stringify(this.msge);
-      this.msge.test=JSON.stringify(this.msge);
-      alert(JSON.stringify(this.msge));
+      
   }
 
 }
