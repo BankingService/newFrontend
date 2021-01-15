@@ -64,6 +64,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   message: any;
   
+  
   getotp(id){
     this.flag=true;
     console.log(id);

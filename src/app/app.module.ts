@@ -47,6 +47,7 @@ import { ProfilepassComponent } from './components/profilepass/profilepass.compo
 import { BlockedCustomersComponent } from './Components/blocked-customers/blocked-customers.component';
 import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
 import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
+import { OtpserviceService } from './services/otpservice.service';
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -101,7 +102,7 @@ import { SetNewPasswordBeforeLoginComponent } from './components/set-new-passwor
     HttpClientModule
  //   RxReactiveFormsModule
   ],
-  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService,UserService],
+  providers: [CustomerserviceService,AdminServiceService,TransactionstatementService,UserService,OtpserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
