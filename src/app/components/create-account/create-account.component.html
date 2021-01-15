@@ -4,7 +4,7 @@
 </div>
 
 <div class="container">
-    <div class="card" style="width:700px">
+    <div class="card" style="width:700px" >
         <form [formGroup]="form" (ngSubmit)="view(form)">
 
             <div class="form-group row">
@@ -238,6 +238,13 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="country" class="col-sm-5 col-form-label">Country</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="country" class="form-control" disabled value={{country}}>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="resCode" class="col-sm-5 col-form-label">Pin Code <span
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
@@ -340,6 +347,13 @@
                             {{ error.message }}
                         </div>
                     </ng-container>
+                </div>
+
+                <div class="form-group row">
+                    <label for="country" class="col-sm-5 col-form-label">Country</label>
+                    <div class="col-sm-6">
+                        <input type="text" id="country" class="form-control" disabled value="India">
+                    </div>
                 </div>
 
                 <div class="form-group row">

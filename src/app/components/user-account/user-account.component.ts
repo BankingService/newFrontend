@@ -1,4 +1,7 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-user-account',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserAccountComponent implements OnInit {
 
-  constructor() { }
+  country:string="India"
+  custdetails: any=[]
+  constructor(private router:Router, private service:UserService) { }
+ 
+  customerId=sessionStorage.customerId
 
   ngOnInit() {
+      this.service.viewProfileById(this.customerId)
+      .subscribe((data: {}) => { 
+        this.custdetails.push(data) 
+      }
+      )
+    }
+
+  redirectTo()
+  {
+    this.router.navigate(['/userdashboard'])
   }
+  redirectTo2()
+  {
+    this.router.navigate(['/changedetails'])
+  }
+
 
 }

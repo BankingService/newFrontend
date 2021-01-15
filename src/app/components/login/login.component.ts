@@ -1,3 +1,4 @@
+import { verifyHostBindings } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -12,14 +13,13 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
 form: FormGroup;
-customerId:string="hii there";
 error_messages = {
-  'id': [
+  'customerId': [
     {  type: 'required', message: 'User Id is required.' }
   ],
 
 
-  'password': [
+  'loginPassword': [
     { type: 'required', message: 'Password is required.' },
       { type: 'minlength', message: 'Password length too small' },
       { type: 'maxlength', message: 'Exceeds password length limit' },
@@ -33,14 +33,14 @@ constructor(public formBuilder: FormBuilder,private router:Router, private servi
 
 ngOnInit() {
   this.form = this.formBuilder.group({
-    id: new FormControl('', Validators.compose([
+    customerId: new FormControl('', Validators.compose([
       Validators.required,
       Validators.minLength(8),
       Validators.maxLength(8)
       
     ])),
     
-   password: new FormControl('', Validators.compose([
+   loginPassword: new FormControl('', Validators.compose([
       Validators.required,
       Validators.minLength(6),
       Validators.maxLength(15),
@@ -55,10 +55,20 @@ ngOnInit() {
 login:UserLogin
 message:string
 
+
+login2:Login2
+login3:Login3
+
+
 userlogin(form){
   this.login = new UserLogin(form.value.customerId, form.value.loginPassword)
-  console.log(this.login)
+  // this.login2=new Login2(this.login)
+  // this.login3=new Login3(this.login2)
+  this.verify()
+}
 
+  verify(){
+  console.log(this.login)
   this.service.verifyUserLogin(this.login).subscribe(response =>
     {  alert(JSON.stringify(response));
        console.log(response)
@@ -76,3 +86,18 @@ userlogin(form){
      })
 }
 }
+
+export class Login2{
+  private login2:UserLogin
+  constructor(login2){
+    this.login2=login2
+  }
+}
+
+export class Login3{
+  private login3:Login2
+  constructor(login3){
+    this.login3=login3
+  }
+}
+

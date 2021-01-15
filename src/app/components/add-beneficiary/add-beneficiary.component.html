@@ -1,100 +1,101 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
 <h3 style="text-align: center;width:100%;">Add a Beneficiary</h3>
-<div class = frm>
-    <form [formGroup] = "form1" (ngSubmit) = "addBeneficiary(form1)">
-    <div class = input>
-        <div id=selector>
-            Beneficiary Type:
-        </div>
-        <div id=value>
-            Transfer using NEFT/IMPS/RTGS
-        </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            Beneficiary Account No:
-        </div>
-        <div>
-            <input type="text" id="accountNo" class="form-control" formControlName = "accountNo">
-            <div *ngIf = "form1.get('accountNo').touched && form1.get('accountNo').invalid" class = "alert alert-danger">
-                <div *ngIf="form1.get('accountNo').hasError('required')">Please Enter Account No</div>
-                <div *ngIf = "form1.get('accountNo').hasError('pattern')">Invalid Account No</div>
+<div class=frm>
+    <form [formGroup]="form1" (ngSubmit)="addBeneficiary(form1)">
+        <div class=input>
+            <div id=selector>
+                Beneficiary Type:
+            </div>
+            <div id=value>
+                Transfer using NEFT/IMPS/RTGS
             </div>
         </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            Re-Enter Beneficiary Account No:
-        </div>
-        <div>
-            <input type="text" id="reAccountNo" class="form-control" formControlName = "reAccountNo">
-            <div *ngIf = "form1.get('reAccountNo').touched && form1.get('reAccountNo').invalid" class = "alert alert-danger">
-                <div *ngIf="form1.get('reAccountNo').hasError('required')">Please Enter Account No</div>
-                <div *ngIf = "form1.get('reAccountNo').hasError('pattern')">Invalid Account No</div>
-                <!-- <div *ngIf = "form1.get('accountNo') != form1.get('reAccountNo')>Invalid IFSC</div> -->
+        <div class=input>
+            <div id=selector>
+                Beneficiary Account No:
+            </div>
+            <div>
+                <input type="text" id="accountNo" class="form-control" formControlName="accountNo">
+                <div *ngIf="form1.get('accountNo').touched && form1.get('accountNo').invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="form1.get('accountNo').hasError('required')">Please Enter Account No</div>
+                    <div *ngIf="form1.get('accountNo').hasError('pattern')">Invalid Account No</div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            Beneficiary IFSC Code:
-        </div>
-        <div>
-            <input type="text" id="ifsc" class="form-control" formControlName = "ifsc">
-            <div *ngIf = "form1.get('ifsc').touched && form1.get('ifsc').invalid" class = "alert alert-danger">
-                <div *ngIf="form1.get('ifsc').hasError('required')">Please Enter IFSC</div>
-                <div *ngIf = "form1.get('ifsc').hasError('pattern')">Invalid IFSC</div>
+        <div class=input>
+            <div id=selector>
+                Re-Enter Beneficiary Account No:
+            </div>
+            <div>
+                <input type="text" id="reAccountNo" class="form-control" formControlName="reAccountNo">
+                <div *ngIf="form1.get('reAccountNo').touched && form1.get('reAccountNo').invalid"
+                    class="alert alert-danger">
+                    <div *ngIf="form1.get('reAccountNo').hasError('required')">Please Enter Account No</div>
+                    <div *ngIf="form1.get('reAccountNo').hasError('pattern')">Invalid Account No</div>
+                    <!-- <div *ngIf = "form1.get('accountNo') != form1.get('reAccountNo')>Invalid IFSC</div> -->
+                </div>
             </div>
         </div>
-    </div>
-    <div class = input>
-        <div  id=selector>
-            Beneficiary Name:
-        </div>
-        <div>
-            <input type="text" id="name" class="form-control" formControlName = "name">
-            <div *ngIf = "form1.get('name').touched && form1.get('name').invalid" class = "alert alert-danger">
-                <div *ngIf="form1.get('name').hasError('required')">Please Enter Name</div>
-                <div *ngIf = "form1.get('name').hasError('pattern')">Invalid Name</div>
+        <div class=input>
+            <div id=selector>
+                Beneficiary IFSC Code:
+            </div>
+            <div>
+                <input type="text" id="ifsc" class="form-control" formControlName="ifsc">
+                <div *ngIf="form1.get('ifsc').touched && form1.get('ifsc').invalid" class="alert alert-danger">
+                    <div *ngIf="form1.get('ifsc').hasError('required')">Please Enter IFSC</div>
+                    <div *ngIf="form1.get('ifsc').hasError('pattern')">Invalid IFSC</div>
+                </div>
             </div>
         </div>
-    </div>
+        <div class=input>
+            <div id=selector>
+                Beneficiary Name:
+            </div>
+            <div>
+                <input type="text" id="name" class="form-control" formControlName="name">
+                <div *ngIf="form1.get('name').touched && form1.get('name').invalid" class="alert alert-danger">
+                    <div *ngIf="form1.get('name').hasError('required')">Please Enter Name</div>
+                    <div *ngIf="form1.get('name').hasError('pattern')">Invalid Name</div>
+                </div>
+            </div>
+        </div>
 
-    <div class = input>
-        <div  id=selector>
-            Beneficiary NickName:
-        </div>
-        <div>
-            <input type="text" id="nickName" class="form-control" formControlName = "nickName">
-            <div *ngIf = "form1.get('nickName').touched && form1.get('nickName').invalid" class = "alert alert-danger">
-                <div *ngIf="form1.get('nickName').hasError('required')">Please Enter Nick Name</div>
-                <div *ngIf = "form1.get('nickName').hasError('pattern')">Invalid Nick Name</div>
+        <div class=input>
+            <div id=selector>
+                Beneficiary NickName:
+            </div>
+            <div>
+                <input type="text" id="nickName" class="form-control" formControlName="nickName">
+                <div *ngIf="form1.get('nickName').touched && form1.get('nickName').invalid" class="alert alert-danger">
+                    <div *ngIf="form1.get('nickName').hasError('required')">Please Enter Nick Name</div>
+                    <div *ngIf="form1.get('nickName').hasError('pattern')">Invalid Nick Name</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class = input>
+        <div class=input>
             <a href="#">Back</a>
-            <button (click)= "setFlag()">Add</button>
-    </div>
-    
-    <div class = input *ngIf = "flag==true">
-        <div  id=selector>
-            Enter OTP sent on your registered mobile no/email:
+            <button (click)="getOtp()">Get OTP</button>
         </div>
-        <div>
-            <input type="text" id="otp" class="form-control" formControlName = "otp">
-            <div *ngIf = "form1.get('otp').touched && form1.get('otp').invalid" class = "alert alert-danger">
-                Enter OTP
+        <div class=input>
+            <div id=selector>
+                Enter OTP sent on your registered mobile no/email:
+            </div>
+            <div>
+                <input type="text" id="otp" class="form-control" formControlName="otp">
+                <div *ngIf="form1.get('otp').touched && form1.get('otp').invalid" class="alert alert-danger">
+                    Enter OTP
+                </div>
             </div>
         </div>
-    </div>
-    <div class = input *ngIf = "flag==true">
-        <a href="#">Back</a>
-        <input type="submit" value = "Submit"/>
-    </div>
+        <div class=input>
+            <a href="#">Back</a>
+            <input type="submit" value="Submit" />
+        </div>
 
-</form>
+    </form>
 
 </div>

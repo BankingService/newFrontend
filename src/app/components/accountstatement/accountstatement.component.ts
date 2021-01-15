@@ -14,8 +14,8 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
 export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
-  transactionstatement:TransactionStatement[]=[];
-  
+  transactionstatement: any
+
   error_messages = {
 
     'fromdate': [
@@ -27,7 +27,7 @@ export class AccountstatementComponent implements OnInit {
     ],
   }
 
-  constructor(private router: Router, private transaction: TransactionstatementService,private formBuilder:FormBuilder) { }
+  constructor(private router: Router, private transaction: TransactionstatementService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -50,10 +50,20 @@ export class AccountstatementComponent implements OnInit {
     fromdate = fromdate + "T00:00:00.001";
     todate = todate + "T23:59:59.999";
     this.transactiondatetime = new Transactiondatetime(fromdate, todate, sessionStorage.getItem('accountNumber'));
-    //  this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data:{})=>{
-            // alert(data);
-            // this.transactionstatement.push(data);
-    //  })
-  }
+     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data:{})=>{
+    this.transactionstatement.push(data);
+    if(this.transactionstatement[0].length==0){
+      alert("no transactions are done within selected date")
+    }
+     })
 
+    // this.transaction.createTransactionRequest(this.transactiondatetime).subscribe((data: {}) => {
+    //   alert(JSON.stringify(data))
+    //   this.transactionstatement.push(data);
+    // })
+    // location from ip address
+    // https://www.melissa.com/v2/lookups/iplocation/ip/223.182.242.158?fmt=json&id=
+  }
 }
+
+

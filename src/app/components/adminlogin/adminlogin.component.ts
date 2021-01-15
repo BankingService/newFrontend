@@ -11,9 +11,8 @@ import { AdminInfo } from 'src/app/model_classes/admin-info';
 })
 export class AdminloginComponent implements OnInit {
 
- 
+  
   form: FormGroup;
-
   error_messages = {
 
     'adminId': [
@@ -33,6 +32,7 @@ export class AdminloginComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private service: AdminServiceService) { }
 
     ngOnInit() {
+      sessionStorage.removeItem('adminId')
     this.form = this.formBuilder.group({
 
       adminId: new FormControl('', Validators.compose([

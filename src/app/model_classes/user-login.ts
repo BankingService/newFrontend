@@ -1,11 +1,13 @@
 export class UserLogin {
 
-    private customerId:number
+    private customerId:any
 
-	private  loginPassword:string
+	private  loginPassword:any
 
 
-    constructor(customerId:number, loginPassword:string){
+    constructor(customerId:any, loginPassword:any){
+        this.customerId=customerId
+        this.loginPassword=loginPassword
         
     }
     
