@@ -33,8 +33,10 @@ this.lastlogin();
     })
   }
   lastlogin(){
+    alert(sessionStorage.getItem('customerId'))
   this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {}) => { 
-    this.lastlog.push(data)
+    alert(data);
+   // this.lastlog.push(data)
     //this.locationfind();
   })
   // location from ip address
