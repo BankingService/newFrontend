@@ -34,9 +34,7 @@ this.lastlogin();
     })
   }
   lastlogin(){
-    alert(sessionStorage.getItem('customerId'))
   this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {}) => { 
-    alert(data);
    this.lastlog.push(data)
    this.flag=true;
     // this.locationfind();

@@ -14,7 +14,7 @@ import { TransactionstatementService } from 'src/app/services/transactionstateme
 export class AccountstatementComponent implements OnInit {
   form: FormGroup;
   transactiondatetime: Transactiondatetime;
-  transactionstatement: any
+  transactionstatement: any=[]
   flag: boolean = false;
   error_messages = {
 
@@ -53,6 +53,7 @@ export class AccountstatementComponent implements OnInit {
     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
       alert(data);
       this.transactionstatement.push(data);
+      alert(this.transactionstatement)
       if (this.transactionstatement[0].length == 0) {
         alert("no transactions are done within selected date")
       }
