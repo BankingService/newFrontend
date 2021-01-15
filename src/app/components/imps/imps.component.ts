@@ -16,7 +16,7 @@ export class ImpsComponent implements OnInit {
   transactionRequest:Transaction;
   flag:boolean = false;
   fromAccountNo:string[]=[sessionStorage.getItem('accountNumber')];
-  toAccountNo:any = [] ;
+  toAccountNo:any = [11134565] ;
   msg:string;
   otpMessage:string;
 
@@ -32,7 +32,7 @@ export class ImpsComponent implements OnInit {
       remark:new FormControl('')
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
-      alert(data);
+      alert(JSON.stringify(data));
       //this.toAccountNo.push(data);
     })
   }
