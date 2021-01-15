@@ -1,5 +1,23 @@
-.frm{
-    margin:auto;
-    border-style: groove;
-    width: 100vh;
-}
+
+   .container
+   {
+       display: flex;
+       
+   justify-content: center;
+   margin-top: 20px;
+   
+   }  
+   .card{
+     
+     
+     padding: 16px;
+    
+      text-align: left;
+   
+   }
+   .error-message {
+    color: red;
+  }
+  input.ng-touched.ng-invalid {
+    border: 1px solid red;
+  } 
