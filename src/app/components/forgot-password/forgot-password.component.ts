@@ -67,7 +67,10 @@ export class ForgotPasswordComponent implements OnInit {
   getotp(id){
     this.flag=true;
     console.log(id);
+    let temp=id;
+    sessionStorage.setItem('initialId',temp)
     this.service.getOtp(id).subscribe(response => {
+      alert(response.message)
       this.message = response.message;})
   }
 
@@ -75,8 +78,9 @@ export class ForgotPasswordComponent implements OnInit {
     console.log(otp)
     if(otp==this.message){
         alert("verified");
+        this.router.navigate(['setnewpasswordbeforelogin']);
       }
-    this.router.navigate(['setnewpasswordbeforelogin']);
+    
   }
 
   

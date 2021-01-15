@@ -1,12 +1,13 @@
-<app-home-nav-bar></app-home-nav-bar>
+ <!-- <app-home-nav-bar></app-home-nav-bar>
 <div class="wrapper">
     <h3>Forgot User Id</h3>
+
 </div>
 <div class="wrapper">
 <div class="card" style="width:70%">
       
 
-            <form [formGroup]="form" (ngSubmit)="view()">
+            <form [formGroup]="form" (ngSubmit)="getOtp(form.value.accNumber)">
                     <div class="form-group row">
                         <label class="col-sm-4 col-form-label">Enter Account Number <span style="color:red" >*</span></label>
                         <div class="col-sm-6">
@@ -22,9 +23,17 @@
                         </ng-container>
                     </div>
 
-                    <div class="form-group row">
-                        <button class="getotp">GET OTP</button>
-                    </div>
+                    <div class="form-group row" class="text-center">
+                        <input type="submit" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;"
+                           value="Proceed">
+                        </div>
+                  
+                    </form>
+                  
+                        <form [formGroup]="secondform" (ngSubmit)="verifyotp(secondform.value.otp)">
+                  
+                        <div *ngIf="flag==true">
+
 
                     <div class="form-group row">
                         <label for="inputPassword" class="col-sm-4 col-form-label"> Enter OTP <span style="color:red" >*</span></label>
@@ -35,7 +44,7 @@
 
                     <div class="error-messages">
                         <ng-container *ngFor="let error of error_messages.otp">
-                            <div class="error-message" *ngIf="form.get('otp').hasError(error.type) && (form.get('otp').dirty || form.get('otp').touched)">
+                            <div class="error-message" *ngIf="secondform.get('otp').hasError(error.type) && (secondform.get('otp').dirty || secondform.get('otp').touched)">
                                 {{ error.message }}
                             </div>
                         </ng-container>
@@ -44,9 +53,77 @@
         
                     <div class="wrapper">
                         <!-- <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Submit</button> -->
-                        <button type="submit" class="btn btn-primary" (click)="changeredir()">Submit</button>
+   <!--                    <button type="submit" class="btn btn-primary">Submit</button>
                     </div>  
             </form>
 </div>
+</div>
+<app-home-footer></app-home-footer> --> 
+
+
+<app-home-nav-bar></app-home-nav-bar>
+<div class="container">
+  <h3>Forgot User ID</h3>
+</div>
+
+<div class="container">
+  <div class="card" style="width:80%">
+    <form [formGroup]="loginForm" (ngSubmit)="getotp(loginForm.value.id)">
+
+      <div class="form-group row">
+        <label class="col-sm-5 col-form-label">Account Number <span style="color:red">*</span></label>
+        <div class="col-sm-6">
+          <input class="form-control" formControlName="id" type="text" id="id" placeholder="Enter Your Account Number" />
+        </div>
+      </div>
+
+      <div class="error-messages">
+        <ng-container *ngFor="let error of error_messages.id">
+          <div class="error-message"
+            *ngIf="loginForm.get('id').hasError(error.type) && (loginForm.get('id').dirty || loginForm.get('id').touched)">
+            {{ error.message }}
+          </div>
+        </ng-container>
+      </div>
+
+      <div class="form-group row" class="text-center">
+      <input type="submit" class="btn btn-primary form-control " style="margin-bottom: 20px; width: 100px;"
+         value="Proceed">
+      </div>
+
+      </form>
+
+      <form [formGroup]="form" (ngSubmit)="verifyotp(form.value.OTP)">
+
+      <div *ngIf="flag==true">
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-5 col-form-label"> Enter OTP <span style="color:red">*</span></label>
+          <div class="col-sm-6">
+            <input class="form-control" formControlName="OTP" type="number" id="OTP" placeholder="Enter OTP" />
+          </div>
+        </div>
+
+        <div class="error-messages">
+          <ng-container *ngFor="let error of error_messages.OTP">
+            <div class="error-message"
+              *ngIf="form.get('OTP').hasError(error.type) && (form.get('OTP').dirty || form.get('OTP').touched)">
+              {{ error.message }}
+            </div>
+          </ng-container>
+        </div>
+
+
+        <div class="form-group row" class="text-center">
+          <!-- <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
+          [disabled]="loginForm.invalid">Proceed</button> -->
+          <button type="submit" class="form-control btn btn-primary"
+            style="margin-bottom: 20px; width: 100px;">Submit</button>
+          <button type="submit" class="form-control btn btn-primary ml-2" style="margin-bottom: 20px; width: 100px;"
+            [disabled]="form.invalid">Back</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
 </div>
 <app-home-footer></app-home-footer>
