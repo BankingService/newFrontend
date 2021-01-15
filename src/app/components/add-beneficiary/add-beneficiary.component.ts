@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { json } from '@rxweb/reactive-form-validators';
+import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
+import { CheckApplicationStatusComponent } from '../check-application-status/check-application-status.component';
 
 @Component({
   selector: 'app-add-beneficiary',
@@ -10,7 +13,7 @@ export class AddBeneficiaryComponent implements OnInit {
   form1: FormGroup;
   flag:boolean = false;
   beneficiary: any[] = [];
-  constructor() { }
+  constructor( private service : TransactionstatementService) { }
 
   setFlag(){
     console.log("hello")
@@ -27,9 +30,33 @@ export class AddBeneficiaryComponent implements OnInit {
     })
   }
 
+  customerId:any
+  otp:any
+
   addBeneficiary(f){
     this.beneficiary.push(f.value);
     console.log("this is the userList: "+this.beneficiary.toString())
     console.log(JSON.stringify(this.beneficiary));
+    this.customerId=sessionStorage.customerId
+
+    this.service.createBeneficiaryRequest(f,this.customerId).subscribe(response =>{
+
+      alert(JSON.stringify(response))
+       this.otp = response.otp;
+
+    }
+      
+      )
+    
   }
+
+
+  checkOtp(formOtp){
+ if(formOtp == this.otp){
+   
+ }
+
+  }
+
+
 }

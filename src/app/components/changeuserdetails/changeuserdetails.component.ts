@@ -161,8 +161,8 @@ form:FormGroup
       grossAnnualIncome:new FormControl('')
     });
 
-  //  this.customerId=sessionStorage.customerId
-  this.customerId=11111132
+   this.customerId=sessionStorage.customerId
+  //this.customerId=11111132
     this.loadDetails()
   }
   loadDetails(){
