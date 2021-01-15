@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { json } from '@rxweb/reactive-form-validators';
+import { Beneficiary } from 'src/app/model_classes/beneficiary';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 import { CheckApplicationStatusComponent } from '../check-application-status/check-application-status.component';
 
@@ -12,7 +13,7 @@ import { CheckApplicationStatusComponent } from '../check-application-status/che
 export class AddBeneficiaryComponent implements OnInit {
   form1: FormGroup;
   flag:boolean = false;
-  beneficiary: any[] = [];
+  beneficiary: Beneficiary
   otpmessage: any;
   constructor( private service : TransactionstatementService) { }
 
@@ -32,20 +33,16 @@ export class AddBeneficiaryComponent implements OnInit {
 
   addBeneficiary(f){
     if(f.value.otp == this.otpmessage){
-      this.beneficiary.push(f.value);
+      this.beneficiary = new Beneficiary(f.value.beneficiaryID, f.value.beneficiaryAccountNumber,f.value.beneficiaryName,
+        f.value.beneficiaryNickname, f.value.beneficiaryIfsc)
     console.log(JSON.stringify(this.beneficiary));
     this.service.createBeneficiaryRequest(f,this.customerId).subscribe(response => {
             alert(JSON.stringify(response))
     })
   }
-
-  else{
-    alert("incorrect otp")
-  }
 }
   getOtp(){
     this.service.getBeneficiaryOtp(this.customerId).subscribe(response=>{
-    alert(JSON.stringify(response))
    this.otpmessage=response.message
    alert(this.otpmessage)
     })
