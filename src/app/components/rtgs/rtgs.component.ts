@@ -14,7 +14,7 @@ export class RtgsComponent implements OnInit {
   transactionRequest:Transaction;
   flag:boolean = false;
   fromAccountNo:string=sessionStorage.getItem('accountNumber');
-  toAccountNo:any[] = [1111,222,333,44,55,6,76,878,79,87,44];
+  toAccountNo:any = [];
   msg:string;
 
   constructor(private route:Router,private transaction:TransactionstatementService) { }
@@ -27,6 +27,9 @@ export class RtgsComponent implements OnInit {
       otp: new FormControl('', [Validators.required, Validators.pattern("[0-9]*")]),
       transactionPwd:new FormControl(''),
       remark:new FormControl('')
+    })
+    this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
+      this.toAccountNo.push(data);
     })
   }
   setFlag(){
