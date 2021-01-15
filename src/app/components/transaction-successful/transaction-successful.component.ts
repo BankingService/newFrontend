@@ -16,10 +16,16 @@ export class TransactionSuccessfulComponent implements OnInit {
     "Date": "12-10-2100",
     "Remarks": "Enjoy!!"
   }
+  
+  details1 = sessionStorage.getItem('transactionData');
+
   constructor(private router:Router ) { 
+
   }
 
+
   ngOnInit() {
+    console.log(this.details1);
   }
 getTransactionDetails(customerId){
 

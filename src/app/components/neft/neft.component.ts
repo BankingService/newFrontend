@@ -18,7 +18,7 @@ export class NeftComponent implements OnInit {
   toAccountNo:any = [];
   msg:string;
   otpMessage:string;
-
+  transactionData:any = [];
   constructor(private route:Router,private transaction:TransactionstatementService) { }
 
   ngOnInit() {
@@ -57,10 +57,11 @@ export class NeftComponent implements OnInit {
 
    // alert(JSON.stringify(this.transactionRequest));
     this.transaction.createTransactionRequest(this.transactionRequest).subscribe(response =>
-      {  //alert(JSON.stringify(response));
-           console.log(response);
-           this. msg=response.message;
-           this.showstatus()
+      {
+        this.transactionData.push(response);
+        console.log(this.transactionData);
+        sessionStorage.setItem('transactionData', this.transactionData);
+        console.log(response);
          this.route.navigate(['transsuccess']);
          })
 
