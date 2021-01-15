@@ -11,7 +11,7 @@
             <div>
                 <select id="fromAccount" class="form-control" formControlName="fromAccount">
                     <option>-Select-</option>
-                    <option *ngFor="let account of fromAccountNo[0]" value="{{account}}">{{account}}</option>
+                    <option *ngFor="let account of fromAccountNo" value="{{account}}">{{account}}</option>
                 </select>
                 <div *ngIf="form1.get('fromAccount').touched && form1.get('fromAccount').invalid "
                     class="alert alert-danger">

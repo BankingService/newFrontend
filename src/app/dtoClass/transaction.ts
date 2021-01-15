@@ -14,7 +14,6 @@ export class Transaction {
          toAccountNumber:string,
         transactionAmount:number,
          transactionModeId:number,
-         
          transactionPassword:string,
          remark:string,
          customerId:string){
@@ -25,6 +24,7 @@ export class Transaction {
             this.transactionPassword=transactionPassword;
             this.remark=remark;
             this.customerId=customerId;
+            
 
         }
 }

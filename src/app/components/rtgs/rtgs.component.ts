@@ -54,11 +54,14 @@ export class RtgsComponent implements OnInit {
       form2.value.transactionPwd ,form2.value.remark,sessionStorage.getItem('customerId'));
 
    // alert(JSON.stringify(this.transactionRequest));
-    this.transaction.createTransactionRequest(this.transactionRequest).subscribe(response =>
+    this.transaction.createTransactionRequest(this.transactionRequest).subscribe((data:{}) =>
       {  //alert(JSON.stringify(response));
-           console.log(response);
-           this. msg=response.message;
-           this.showstatus()
+           console.log(JSON.stringify(data));
+           this. msg=JSON.stringify(data);
+           this.showstatus();
+          //  alert(response.message.UserTransaction[8])
+          //  sessionStorage.setItem('balance',response.message.UserTransaction.updatedBalance);
+          //  alert("updated:"+sessionStorage.balance);
          this.route.navigate(['transsuccess']);
          })
 

@@ -17,7 +17,7 @@ export class ImpsComponent implements OnInit {
   transactionRequest:Transaction;
   flag:boolean = false;
   fromAccountNo:string[]=[sessionStorage.getItem('accountNumber')];
-  toAccountNo:any = [11134565] ;
+  toAccountNo:any = [] ;
   msg:string;
   otpMessage:string;
 
@@ -34,7 +34,7 @@ export class ImpsComponent implements OnInit {
     })
     this.transaction.createNoOfBeneficiariesRequest(sessionStorage.getItem('customerId')).subscribe((data:{})=>{
       alert(JSON.stringify(data));
-      //this.toAccountNo.push(data);
+      this.toAccountNo.push(data);
     })
   }
   setFlag(){
@@ -62,8 +62,10 @@ export class ImpsComponent implements OnInit {
       {  //alert(JSON.stringify(response));
            console.log(response);
            this. msg=response.message;
-           this.showstatus()
-         this.route.navigate(['transsuccess']);
+           this.showstatus();
+           sessionStorage.balance=response.updatedBalance;
+           alert("updated:"+sessionStorage.balance)
+         this.route.navigate(['transsuccess',response]);
          })
 
       
