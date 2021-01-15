@@ -13,16 +13,20 @@ export class TransactionstatementService {
   constructor(private http: HttpClient) {
     // http://localhost:8086/customerInfo/
   }
-  createTransactionStatementRequest(statement): Observable<TransactionStatement> {
-    return this.http.post<TransactionStatement>(this.apiUrl + 'customerInfo/',statement);
+  createTransactionStatementRequest(statement): Observable<any> {
+    return this.http.post<any>(this.apiUrl + 'accountStatement/',statement);
   }
 
   createTransactionRequest(transactionStatement): Observable<any> {
-    return this.http.post<any>(this.apiUrl + 'accountStatement/', transactionStatement);
+    return this.http.post<any>(this.apiUrl + 'transact/', transactionStatement);
   }
 
-  createBeneficiaryRequest(customerId): Observable<Beneficiary> {
-    return this.http.get<Beneficiary>(this.apiUrl + 'customerInfo/'+customerId);
+  createBeneficiaryRequest(customerId,beneficiary): Observable<any> {
+    return this.http.post<any>(this.apiUrl + 'addBeneficiary/'+customerId,beneficiary);
+  }
+
+  createNoOfBeneficiariesRequest(customerId):Observable<any>{
+    return this.http.get<any>(this.apiUrl+'viewBeneficiaries/'+customerId);
   }
 
 }
