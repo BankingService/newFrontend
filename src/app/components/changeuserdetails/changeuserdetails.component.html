@@ -1,25 +1,25 @@
 <app-dashboardsidebar></app-dashboardsidebar>
 <app-userdashboard></app-userdashboard>
 
-
 <div class="container">
-    <h3>Open a Savings Account</h3>
+    <h3>Edit your details</h3>
 </div>
 
-<div class="container">
-    <div class="card" style="width:700px" *ngFor="let cust of custdetails">
+<div class="container" *ngFor= " let cust of custdetails">
+    <div class="card" style="width:700px">
+       
         <form [formGroup]="form" (ngSubmit)="view(form)">
-
+ 
             <div class="form-group row">
-                <label  class="col-sm-5 col-form-label" style="font-size: large;"><b>Personal
+                <label class="col-sm-5 col-form-label" style="font-size: large;"><b>Personal
                         Details:</b></label>
             </div>
 
             <div class="form-group row">
                 <label class="col-sm-5 col-form-label">Title <span style="color:red">*</span></label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="title" formControlName="title"
-                        value={{cust.title}} disabled>
+                    <input type="text" class="form-control" id="title" formControlName="title" value={{cust.title}}
+                        disabled>
                 </div>
             </div>
 
@@ -27,7 +27,7 @@
                 <label for="fName" class="col-sm-5 col-form-label">First Name <span style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="fName" formControlName="firstName"
-                    value={{cust.firstName}} disabled>
+                        value={{cust.firstName}} disabled>
                 </div>
             </div>
             <div class="error-messages">
@@ -41,14 +41,16 @@
             <div class="form-group row">
                 <label for="mName" class="col-sm-5 col-form-label">Middle Name</label>
                 <div class="col-sm-6">
-                    <input type="text" class="form-control" id="mName" value={{cust.middleName}} disabled formControlName="middleName">
+                    <input type="text" class="form-control" id="mName" value={{cust.middleName}} disabled
+                        formControlName="middleName">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="lName" class="col-sm-5 col-form-label">Last Name <span style="color:red">*</span> </label>
+                <label for="lName" class="col-sm-5 col-form-label">Last Name <span style="color:red">*</span>
+                </label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="lName" formControlName="lastName"
-                    value={{cust.lastName}} disabled>
+                        value={{cust.lastName}} disabled>
                 </div>
             </div>
             <div class="error-messages">
@@ -64,7 +66,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="fatherName" formControlName="fatherName"
-                    value={{cust.fatherName}} disabled>
+                        value={{cust.fatherName}} disabled>
                 </div>
             </div>
             <div class="error-messages">
@@ -113,7 +115,7 @@
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="aadharNumber" formControlName="aadharCardNo"
-                    value={{cust.aadharCardNo}} disabled>
+                        value={{cust.aadharCardNo}} disabled>
                 </div>
             </div>
             <div class="error-messages">
@@ -124,14 +126,14 @@
                     </div>
                 </ng-container>
             </div>
-         
+
 
             <div class="form-group row">
                 <label for="PanNumber" class="col-sm-5 col-form-label">PAN Card Number <span
                         style="color:red">*</span></label>
                 <div class="col-sm-6">
                     <input type="tel" class="form-control" id="PanNumber" formControlName="panNumber"
-                    value={{cust.panNumber}} disabled>
+                        value={{cust.panNumber}} disabled>
                 </div>
             </div>
             <div class="error-messages">
@@ -142,12 +144,13 @@
                     </div>
                 </ng-container>
             </div>
-           
+
 
             <div class="form-group row">
                 <label for="dob" class="col-sm-5 col-form-label">Date of Birth <span style="color:red">*</span></label>
                 <div class="col-sm-6">
-                    <input type="date" class="form-control" id="dob" value={{cust.dateOfBirth}} disabled name="dob" formControlName="dateOfBirth">
+                    <input type="date" class="form-control" id="dob" value={{cust.dateOfBirth}} disabled name="dob"
+                        formControlName="dateOfBirth">
                 </div>
             </div>
             <div class="error-messages">
@@ -159,7 +162,7 @@
                 </ng-container>
             </div>
 
-           
+
 
             <div>
                 <div class="form-group row">
@@ -202,10 +205,11 @@
                 <div class="form-group row">
                     <label for="resLandmark" class="col-sm-5 col-form-label">Landmark</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="resLandmark" placeholder="Enter Landmark" formControlName="cLandMark">
+                        <input type="text" class="form-control" id="resLandmark" placeholder="Enter Landmark"
+                            formControlName="cLandMark">
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="resCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
                     <div class="col-sm-6">
@@ -248,8 +252,8 @@
                     <label for="resCode" class="col-sm-5 col-form-label">Pin Code <span
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
-                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="resCode" formControlName="cPincode"
-                            placeholder="Enter Pin Code">
+                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="resCode"
+                            formControlName="cPincode" placeholder="Enter Pin Code">
                     </div>
                 </div>
                 <div class="error-messages">
@@ -305,10 +309,11 @@
                 <div class="form-group row">
                     <label for="presLandmark" class="col-sm-5 col-form-label">Landmark</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" id="presLandmark" placeholder="Enter Landmark" formControlName="pLandMark">
+                        <input type="text" class="form-control" id="presLandmark" placeholder="Enter Landmark"
+                            formControlName="pLandMark">
                     </div>
                 </div>
-                
+
                 <div class="form-group row">
                     <label for="presCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
                     <div class="col-sm-6">
@@ -352,8 +357,8 @@
                     <label for="presCode" class="col-sm-5 col-form-label">Pin Code <span
                             style="color:red">*</span></label>
                     <div class="col-sm-6">
-                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="presCode" formControlName="pPincode"
-                            placeholder="Enter Pin Code">
+                        <input type="tel" pattern="[0-9]{6}" class="form-control" id="presCode"
+                            formControlName="pPincode" placeholder="Enter Pin Code">
                     </div>
                 </div>
                 <div class="error-messages">
@@ -397,31 +402,14 @@
 
             </div>
 
-            <div class="form-group row">
-                <label for="terms" class="pl-3 col-form-label" style="font-size: small;"><b>please check the below check box to continue
-                    </b></label>
-            </div>
-
-        
-            <div class="form-group row">
-
-                <div class="col-sm-1">
-                    <input type="checkbox" class="form-control" id="terms" required>
-                </div>
-                <label class="col-sm-5 col-form-label">I agree to the Terms and Conditions</label>
-            </div>
-
             <div>
-                <button type="submit" class="form-control btn btn-primary" style="margin-bottom: 20px; width: 100px;"
-                    >Next</button>
-                    <!-- [disabled]="form.invalid" -->
+                <button type="submit" class="form-control btn btn-primary"
+                    style="margin-bottom: 20px; width: 100px;">Submit</button>
+                <!-- [disabled]="form.invalid" -->
             </div><br><br><br><br><br>
             <div> </div>
 
-
+     
         </form>
     </div>
 </div>
-
-
-<app-home-footer></app-home-footer>

@@ -78,8 +78,10 @@
             <a href="#">Back</a>
             <button (click)= "setFlag()">Add</button>
     </div>
+    </form>
     
-    <div class = input *ngIf = "flag==true">
+    <form  [formGroup] = "form2" (ngSubmit) = "checkOpt(form2.otp.value)">
+    <div class = input *ngIf = "flag==true"  >
         <div  id=selector>
             Enter OTP sent on your registered mobile no/email:
         </div>
