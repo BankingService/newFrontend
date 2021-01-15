@@ -44,6 +44,9 @@ export class AddBeneficiaryComponent implements OnInit {
             alert(JSON.stringify(response))
     })
   }
+  else{
+    alert("hi there")
+  }
 }
   getOtp(){
     this.service.getBeneficiaryOtp(this.customerId).subscribe(response=>{
