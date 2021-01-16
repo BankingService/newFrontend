@@ -39,6 +39,7 @@ export class ForgotuseridComponent implements OnInit {
   }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.loginForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
@@ -68,9 +69,9 @@ export class ForgotuseridComponent implements OnInit {
   getotp(id){
     this.flag=true;
     console.log(id);
-    let temp=id;
+    
     this.customerId=id;
-    sessionStorage.setItem('initialId',temp)
+    
     this.service.getOtpByAccountNumber(id).subscribe(response => {
       alert(response.message)
       this.message = response.message;})

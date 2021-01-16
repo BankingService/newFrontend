@@ -14,8 +14,9 @@ export class TransactionSuccessfulComponent implements OnInit {
 
   ngOnInit() {
     alert(this.details.updatedBalance)
-
+    if(this.details.status=='SUCCESS'){
     sessionStorage.setItem('balance',this.details.updatedBalance)
+    }
   }
   changedir(){
     this.router.navigate(["accountsummary"]);

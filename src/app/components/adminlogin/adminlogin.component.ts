@@ -32,7 +32,7 @@ export class AdminloginComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private router: Router, private http: HttpClient, private service: AdminServiceService) { }
 
     ngOnInit() {
-      sessionStorage.removeItem('adminId')
+      sessionStorage.clear();
     this.form = this.formBuilder.group({
 
       adminId: new FormControl('', Validators.compose([

@@ -1,24 +1,30 @@
-<app-home-nav-bar></app-home-nav-bar>
-<div >
+
+<div>
   <div>
-    <div  >
-      
+    <div>
+
     </div>
     <div style="margin-left:15%;text-align: center;" class="center">
       <h3>Session Expired</h3><br>
       <div>
         you have been logged out
-      </div> 
-        <div>
+      </div>
+      <div>
         <form>
-          <table style="margin: auto;"><tr><td><b>Last logged in: -</b></td><td><input *ngIf="flag==true" type="text" value="{{lastlog[0].lastLoginDateTime}}" readonly></td></tr></table>
+          <table style="margin: auto;">
+            <tr>
+              <td><b>Last logged in: -</b></td>
+              <td><input *ngIf="flag==true" type="text" value="{{lastlog[0].lastLoginDateTime}}" readonly></td>
+            </tr>
+          </table>
           <div>
-            
+
           </div>
           <div><b>Suggestions</b></div>
           <div>For security reasons we have diabled back button</div>
-          <div>the page automatically reloads to home page. if you want to relogin <a href="#" routerLink="/login">click here</a></div>
-          
+          <div>the page automatically reloads to home page. if you want to relogin <a href="#" routerLink="/login">click
+              here</a></div>
+
         </form>
       </div>
     </div>

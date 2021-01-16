@@ -48,6 +48,8 @@ import { BlockedCustomersComponent } from './Components/blocked-customers/blocke
 import { BlockedCustomerDetailsComponent } from './Components/blocked-customer-details/blocked-customer-details.component';
 import { SetNewPasswordBeforeLoginComponent } from './components/set-new-password-before-login/set-new-password-before-login.component';
 import { OtpserviceService } from './services/otpservice.service';
+
+
 //import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 
 
@@ -91,7 +93,8 @@ import { OtpserviceService } from './services/otpservice.service';
     ProfilepassComponent,
     BlockedCustomersComponent,
     BlockedCustomerDetailsComponent,
-    SetNewPasswordBeforeLoginComponent
+    SetNewPasswordBeforeLoginComponent,
+    
   ],
   imports: [
     FormsModule,

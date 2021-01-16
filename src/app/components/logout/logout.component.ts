@@ -24,7 +24,7 @@ this.preventBackButton();
 this.lastlogin();
     setTimeout(() => {
       this.router.navigate(['home']);
-    }, 5000);
+    }, 3000);
   }
 
   preventBackButton() {
@@ -37,6 +37,7 @@ this.lastlogin();
   this.service.lastLogin(sessionStorage.getItem('customerId')).subscribe((data: {}) => { 
    this.lastlog.push(data)
    this.flag=true;
+   sessionStorage.clear();
     // this.locationfind();
   })
   // location from ip address

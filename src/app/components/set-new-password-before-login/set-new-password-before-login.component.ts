@@ -14,11 +14,12 @@ form:FormGroup
 loginPassword:String
 transactionPassword:String
 
-customerId=sessionStorage.initialId
+customerId=localStorage.initialId
 
   constructor(private http:UserService,private router:Router,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.form = this.formBuilder.group({
       loginpassword: new FormControl(),
       
@@ -38,6 +39,7 @@ customerId=sessionStorage.initialId
     this.http.setNewPasswords(this.customerId,this.loginPassword,this.transactionPassword).subscribe(response=>{
       if(response.status=='SUCCESS'){
         alert(response.message)
+        localStorage.clear();
         this.router.navigate(['login']);
       }
       else{

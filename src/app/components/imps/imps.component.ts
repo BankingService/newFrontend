@@ -62,14 +62,17 @@ export class ImpsComponent implements OnInit {
    // alert(JSON.stringify(this.transactionRequest));
     this.transaction.createTransactionRequest(this.transactionRequest).subscribe((data:{}) =>
       {  //alert(JSON.stringify(response));
-        console.log(JSON.stringify(data));
+        
         this. msg=JSON.stringify(data);
         
         sessionStorage.setItem('data',JSON.stringify(data));
-          //  sessionStorage.balance=response.updatedBalance;
-          //  alert("updated:"+sessionStorage.balance)
+        
          this.route.navigate(['transsuccess']);
          })
+        }
+        else{
+          alert("invalid otp");
+          this.route.navigate(['imps']);
         }
 
       
@@ -77,7 +80,7 @@ export class ImpsComponent implements OnInit {
   
   getOtp(){
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response=>{
-      alert(JSON.stringify(response))
+      
      this.otpMessage=response.message
      alert(this.otpMessage)
       })

@@ -10,6 +10,7 @@ export class HomeNavBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    sessionStorage.clear();
   }
 
 }

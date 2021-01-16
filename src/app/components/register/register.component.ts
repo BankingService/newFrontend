@@ -189,8 +189,8 @@ message:string
   getOtp(id){
     this.flag=true;
     console.log(id);
-    let temp=id;
-    sessionStorage.setItem('initialId',temp)
+    // let temp=id;
+    // sessionStorage.setItem('initialId',temp)
     this.otpservice.getOtpForRegistration(id).subscribe(response => {
       alert(response.message)
       this.message = response.message;})

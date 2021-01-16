@@ -32,6 +32,7 @@ error_messages = {
 constructor(public formBuilder: FormBuilder,private router:Router, private service:UserService) { }
 
 ngOnInit() {
+  sessionStorage.clear();
   this.form = this.formBuilder.group({
     customerId: new FormControl('', Validators.compose([
       Validators.required,

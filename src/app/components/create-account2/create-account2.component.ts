@@ -34,6 +34,7 @@ export class CreateAccount2Component implements OnInit {
 
 
   ngOnInit() {
+    sessionStorage.clear();
     this.form = this.formBuilder.group({
       aadharCard: new FormControl('', Validators.compose([
         Validators.required,
