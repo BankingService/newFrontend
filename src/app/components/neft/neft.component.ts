@@ -18,7 +18,7 @@ export class NeftComponent implements OnInit {
   toAccountNo:any = [];
   msg:string;
   otpMessage:string;
-
+  transactionData:any = [];
   constructor(private route:Router,private transaction:TransactionstatementService) { }
 
   ngOnInit() {

@@ -181,7 +181,7 @@ form:FormGroup
       createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
 
-    this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
+    this.customerRequest=new Customerinfo(createCustomerFormObj.value.customerId ,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
       createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
@@ -195,8 +195,10 @@ form:FormGroup
 
   addcustomerrequest(customerrequest){
     console.log(customerrequest)
+    alert(JSON.stringify(customerrequest));
     this.service.editDetails(customerrequest).subscribe(response =>
-      {  alert(JSON.stringify(response));
+      { 
+        alert(JSON.stringify(response));
           //  let cid=response.id;
           //  let msg=response.msg;
           //  alert(msg)

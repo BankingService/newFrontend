@@ -10,7 +10,9 @@ export class TransactionSuccessfulComponent implements OnInit {
   details = JSON.parse(sessionStorage.getItem('data')) ;
   
   constructor(private router:Router ) { 
+
   }
+
 
   ngOnInit() {
     alert(this.details.updatedBalance)

@@ -18,7 +18,7 @@ export class UserAccountComponent implements OnInit {
 
   ngOnInit() {
       this.service.viewProfileById(this.customerId)
-      .subscribe((data: {}) => { 
+      .subscribe((data: {}) => {
         this.custdetails.push(data) 
       }
       )
