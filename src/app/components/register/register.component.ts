@@ -140,6 +140,7 @@ export class RegisterComponent implements OnInit {
         Validators.maxLength(4),
       ])),
 })
+this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
     }
   
 
@@ -168,7 +169,7 @@ message:string
     console.log(otp)
     if(otp==this.message){
         alert("verified");
-      }
+
     this.service.registerUser(this.register).subscribe(response =>
       {  alert(JSON.stringify(response));
          console.log(response)
@@ -182,10 +183,14 @@ message:string
          this.message = response.message;
          alert(this.message)
        })
-
-       
-
-
+      }
+      else
+      {
+        alert("Invalid OTP")
+        this.router.navigated=false;
+        this.router.navigate(['register']);
+      }
+      
   }
 
   flag:boolean=false;
@@ -193,8 +198,8 @@ message:string
   getOtp(id){
     this.flag=true;
     console.log(id);
-    let temp=id;
-    sessionStorage.setItem('initialId',temp)
+    // let temp=id;
+    // sessionStorage.setItem('initialId',temp)
     this.otpservice.getOtpForRegistration(id).subscribe(response => {
       alert(response.message)
       this.message = response.message;})

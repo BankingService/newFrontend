@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-navbar',
@@ -7,8 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
+  }
+  logoutconfirm(){
+    
+    if(confirm("are you sure")){
+      sessionStorage.clear();
+      this.router.navigate(['adminlogin']);
+    }
+    
   }
 }

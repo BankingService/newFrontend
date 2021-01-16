@@ -39,6 +39,7 @@ export class ForgotuseridComponent implements OnInit {
   }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.loginForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
@@ -60,6 +61,8 @@ export class ForgotuseridComponent implements OnInit {
     // { 
     //   validators: this.password.bind(this)
     // });
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
   }
 
   message: any;
@@ -68,9 +71,9 @@ export class ForgotuseridComponent implements OnInit {
   getotp(id){
     this.flag=true;
     console.log(id);
-    let temp=id;
+    
     this.customerId=id;
-    sessionStorage.setItem('initialId',temp)
+    
     this.service.getOtpByAccountNumber(id).subscribe(response => {
       alert(response.message)
       this.message = response.message;})
@@ -87,7 +90,9 @@ export class ForgotuseridComponent implements OnInit {
         this.router.navigate(['login']);
       }
       else{
-        alert("invalid otp")
+        alert("Invalid OTP")
+        this.router.navigated=false;
+        this.router.navigate(['forgotuserid']);
       }
     
   }

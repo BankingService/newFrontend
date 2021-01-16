@@ -21,6 +21,7 @@ export class CheckApplicationStatusComponent implements OnInit {
   constructor(public formBuilder: FormBuilder, private service: AdminServiceService) { }
 
   ngOnInit(): void {
+    sessionStorage.clear();
     this.form = this.formBuilder.group({
       refId: new FormControl('', Validators.compose([
         Validators.required,

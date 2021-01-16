@@ -39,6 +39,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.loginForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
@@ -60,6 +61,7 @@ export class ForgotPasswordComponent implements OnInit {
     // { 
     //   validators: this.password.bind(this)
     // });
+    this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
   }
 
   message: any;
@@ -68,7 +70,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.flag=true;
     console.log(id);
     let temp=id;
-    sessionStorage.setItem('initialId',temp)
+    localStorage.setItem('initialId',temp)
     this.service.getOtp(id).subscribe(response => {
       alert(response.message)
       this.message = response.message;})
@@ -82,7 +84,9 @@ export class ForgotPasswordComponent implements OnInit {
       }
       else
       {
-        alert("Invalid otp")
+        alert("Invalid OTP")
+        this.router.navigated=false;
+        this.router.navigate(['forgotpass']);
       }
     
   }

@@ -10,6 +10,7 @@ export class HomeFooterComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    sessionStorage.clear();
   }
 
 }

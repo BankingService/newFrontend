@@ -99,6 +99,7 @@ export class CreateAccountComponent implements OnInit {
   constructor(public formBuilder: FormBuilder,private custservice:CustomerserviceService,private router:Router) { }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.form = this.formBuilder.group({
       
       title: new FormControl('',Validators.required),
@@ -239,5 +240,7 @@ flag:boolean=false;
          this.router.navigate(['createaccount2',{cid}]);
          })
   }
+
+  
 
 }

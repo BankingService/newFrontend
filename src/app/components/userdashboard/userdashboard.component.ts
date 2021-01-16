@@ -13,8 +13,8 @@ export class UserdashboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  async logoutconfirm(){
-    //let temp
+   logoutconfirm(){
+    
     if(confirm("are you sure")){
       this.router.navigate(['logout']);
     }

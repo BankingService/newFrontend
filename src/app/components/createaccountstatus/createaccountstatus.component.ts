@@ -12,6 +12,7 @@ export class CreateaccountstatusComponent implements OnInit {
   constructor(private route:ActivatedRoute) { }
 
   ngOnInit() {
+    sessionStorage.clear();
     this.route.params.subscribe((params: Params) => {this.reid = params['refId']}); 
   }
 
