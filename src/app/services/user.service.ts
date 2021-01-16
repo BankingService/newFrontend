@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Register } from '../model_classes/register';
-import { UserLogin } from '../model_classes/user-login';
+import { Register } from '../modelClass/register';
+import { UserLogin } from '../modelClass/user-login';
 
 @Injectable({
   providedIn: 'root'

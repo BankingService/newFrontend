@@ -3,7 +3,7 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, Valid
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { RxwebValidators } from '@rxweb/reactive-form-validators';
-import { Register } from 'src/app/model_classes/register';
+import { Register } from 'src/app/modelClass/register';
 import { UserService } from 'src/app/services/user.service';
 import { OtpserviceService } from 'src/app/services/otpservice.service';
 //import { RxwebValidators } from '@rxweb/reactive-form-validators';

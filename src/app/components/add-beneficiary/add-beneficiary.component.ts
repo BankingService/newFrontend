@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { json } from '@rxweb/reactive-form-validators';
-import { Beneficiary } from 'src/app/model_classes/beneficiary';
+import { Beneficiary } from 'src/app/modelClass/beneficiary';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 import { CheckApplicationStatusComponent } from '../check-application-status/check-application-status.component';
 

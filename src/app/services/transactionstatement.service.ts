@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Beneficiary } from '../model_classes/beneficiary';
-import { TransactionStatement } from '../model_classes/transaction-statement';
+
 
 @Injectable({
   providedIn: 'root'
