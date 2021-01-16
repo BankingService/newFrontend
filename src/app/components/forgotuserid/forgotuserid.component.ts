@@ -61,6 +61,8 @@ export class ForgotuseridComponent implements OnInit {
     // { 
     //   validators: this.password.bind(this)
     // });
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
   }
 
   message: any;
@@ -88,7 +90,9 @@ export class ForgotuseridComponent implements OnInit {
         this.router.navigate(['login']);
       }
       else{
-        alert("invalid otp")
+        alert("Invalid OTP")
+        this.router.navigated=false;
+        this.router.navigate(['forgotuserid']);
       }
     
   }

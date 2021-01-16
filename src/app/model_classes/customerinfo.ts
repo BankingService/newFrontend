@@ -2,6 +2,7 @@ import { Customeraddress } from "./customeraddress";
 import { Customerdocs } from "./customerdocs";
 
 export class Customerinfo {
+    private customerId: number;
     private title:string;
     private firstName:string;
     private middleName:string;
@@ -18,7 +19,7 @@ export class Customerinfo {
     private address:Customeraddress;
  //   private customerDoc:Customerdocs;
 
-    constructor(title:string,firstName:string,middleName:string,lastName:string,fatherName:string, mobileNumber:number,
+    constructor(customerId: number,title:string,firstName:string,middleName:string,lastName:string,fatherName:string, mobileNumber:number,
         emailId:string, aadharCardNo:number,dateOfBirth:Date,occupationType:string,sourceOfIncome:string,
         grossAnnualIncome:number,panNumber:string,address:Customeraddress
         //,customerDoc:Customerdocs
@@ -37,6 +38,7 @@ export class Customerinfo {
             this.grossAnnualIncome=grossAnnualIncome;
             this.panNumber=panNumber;
             this.address=address;
+            this.customerId = customerId;
           //  this.customerDoc=customerDoc;
 
     }

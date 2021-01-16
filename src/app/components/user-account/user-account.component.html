@@ -16,7 +16,7 @@
 <h2 style="text-align: center;width:100%;">Your Details</h2>
 
 <div class="frm">
-    <div class="input">
+    <div class="input" *ngFor = "let cust of custdetails">
         <table style="width:50%">
             <tr><b>Personal Details</b></tr><br>
             <tr>
@@ -34,6 +34,10 @@
             <tr>
                 <th>Last Name:</th>
                 <td>{{cust.lastName}}</td>
+            </tr>
+            <tr>
+                <th>Fathers Name:</th>
+                <td>{{cust.fatherName}}</td>
             </tr>
             <tr>
                 <th>Mobile Number:</th>

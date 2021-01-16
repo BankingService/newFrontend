@@ -70,5 +70,55 @@
 <app-root></app-root>
 
 </body>
+<script>
+  function addressFunction() { 
+  if (document.getElementById( 
+    "filladdress").checked) { 
+      document.getElementById( 
+        "presLine1").value =  
+      document.getElementById( 
+        "resLine1").value; 
+      
+      document.getElementById( 
+        "presLine2").value =  
+      document.getElementById( 
+        "resLine2").value; 
 
+      document.getElementById( 
+        "presLandmark").value =  
+      document.getElementById( 
+        "resLandmark").value; 
+
+        document.getElementById( 
+        "presCity").value =  
+      document.getElementById( 
+        "resCity").value; 
+
+        document.getElementById( 
+        "presState").value =  
+      document.getElementById( 
+        "resState").value;
+        
+        document.getElementById( 
+        "presCode").value =  
+      document.getElementById( 
+        "resCode").value;
+
+  } else { 
+      document.getElementById( 
+        "presLine1").value = ""; 
+      document.getElementById( 
+        "presLine2").value = "";
+        document.getElementById( 
+        "presLandmark").value = "";
+        document.getElementById( 
+        "presCity").value = "";
+        document.getElementById( 
+        "presState").value = ""; 
+        document.getElementById( 
+        "presCode").value = ""; 
+  } 
+} 
+
+</script>
 </html>

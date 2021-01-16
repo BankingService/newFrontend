@@ -90,9 +90,11 @@ export class CreateAccountComponent implements OnInit {
     'pPincode': [
       { type: 'required', message: 'Pincode is required.' },
     ],
+    
 
 
   }
+  recOtp: any;
 
   constructor(public formBuilder: FormBuilder,private custservice:CustomerserviceService,private router:Router) { }
 
@@ -177,6 +179,8 @@ export class CreateAccountComponent implements OnInit {
         Validators.minLength(6),
         Validators.maxLength(6)
       ])),
+      otp:new FormControl(''),
+
       occupationType:new FormControl(''),
       sourceOfIncome:new FormControl(''),
       grossAnnualIncome:new FormControl('')
@@ -184,21 +188,34 @@ export class CreateAccountComponent implements OnInit {
 
   }
 
+flag:boolean=false;
 
-
+  getOtp(id)
+{  this.flag=true;
+  this.custservice.verifyEmailOtp(id).subscribe(response=>{
+    this.recOtp=response.message 
+    alert(this.recOtp)
+  })
+}
 
   customerRequest:Customerinfo;
   customerRequestAddress:Customeraddress;
 
  mailId:string
   view(createCustomerFormObj){
+
+    console.log(createCustomerFormObj.value.otp)
+
+    if(this.recOtp==createCustomerFormObj.value.otp){
+
+ 
    
     this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
       createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
       createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
 
-    this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
+    this.customerRequest=new Customerinfo(null,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
       createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
@@ -207,6 +224,10 @@ export class CreateAccountComponent implements OnInit {
 
  //console.log(this.mailId)
     this.addcustomerrequest(this.customerRequest)
+    }
+    else{
+      alert("invalid otp")
+    }
 
   }
   addcustomerrequest(customerrequest){
@@ -216,10 +237,10 @@ export class CreateAccountComponent implements OnInit {
            let cid=response.id;
            let msg=response.msg;
            alert(msg)
-          let mail = this.mailId
-          console.log(mail)
-         this.router.navigate(['createaccount2',{cid,mail}]);
+         this.router.navigate(['createaccount2',{cid}]);
          })
   }
+
+  
 
 }
