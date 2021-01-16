@@ -41,7 +41,7 @@ export class CreateAccount2Component implements OnInit {
       ])),
       
   }); 
-
+  this.route.params.subscribe((params: Params) => {this.cid = params['cid']}); 
   }
 
   cid:any
