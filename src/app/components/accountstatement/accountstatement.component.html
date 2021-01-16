@@ -46,6 +46,7 @@
           <br>
           <table class="table table-bordered">
             <tr>
+              <th>Date</th>
               <th>TransactionId</th>
               <th>Messaage</th>
               <th>Transaction Amount</th>
@@ -54,7 +55,7 @@
             </tr>
             
             <tr *ngFor="let transaction of transactionstatement[0]">
-
+              <td>{{transaction.date}}</td>
               <td>{{transaction.transactionId}}</td> 
               <td>{{transaction.message}}</td>
               <td>{{transaction.transactionAmount}}</td>

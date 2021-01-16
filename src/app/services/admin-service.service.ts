@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 import {Observable} from 'rxjs';
-import { AdminInfo } from '../model_classes/admin-info';
-import { Customerinfo } from '../model_classes/customerinfo';
+import { AdminInfo } from '../modelClass/admin-info';
+
 @Injectable({
   providedIn: 'root'
 })
