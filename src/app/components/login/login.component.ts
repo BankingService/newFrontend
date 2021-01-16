@@ -2,7 +2,7 @@ import { verifyHostBindings } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserLogin } from 'src/app/model_classes/user-login';
+import { UserLogin } from 'src/app/modelClass/user-login';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({

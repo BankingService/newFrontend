@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
-import { AdminInfo } from 'src/app/model_classes/admin-info';
+import { AdminInfo } from 'src/app/modelClass/admin-info';
 @Component({
   selector: 'app-adminlogin',
   templateUrl: './adminlogin.component.html',

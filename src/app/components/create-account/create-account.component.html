@@ -22,6 +22,14 @@
                     </select>
                 </div>
             </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.title">
+                    <div class="error-message"
+                        *ngIf="form.get('title').hasError(error.type) && (form.get('title').dirty || form.get('title').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
+            </div>
 
             <div class="form-group row">
                 <label for="fName" class="col-sm-5 col-form-label">First Name <span style="color:red">*</span></label>
@@ -43,6 +51,14 @@
                 <div class="col-sm-6">
                     <input type="text" class="form-control" id="mName" placeholder="Enter Middle Name" formControlName="middleName">
                 </div>
+            </div>
+            <div class="error-messages">
+                <ng-container *ngFor="let error of error_messages.middleName">
+                    <div class="error-message"
+                        *ngIf="form.get('middleName').hasError(error.type) && (form.get('middleName').dirty || form.get('middleName').touched)">
+                        {{ error.message }}
+                    </div>
+                </ng-container>
             </div>
             <div class="form-group row">
                 <label for="lName" class="col-sm-5 col-form-label">Last Name <span style="color:red">*</span> </label>
@@ -205,6 +221,14 @@
                         <input type="text" class="form-control" id="resLandmark" placeholder="Enter Landmark" formControlName="cLandMark">
                     </div>
                 </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.cLandMark">
+                        <div class="error-message"
+                            *ngIf="form.get('cLandMark').hasError(error.type) && (form.get('cLandMark').dirty || form.get('cLandMark').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
                 
                 <div class="form-group row">
                     <label for="resCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
@@ -240,7 +264,7 @@
                 <div class="form-group row">
                     <label for="country" class="col-sm-5 col-form-label">Country</label>
                     <div class="col-sm-6">
-                        <input type="text" id="country" class="form-control" disabled value={{country}}>
+                        <input type="text" id="country" class="form-control" disabled value="India">
                     </div>
                 </div>
 
@@ -316,6 +340,14 @@
                         <input type="text" class="form-control" id="presLandmark" placeholder="Enter Landmark" formControlName="pLandMark">
                     </div>
                 </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.pLandMark">
+                        <div class="error-message"
+                            *ngIf="form.get('pLandMark').hasError(error.type) && (form.get('pLandMark').dirty || form.get('pLandMark').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
                 
                 <div class="form-group row">
                     <label for="presCity" class="col-sm-5 col-form-label">City <span style="color:red">*</span></label>
@@ -387,12 +419,28 @@
                             name="occupation" formControlName="occupationType">
                     </div>
                 </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.occupationType">
+                        <div class="error-message"
+                            *ngIf="form.get('occupationType').hasError(error.type) && (form.get('occupationType').dirty || form.get('occupationType').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
+                </div>
                 <div class="form-group row">
                     <label class="col-sm-5 col-form-label">Source of Income <span style="color:red">*</span></label>
                     <div class="col-sm-6">
                         <input type="text" class="form-control" id="income" placeholder="Enter Source of Income"
                             name="income" formControlName="sourceOfIncome">
                     </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.sourceOfIncome">
+                        <div class="error-message"
+                            *ngIf="form.get('sourceOfIncome').hasError(error.type) && (form.get('sourceOfIncome').dirty || form.get('sourceOfIncome').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
                 </div>
 
                 <div class="form-group row">
@@ -401,6 +449,14 @@
                         <input type="text" class="form-control" id="final" placeholder="Enter Annual Income"
                             name="final" formControlName="grossAnnualIncome">
                     </div>
+                </div>
+                <div class="error-messages">
+                    <ng-container *ngFor="let error of error_messages.grossAnnualIncome">
+                        <div class="error-message"
+                            *ngIf="form.get('grossAnnualIncome').hasError(error.type) && (form.get('grossAnnualIncome').dirty || form.get('grossAnnualIncome').touched)">
+                            {{ error.message }}
+                        </div>
+                    </ng-container>
                 </div>
 
             </div>

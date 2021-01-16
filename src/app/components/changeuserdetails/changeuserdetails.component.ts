@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { Customeraddress } from 'src/app/model_classes/customeraddress';
-import { Customerinfo } from 'src/app/model_classes/customerinfo';
+import { Customeraddress } from 'src/app/modelClass/customeraddress';
+import { Customerinfo } from 'src/app/modelClass/customerinfo';
 import { AdminServiceService } from 'src/app/services/admin-service.service';
 import { UserService } from 'src/app/services/user.service';
 

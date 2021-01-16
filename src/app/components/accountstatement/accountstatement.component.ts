@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
 import { Transactiondatetime } from 'src/app/dtoClass/transactiondatetime';
-import { TransactionStatement } from 'src/app/model_classes/transaction-statement';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 
 @Component({
@@ -54,7 +53,6 @@ export class AccountstatementComponent implements OnInit {
     this.transaction.createTransactionStatementRequest(this.transactiondatetime).subscribe((data: {}) => {
       alert(JSON.stringify(data));
       this.transactionstatement.push(data);
-      alert(this.transactionstatement)
       if (this.transactionstatement[0].length == 0) {
         alert("no transactions are done within selected date")
       }

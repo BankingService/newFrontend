@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Transaction } from 'src/app/dtoClass/transaction';
-import { TransactionStatement } from 'src/app/model_classes/transaction-statement';
+import { TransactionStatement } from 'src/app/modelClass/transaction-statement';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
 
 @Component({
