@@ -1,5 +1,7 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { json } from '@rxweb/reactive-form-validators';
 import { Beneficiary } from 'src/app/model_classes/beneficiary';
 import { TransactionstatementService } from 'src/app/services/transactionstatement.service';
@@ -15,7 +17,7 @@ export class AddBeneficiaryComponent implements OnInit {
   flag:boolean = false;
   beneficiary: Beneficiary
   otpmessage: any;
-  constructor( private service : TransactionstatementService) { }
+  constructor( private service : TransactionstatementService, private router:Router) { }
 
   ngOnInit() {
     this.form1 = new FormGroup({
@@ -30,7 +32,6 @@ export class AddBeneficiaryComponent implements OnInit {
 
   customerId = sessionStorage.customerId
 
-
   addBeneficiary(f){
     if(f.value.otp == this.otpmessage){
 
@@ -44,9 +45,7 @@ export class AddBeneficiaryComponent implements OnInit {
             alert(JSON.stringify(response))
     })
   }
-  else{
-    alert("hi there"+f.value.otp+"this is"+this.otpmessage);
-  }
+  
 }
   getOtp(){
     this.service.getBeneficiaryOtp(this.customerId).subscribe(response=>{

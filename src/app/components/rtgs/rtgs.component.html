@@ -43,7 +43,7 @@
                 Amount:
             </div>
             <div>
-                <input type="text" id="amount" class="form-control" formControlName="amount">
+                <input type="password" id="amount" class="form-control" formControlName="amount">
                 <div *ngIf="form1.get('amount').touched && form1.get('amount').invalid" class="alert alert-danger">
                     <div *ngIf="form1.get('amount').hasError('required')">Please Enter Amount</div>
                     <div *ngIf="form1.get('amount').hasError('pattern')">Invalid Amount</div>

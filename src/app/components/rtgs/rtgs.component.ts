@@ -38,6 +38,7 @@ export class RtgsComponent implements OnInit {
     this.flag = true;
   }
   transactionrequest(form2){
+    if(this.otpMessage==form2.value.otp){
     // let date=new Date();
     // var dd = String(date.getDate()).padStart(2, '0');
     // var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -58,18 +59,18 @@ export class RtgsComponent implements OnInit {
       {  //alert(JSON.stringify(response));
            console.log(JSON.stringify(data));
            this. msg=JSON.stringify(data);
-           this.showstatus();
+           
+           sessionStorage.setItem('data',JSON.stringify(data));
           //  alert(response.message.UserTransaction[8])
           //  sessionStorage.setItem('balance',response.message.UserTransaction.updatedBalance);
           //  alert("updated:"+sessionStorage.balance);
          this.route.navigate(['transsuccess']);
          })
+        }
 
       
   }
-  showstatus(){
-    alert(this.msg);
-  }
+  
   getOtp(){
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response=>{
       alert(JSON.stringify(response))

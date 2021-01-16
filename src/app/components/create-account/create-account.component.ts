@@ -24,7 +24,11 @@ export class CreateAccountComponent implements OnInit {
 
 
   error_messages = {
-
+    'otp': [
+      { type: 'required', message: 'OTP is required.' },
+      { type: 'minlength', message: 'OTP length.' },
+      { type: 'maxlength', message: 'OTP length.' },
+    ],
     'firstName': [
       { type: 'required', message: 'First Name is required.' }
     ],
@@ -94,6 +98,7 @@ export class CreateAccountComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      
       title: new FormControl('',Validators.required),
       firstName: new FormControl('', Validators.compose([
         Validators.required
@@ -115,7 +120,7 @@ export class CreateAccountComponent implements OnInit {
       emailId: new FormControl('', Validators.compose([
         Validators.required
       ])),
-
+   
       aadharCardNo: new FormControl('', Validators.compose([
         Validators.required,
         Validators.minLength(12),
@@ -177,35 +182,42 @@ export class CreateAccountComponent implements OnInit {
     });
 
   }
+
+
+
+
   customerRequest:Customerinfo;
   customerRequestAddress:Customeraddress;
 
-
+ mailId:string
   view(createCustomerFormObj){
+   
     this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
       createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
       createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
 
-    this.customerRequest=new Customerinfo(createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
+    this.customerRequest=new Customerinfo(null,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
       createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
    
+      this.mailId= String(createCustomerFormObj.value.emailId)
 
-
-
+ //console.log(this.mailId)
     this.addcustomerrequest(this.customerRequest)
 
   }
-
   addcustomerrequest(customerrequest){
+    console.log(JSON.stringify(customerrequest))
     this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
       {  alert(JSON.stringify(response));
            let cid=response.id;
            let msg=response.msg;
            alert(msg)
-         this.router.navigate(['createaccount2',{cid}]);
+          let mail = this.mailId
+          console.log(mail)
+         this.router.navigate(['createaccount2',{cid,mail}]);
          })
   }
 

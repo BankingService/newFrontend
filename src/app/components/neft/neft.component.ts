@@ -40,6 +40,7 @@ export class NeftComponent implements OnInit {
     this.flag = true;
   }
   transactionrequest(form2){
+    if(this.otpMessage==form2.value.otp){
     // let date=new Date();
     // var dd = String(date.getDate()).padStart(2, '0');
     // var mm = String(date.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -56,20 +57,18 @@ export class NeftComponent implements OnInit {
       form2.value.transactionPwd ,form2.value.remark,sessionStorage.getItem('customerId'));
 
    // alert(JSON.stringify(this.transactionRequest));
-    this.transaction.createTransactionRequest(this.transactionRequest).subscribe(response =>
-      {
-        this.transactionData.push(response);
-        console.log(this.transactionData);
-        sessionStorage.setItem('transactionData', this.transactionData);
-        console.log(response);
+    this.transaction.createTransactionRequest(this.transactionRequest).subscribe((data:{}) =>
+      {  //alert(JSON.stringify(response));
+           console.log(data);
+          alert(JSON.stringify(data));
+           sessionStorage.setItem('data',JSON.stringify(data));
+           
          this.route.navigate(['transsuccess']);
-         })
+         })}
 
       
   }
-  showstatus(){
-    alert(this.msg);
-  }
+  
   getOtp(){
     this.transaction.getTransactionOtp(sessionStorage.getItem('customerId')).subscribe(response=>{
       alert(JSON.stringify(response))

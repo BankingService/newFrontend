@@ -42,7 +42,7 @@ export class ForgotuseridComponent implements OnInit {
     this.loginForm = this.formBuilder.group({
       id: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.maxLength(6)
+        Validators.maxLength(10)
       ])),
     },
     )
@@ -85,6 +85,9 @@ export class ForgotuseridComponent implements OnInit {
           this.message=response.message
         })
         this.router.navigate(['login']);
+      }
+      else{
+        alert("invalid otp")
       }
     
   }
