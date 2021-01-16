@@ -163,6 +163,7 @@ export class CreateAccountComponent implements OnInit {
 
 
   }
+  recOtp: any;
 
   constructor(public formBuilder: FormBuilder, private custservice: CustomerserviceService, private router: Router) { }
 
@@ -306,47 +307,68 @@ export class CreateAccountComponent implements OnInit {
         Validators.minLength(4),
         Validators.maxLength(30),
         Validators.pattern('^[0-9]*$')
-      ]))
+      ])),
+      otp:new FormControl('')
+
+      
     });
 
   }
 
+flag:boolean=false;
 
-
+  getOtp(id)
+{  this.flag=true;
+  this.custservice.verifyEmailOtp(id).subscribe(response=>{
+    this.recOtp=response.message 
+    alert(this.recOtp)
+  })
+}
 
   customerRequest: Customerinfo;
   customerRequestAddress: Customeraddress;
 
-  mailId: string
-  view(createCustomerFormObj) {
+ 
+ mailId:string
+  view(createCustomerFormObj){
 
-    this.customerRequestAddress = new Customeraddress(createCustomerFormObj.value.cAddressLine1, createCustomerFormObj.value.pAddressLine1,
-      createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2, createCustomerFormObj.value.cLandMark,
-      createCustomerFormObj.value.pLandMark, createCustomerFormObj.value.cCity, createCustomerFormObj.value.pCity, createCustomerFormObj.value.cState,
-      createCustomerFormObj.value.pState, createCustomerFormObj.value.cPincode, createCustomerFormObj.value.pPincode);
+    console.log(createCustomerFormObj.value.otp)
 
-    this.customerRequest = new Customerinfo(createCustomerFormObj.value.title, createCustomerFormObj.value.firstName, createCustomerFormObj.value.middleName,
-      createCustomerFormObj.value.lastName, createCustomerFormObj.value.fatherName, createCustomerFormObj.value.mobileNumber, createCustomerFormObj.value.emailId,
-      createCustomerFormObj.value.aadharCardNo, createCustomerFormObj.value.dateOfBirth, createCustomerFormObj.value.occupationType, createCustomerFormObj.value.sourceOfIncome,
-      createCustomerFormObj.value.grossAnnualIncome, createCustomerFormObj.value.panNumber, this.customerRequestAddress);
+    if(this.recOtp==createCustomerFormObj.value.otp){
 
-    this.mailId = String(createCustomerFormObj.value.emailId)
+ 
+   
+    this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
+      createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
+      createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
+      createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
+
+    this.customerRequest=new Customerinfo(null,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
+      createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
+      createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
+      createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
+   
+      this.mailId= String(createCustomerFormObj.value.emailId)
 
     
     this.addcustomerrequest(this.customerRequest)
+    }
+    else{
+      alert("invalid otp")
+    }
 
   }
   addcustomerrequest(customerrequest) {
     console.log(JSON.stringify(customerrequest))
-    this.custservice.createCustomerRequest(customerrequest).subscribe(response => {
-      alert(JSON.stringify(response));
-      let cid = response.id;
-      let msg = response.msg;
-      alert(msg)
-      let mail = this.mailId
-      console.log(mail)
-      this.router.navigate(['createaccount2', { cid, mail }]);
-    })
+    this.custservice.createCustomerRequest(customerrequest).subscribe(response =>
+      {  alert(JSON.stringify(response));
+           let cid=response.id;
+           let msg=response.msg;
+           alert(msg)
+         this.router.navigate(['createaccount2',{cid}]);
+         })
   }
+
+  
 
 }

@@ -21,11 +21,7 @@ export class CreateAccount2Component implements OnInit {
       { type: 'required', message: 'please upload pan' },
       { type: 'pattern', message: 'please upload in these formats(jpg,png,pdf)' }
     ],
-    'otp': [
-      { type: 'required', message: 'OTP is required.' },
-      { type: 'minlength', message: 'OTP length.' },
-      { type: 'maxlength', message: 'OTP length.' },
-    ],
+    
   }
   
 
@@ -35,6 +31,7 @@ export class CreateAccount2Component implements OnInit {
 
   ngOnInit() {
     sessionStorage.clear();
+    this.route.params.subscribe((params: Params) => {​​​​this.cid = params['cid']}​​​​); 
     this.form = this.formBuilder.group({
       aadharCard: new FormControl('', Validators.compose([
         Validators.required,
@@ -44,27 +41,16 @@ export class CreateAccount2Component implements OnInit {
         Validators.required,
         Validators.pattern('^.+\.(([pP][dD][fF])|([jJ][pP][gG])|([pP][nN][gG]))$')
       ])),
-      otp:new FormControl(''),
-    });
-
-    this.route.params.subscribe((params: Params) => {this.cid = params['cid'],
-    this.mail=params['mail']
+      
   }); 
 
   }
-  mail:any
+
   cid:any
   aadharCard:any
   panCard:any
-  recOtp: any;
 
-  getOtp()
-{ 
-  this.custservice.verifyEmailOtp(this.mail).subscribe(response=>{
-    this.recOtp=response.message 
-    alert(this.recOtp)
-  })
-}
+  
  
   onFileChange(event) {
     this.aadharCard = event.target.files[0];
@@ -76,9 +62,6 @@ export class CreateAccount2Component implements OnInit {
   message:string
 
   upload(form) {
-
-    if(this.recOtp==form.value.otp)
-    {
 
     let formData: FormData = new FormData();
     formData.append('customerId', this.cid);
@@ -92,12 +75,6 @@ export class CreateAccount2Component implements OnInit {
         let refId=response.message;
       this.router.navigate(['createstatus',{refId}]);
       })
-      
-      
-    }
-    else{
-      alert("invalid otp")
-    }
       
       
      

@@ -28,6 +28,8 @@ export class AddBeneficiaryComponent implements OnInit {
       nickName: new FormControl('', [Validators.required, Validators.pattern("[a-zA-Z][a-zA-Z]+")]),
       otp: new FormControl('', [Validators.required, Validators.pattern("[0-9]*")]),
     })
+
+    this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
   }
 
   customerId = sessionStorage.customerId
@@ -44,6 +46,11 @@ export class AddBeneficiaryComponent implements OnInit {
     this.service.createBeneficiaryRequest(this.beneficiary).subscribe(response => {
             alert(JSON.stringify(response))
     })
+  }
+  else{
+    alert("Invalid OTP")
+    this.router.navigated=false;
+    this.router.navigate(['addBeneficiary'])
   }
   
 }

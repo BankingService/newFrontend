@@ -61,6 +61,7 @@ export class ForgotPasswordComponent implements OnInit {
     // { 
     //   validators: this.password.bind(this)
     // });
+    this.router.routeReuseStrategy.shouldReuseRoute = () =>false;
   }
 
   message: any;
@@ -83,7 +84,9 @@ export class ForgotPasswordComponent implements OnInit {
       }
       else
       {
-        alert("Invalid otp")
+        alert("Invalid OTP")
+        this.router.navigated=false;
+        this.router.navigate(['forgotpass']);
       }
     
   }
