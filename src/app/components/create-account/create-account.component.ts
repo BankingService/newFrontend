@@ -40,12 +40,12 @@ export class CreateAccountComponent implements OnInit {
       { type: 'pattern', message: 'firstname is not in valid format(use only letters and spaces)' }
     ],
     'middleName':[
-      { type: 'minlength', message: 'minimum length of 2 to 30 characters' },
+      { type: 'minlength', message: 'minimum length of 1 to 30 characters' },
       { type: 'maxlength', message: 'characters allowed till 30 characters' }
     ],
     'lastName': [
       { type: 'required', message: 'Last Name is required.' },
-      { type: 'minlength', message: 'minimum length of 2 to 30 characters' },
+      { type: 'minlength', message: 'minimum length of 1 to 30 characters' },
       { type: 'maxlength', message: 'characters allowed till 30 characters' },
       { type: 'pattern', message: 'lastname is not in valid format(use only letters and spaces)' }
     ],
@@ -57,8 +57,8 @@ export class CreateAccountComponent implements OnInit {
     ],
     'mobileNumber': [
       { type: 'required', message: 'Mobile Number is required.' },
-      { type: 'minLength', message: 'enter valid mobile number' },
-      { type: 'maxLength', message: 'enter valid mobile number' },
+      { type: 'minlength', message: 'enter valid mobile number' },
+      { type: 'maxlength', message: 'enter valid mobile number' },
       { type: 'pattern', message: 'mobilenumber is not in valid format(use only number)' }
     ],
     'emailId': [
@@ -70,8 +70,8 @@ export class CreateAccountComponent implements OnInit {
     ],
     'aadharCardNo': [
       { type: 'required', message: 'Aadhar Number is required.' },
-      { type: 'maxLength', message: 'Aadhar Number Should be of 12 digit' },
-      { type: 'minLength', message: 'Aadhar Number Should be of 12 digit' },
+      { type: 'maxlength', message: 'Aadhar Number Should be of 12 digit' },
+      { type: 'minlength', message: 'Aadhar Number Should be of 12 digit' },
       { type: 'pattern', message: 'aadhar is not in valid format(use only number)' }
     ],
 
@@ -110,8 +110,8 @@ export class CreateAccountComponent implements OnInit {
     ],
     'cPincode': [
       { type: 'required', message: 'Pincode is required.' },
-      { type: 'minLength', message: 'enter valid pincode' },
-      { type: 'maxLength', message: 'enter valid pincode' },
+      { type: 'minlength', message: 'enter valid pincode' },
+      { type: 'maxlength', message: 'enter valid pincode' },
       { type: 'pattern', message: 'pincode is not in valid format(use only number)' }
     ],
 
@@ -141,8 +141,8 @@ export class CreateAccountComponent implements OnInit {
     ],
     'pPincode': [
       { type: 'required', message: 'Pincode is required.' },
-      { type: 'minLength', message: 'enter valid pincode' },
-      { type: 'maxLength', message: 'enter valid pincode' },
+      { type: 'minlength', message: 'enter valid pincode' },
+      { type: 'maxlength', message: 'enter valid pincode' },
       { type: 'pattern', message: 'pincode is not in valid format(use only number)' }
     ],
     'occupationType':[
@@ -180,13 +180,13 @@ export class CreateAccountComponent implements OnInit {
       ])),
 
       middleName: new FormControl('',Validators.compose([
-        Validators.minLength(2),
+        Validators.minLength(1),
         Validators.maxLength(30)
       ])),
 
       lastName: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.minLength(2),
+        Validators.minLength(1),
         Validators.maxLength(30),
         Validators.pattern('^[a-zA-Z\\s]*$')
       ])),

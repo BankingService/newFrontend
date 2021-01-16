@@ -25,7 +25,8 @@ export class CheckApplicationStatusComponent implements OnInit {
     this.form = this.formBuilder.group({
       refId: new FormControl('', Validators.compose([
         Validators.required,
-        Validators.maxLength(5)
+        Validators.maxLength(5),
+        Validators.pattern('') 
       ]))
     },
     );
