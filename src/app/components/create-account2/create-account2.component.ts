@@ -31,7 +31,6 @@ export class CreateAccount2Component implements OnInit {
 
   ngOnInit() {
     sessionStorage.clear();
-    this.route.params.subscribe((params: Params) => {​​​​this.cid = params['cid']}​​​​); 
     this.form = this.formBuilder.group({
       aadharCard: new FormControl('', Validators.compose([
         Validators.required,
@@ -43,7 +42,7 @@ export class CreateAccount2Component implements OnInit {
       ])),
       
   }); 
-
+  this.route.params.subscribe((params: Params) => {this.cid = params['cid']}); 
   }
 
   cid:any

@@ -67,11 +67,12 @@ export class ChangeuserdetailsComponent implements OnInit {
 form:FormGroup
   country:string="India"
   custdetails: any=[]
-  constructor(public formBuilder: FormBuilder, private service: UserService, private route: ActivatedRoute, private router:Router) { }
+  constructor(public formBuilder: FormBuilder, private service: UserService, private route: ActivatedRoute, private router:Router) {   this.loadDetails() }
 
-  customerId:any
+  customerId:number =sessionStorage.customerId
 
   ngOnInit() {
+  
 
     this.form = this.formBuilder.group({
       title: new FormControl('',Validators.required),
@@ -160,10 +161,9 @@ form:FormGroup
       ])),
       grossAnnualIncome:new FormControl('')
     });
-
-   this.customerId=sessionStorage.customerId
-  //this.customerId=11111132
-    this.loadDetails()
+  
+    this.form.controls['mobileNumber'].disable();
+    
   }
   loadDetails(){
     this.service.viewProfileById(this.customerId)
@@ -178,24 +178,27 @@ form:FormGroup
 
 
   view(createCustomerFormObj){
+  
+   // this.customerRequest=createCustomerFormObj.getRawValue()
+
+     console.log(this.custdetails)
+     
     this.customerRequestAddress=new Customeraddress(createCustomerFormObj.value.cAddressLine1,createCustomerFormObj.value.pAddressLine1,
       createCustomerFormObj.value.cAddressLine2, createCustomerFormObj.value.pAddressLine2,createCustomerFormObj.value.cLandMark,
       createCustomerFormObj.value.pLandMark,createCustomerFormObj.value.cCity,createCustomerFormObj.value.pCity,createCustomerFormObj.value.cState,
       createCustomerFormObj.value.pState,createCustomerFormObj.value.cPincode,createCustomerFormObj.value.pPincode);
 
-    this.customerRequest=new Customerinfo(createCustomerFormObj.value.customerId ,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
+    this.customerRequest=new Customerinfo(this.customerId ,createCustomerFormObj.value.title,createCustomerFormObj.value.firstName,createCustomerFormObj.value.middleName,
       createCustomerFormObj.value.lastName,createCustomerFormObj.value.fatherName,createCustomerFormObj.value.mobileNumber,createCustomerFormObj.value.emailId,
       createCustomerFormObj.value.aadharCardNo,createCustomerFormObj.value.dateOfBirth,createCustomerFormObj.value.occupationType,createCustomerFormObj.value.sourceOfIncome,
       createCustomerFormObj.value.grossAnnualIncome,createCustomerFormObj.value.panNumber,this.customerRequestAddress);
-   
-
-
 
     this.addcustomerrequest(this.customerRequest)
 
   }
 
   addcustomerrequest(customerrequest){
+    console.log(customerrequest)
     alert(JSON.stringify(customerrequest));
     this.service.editDetails(customerrequest).subscribe(response =>
       { 

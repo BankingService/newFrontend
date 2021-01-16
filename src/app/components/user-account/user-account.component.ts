@@ -22,6 +22,8 @@ export class UserAccountComponent implements OnInit {
         this.custdetails.push(data) 
       }
       )
+
+      console.log(this.custdetails)
     }
 
   redirectTo()
