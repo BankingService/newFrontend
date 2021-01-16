@@ -69,7 +69,7 @@ form:FormGroup
   custdetails: any=[]
   constructor(public formBuilder: FormBuilder, private service: UserService, private route: ActivatedRoute, private router:Router) { }
 
-  customerId:any
+  customerId:number =sessionStorage.customerId
 
   ngOnInit() {
 
@@ -161,8 +161,6 @@ form:FormGroup
       grossAnnualIncome:new FormControl('')
     });
 
-   this.customerId=sessionStorage.customerId
-  //this.customerId=11111132
     this.loadDetails()
   }
   loadDetails(){
@@ -196,6 +194,7 @@ form:FormGroup
   }
 
   addcustomerrequest(customerrequest){
+    console.log(customerrequest)
     this.service.editDetails(customerrequest).subscribe(response =>
       {  alert(JSON.stringify(response));
           //  let cid=response.id;
